@@ -2,25 +2,19 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
+  <title>Veille Cyberdata — Données & Fuites</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Veille technologique — Cyberdata</title>
+
   <link rel="stylesheet" href="assets/style.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
 <header class="nav">
   <div class="navbar">
-    <div class="brand"><strong>Marwan Malki</strong></div>
-
-    <nav class="navlinks">
-      <a href="index.html">Accueil</a>
-      <a href="tableau-synthese.html">Tableau de Synthèse</a>
-      <a href="veille.html">Veille</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="projets.html">Projets</a>
-      <a href="stage.html">Stage</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <strong>Marwan Malki</strong>
   </div>
 </header>
 
@@ -28,161 +22,94 @@
 
 <h1 class="h1">Veille technologique — Cyberdata</h1>
 
-<p class="muted" style="max-width:75ch;">
-  Cette veille technologique est consacrée à la <strong>cyberdata</strong>, c’est-à-dire
-  à la gestion, la protection et l’exploitation des données numériques dans un contexte
-  de cybersécurité.
+<p class="muted">
+  Cette veille s’appuie sur des données publiques issues de plateformes
+  de suivi des violations de données afin d’analyser l’évolution des fuites
+  depuis 2024.
 </p>
 
-<hr class="hr" />
+<hr class="hr">
 
-<!-- CONTEXTE -->
+<!-- GRAPH -->
 <section>
-  <h2 class="h2">1. Contexte et définition</h2>
+  <h2 class="h2">Évolution des fuites de données (depuis 2024)</h2>
 
-  <p>
-    Les cyberattaques actuelles ciblent majoritairement les <strong>données</strong>
-    plutôt que les systèmes eux-mêmes. Les informations volées peuvent être revendues,
-    exploitées pour l’extorsion ou utilisées lors d’attaques secondaires.
-  </p>
+  <canvas id="breachChart" height="120"></canvas>
 
-  <p>
-    La cyberdata regroupe notamment :
+  <p id="lastBreach" class="muted" style="margin-top:10px;">
+    Chargement des données…
   </p>
+</section>
+
+<hr class="hr">
+
+<section>
+  <h2 class="h2">Analyse</h2>
 
   <ul>
-    <li>Les données personnelles (identité, informations sensibles)</li>
-    <li>Les données professionnelles (clients, contrats, accès)</li>
-    <li>Les données stratégiques (financières, techniques, internes)</li>
+    <li>Augmentation continue des violations de données</li>
+    <li>Majorité des incidents liés à des accès non sécurisés</li>
+    <li>Exploitation des données à des fins d’extorsion ou de revente</li>
   </ul>
-</section>
-
-<hr class="hr" />
-
-<!-- ENJEUX -->
-<section>
-  <h2 class="h2">2. Enjeux liés à la cyberdata</h2>
-
-  <ul>
-    <li>Respect des réglementations (RGPD, protection des données)</li>
-    <li>Prévention des fuites de données</li>
-    <li>Réduction des impacts financiers et réputationnels</li>
-    <li>Anticipation des nouvelles méthodes d’exfiltration</li>
-  </ul>
-
-  <p class="muted">
-    La donnée constitue aujourd’hui un actif stratégique pour les organisations.
-  </p>
-</section>
-
-<hr class="hr" />
-
-<!-- OBJECTIFS -->
-<section>
-  <h2 class="h2">3. Objectifs de la veille</h2>
-
-  <p>
-    Cette veille vise à :
-  </p>
-
-  <ul>
-    <li>Identifier les <strong>fuites de données récentes</strong></li>
-    <li>Analyser les <strong>vecteurs d’attaque</strong> utilisés</li>
-    <li>Observer les <strong>types de données ciblées</strong></li>
-    <li>Comprendre les <strong>modes d’exploitation</strong> post-vol</li>
-  </ul>
-</section>
-
-<hr class="hr" />
-
-<!-- MÉTHODOLOGIE -->
-<section>
-  <h2 class="h2">4. Méthodologie de veille</h2>
-
-  <p>
-    La veille repose sur une approche structurée et continue :
-  </p>
-
-  <ol>
-    <li>Sélection de sources spécialisées en cybersécurité</li>
-    <li>Automatisation de la collecte d’informations</li>
-    <li>Filtrage par mots-clés liés aux fuites de données</li>
-    <li>Analyse synthétique des incidents observés</li>
-  </ol>
-</section>
-
-<hr class="hr" />
-
-<!-- OUTILS -->
-<section>
-  <h2 class="h2">5. Outils de veille utilisés</h2>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Agrégateurs RSS</h3>
-      <p class="muted">
-        Centralisation automatique des actualités en cybersécurité.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Alertes par mots-clés</h3>
-      <p class="muted">
-        Surveillance des termes liés aux fuites et violations de données.
-      </p>
-    </div>
-
-    <div class="card">
-      <h3>Consultation ciblée</h3>
-      <p class="muted">
-        Analyse ponctuelle de rapports et d’articles spécialisés.
-      </p>
-    </div>
-  </div>
-</section>
-
-<hr class="hr" />
-
-<!-- SOURCES -->
-<section>
-  <h2 class="h2">6. Sources surveillées</h2>
-
-  <ul>
-    <li>Sites spécialisés en cybersécurité</li>
-    <li>Plateformes de suivi des violations de données</li>
-    <li>Publications d’experts et d’organismes de sécurité</li>
-  </ul>
-
-  <p class="muted">
-    Les sources sont mises à jour régulièrement afin de garantir
-    une information récente et fiable.
-  </p>
-</section>
-
-<hr class="hr" />
-
-<!-- CONCLUSION -->
-<section>
-  <h2 class="h2">7. Conclusion</h2>
-
-  <p>
-    La cyberdata occupe une place centrale dans les menaces numériques actuelles.
-    Cette veille permet d’identifier les tendances, de comprendre les risques
-    et d’adapter les bonnes pratiques de sécurité liées aux données.
-  </p>
-
-  <p class="muted">
-    Une surveillance continue est indispensable pour anticiper
-    l’évolution des cybermenaces.
-  </p>
 </section>
 
 </main>
 
-<script src="assets/script.js"></script>
+<script>
+async function loadBreaches() {
+  const res = await fetch("https://haveibeenpwned.com/api/v3/breaches", {
+    headers: {
+      "User-Agent": "Cyberdata-Veille-BTS"
+    }
+  });
+
+  const data = await res.json();
+
+  // Filtrer depuis 2024
+  const filtered = data.filter(b => new Date(b.BreachDate) >= new Date("2024-01-01"));
+
+  // Grouper par mois
+  const counts = {};
+  filtered.forEach(b => {
+    const d = new Date(b.BreachDate);
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}`;
+    counts[key] = (counts[key] || 0) + 1;
+  });
+
+  const labels = Object.keys(counts).sort();
+  const values = labels.map(l => counts[l]);
+
+  // Dernière fuite
+  const last = filtered.sort((a,b)=>new Date(b.BreachDate)-new Date(a.BreachDate))[0];
+  document.getElementById("lastBreach").innerText =
+    `Dernière fuite détectée : ${last.Name} — ${last.BreachDate}`;
+
+  // Graph
+  new Chart(document.getElementById("breachChart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [{
+        label: "Nombre de fuites détectées",
+        data: values,
+        borderWidth: 2,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: true }
+      }
+    }
+  });
+}
+
+loadBreaches();
+</script>
+
 </body>
 </html>
-
 
 
 
