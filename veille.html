@@ -1,20 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Veille technologique — Cyberdata</title>
-
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veille Technologique - Cyberdata</title>
+  <link rel="stylesheet" href="assets/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
+    header { background:#4f46e5; color:white; padding:10px 20px; }
+    header nav a { color:white; text-decoration:none; margin-right:15px; font-weight:bold; }
+    header nav a.active { text-decoration:underline; }
+    .container { max-width:1000px; margin:20px auto; padding:10px; }
+    .card { background:white; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
+    h1, h2 { margin-bottom:10px; }
+    ul { margin-left:20px; }
+    .muted { color:#666; font-size:0.9em; }
+  </style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="navbar">
-    <div class="brand"><strong>Marwan Malki</strong></div>
-
-    <nav class="navlinks">
+<!-- ====== HEADER & NAV ====== -->
+<header>
+  <div class="container">
+    <h1>Veille Technologique</h1>
+    <nav>
       <a href="index.html">Accueil</a>
       <a href="tableau-synthese.html">Tableau de Synthèse</a>
       <a href="veille.html" class="active">Veille</a>
@@ -23,209 +33,116 @@
       <a href="stage.html">Stage</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <div class="navactions">
-      <button class="btn" data-theme-toggle>🌙 / ☀️</button>
-    </div>
   </div>
 </header>
 
 <main class="container">
 
-<!-- =============================== -->
-<!-- TITRE -->
-<!-- =============================== -->
-<h1 class="h1">📊 Veille technologique — Cyberdata</h1>
-
-<p class="muted" style="max-width:900px;">
-Analyse continue des fuites de données, de leur évolution depuis 2024,
-et des enjeux techniques, économiques et stratégiques liés à l’exploitation de la donnée numérique.
-</p>
-
-<!-- =============================== -->
-<!-- SECTION 1 : DÉFINITION -->
-<!-- =============================== -->
+<!-- ====== INTRO ====== -->
 <div class="card">
-  <h2>1. Définition de la cyberdata</h2>
-
-  <p>
-    La <strong>cyberdata</strong> désigne l’ensemble des données numériques
-    exposées, compromises ou exploitées dans le cadre d’incidents de cybersécurité.
-  </p>
-
-  <ul>
-    <li>Données personnelles (emails, identités, numéros)</li>
-    <li>Données sensibles (bancaires, médicales, administratives)</li>
-    <li>Données professionnelles (clients, employés, secrets industriels)</li>
-    <li>Identifiants techniques (tokens, accès cloud, clés API)</li>
-  </ul>
-
-  <p>
-    La cyberdata constitue aujourd’hui une <strong>ressource stratégique</strong>
-    utilisée pour l’extorsion, la fraude, l’espionnage et la revente.
-  </p>
-</div>
-
-<!-- =============================== -->
-<!-- SECTION 2 : POURQUOI C’EST CRITIQUE -->
-<!-- =============================== -->
-<div class="card">
-  <h2>2. Pourquoi la cyberdata est au cœur des attaques modernes</h2>
-
-  <p>
-    Les cyberattaques ne visent plus principalement la destruction des systèmes,
-    mais l’exploitation durable de la donnée.
-  </p>
-
-  <ul>
-    <li>✔ Monétisation directe (revente, fraude)</li>
-    <li>✔ Réutilisation à long terme</li>
-    <li>✔ Extorsion par menace de publication</li>
-    <li>✔ Espionnage économique et industriel</li>
-  </ul>
-
+  <h2>📊 Veille sur la Cyberdata</h2>
   <p class="muted">
-    Une fuite de données peut être exploitée plusieurs années après l’incident initial.
+    Suivi des fuites de données numériques depuis 2024, leur évolution et leurs impacts stratégiques, techniques et économiques.
   </p>
 </div>
 
-<!-- =============================== -->
-<!-- SECTION 3 : GRAPHIQUE -->
-<!-- =============================== -->
+<!-- ====== SECTION 1 : DEFINITION ====== -->
+<div class="card">
+  <h2>1. Qu'est-ce que la cyberdata ?</h2>
+  <p>
+    La <strong>cyberdata</strong> désigne l’ensemble des données numériques compromises, exposées ou exploitées lors d’incidents de cybersécurité.
+  </p>
+  <ul>
+    <li>Données personnelles : emails, identités, numéros</li>
+    <li>Données sensibles : bancaires, médicales, administratives</li>
+    <li>Données professionnelles : clients, employés, secrets industriels</li>
+    <li>Identifiants techniques : tokens, accès cloud, clés API</li>
+  </ul>
+  <p>
+    Ces données sont une ressource stratégique utilisée pour la fraude, l’extorsion et l’espionnage.
+  </p>
+</div>
+
+<!-- ====== SECTION 2 : ENJEUX ====== -->
+<div class="card">
+  <h2>2. Pourquoi la cyberdata est critique</h2>
+  <ul>
+    <li>Monétisation directe via revente ou fraude</li>
+    <li>Exploitation à long terme pour extorsion</li>
+    <li>Espionnage économique et industriel</li>
+    <li>Impact sur la réputation et risques légaux</li>
+  </ul>
+</div>
+
+<!-- ====== SECTION 3 : GRAPHIQUE ====== -->
 <div class="card">
   <h2>3. Évolution des données compromises depuis 2024</h2>
-
   <p class="muted">
-    Estimation du volume de données compromises (en millions d’enregistrements),
-    basée sur l’agrégation de fuites publiquement déclarées.
+    Estimation des volumes de données compromises (millions d’enregistrements) sur la base des fuites publiquement déclarées.
   </p>
-
   <canvas id="breachChart" height="120"></canvas>
 </div>
 
-<!-- =============================== -->
-<!-- SECTION 4 : LECTURE DU GRAPHIQUE -->
-<!-- =============================== -->
+<!-- ====== SECTION 4 : ANALYSE ====== -->
 <div class="card">
-  <h2>4. Analyse des tendances observées</h2>
-
+  <h2>4. Analyse des tendances</h2>
   <ul>
-    <li>Hausse continue des volumes de données exposées</li>
-    <li>Attaques plus discrètes, centrées sur l’exfiltration</li>
+    <li>Augmentation continue des volumes de données exposées</li>
+    <li>Attaques plus discrètes et ciblées</li>
     <li>Multiplication des fuites via prestataires et services cloud</li>
-    <li>Difficulté croissante à estimer l’impact réel</li>
+    <li>Difficulté à estimer l’impact réel à long terme</li>
   </ul>
-
-  <p>
-    Ces tendances confirment une cybercriminalité structurée,
-    orientée vers la rentabilité et l’exploitation de masse.
-  </p>
 </div>
 
-<!-- =============================== -->
-<!-- SECTION 5 : MÉTHODOLOGIE DE VEILLE -->
-<!-- =============================== -->
+<!-- ====== SECTION 5 : METHODOLOGIE ====== -->
 <div class="card">
-  <h2>5. Méthodologie de veille cyberdata</h2>
-
-  <h3>Collecte automatisée</h3>
+  <h2>5. Méthodologie de veille</h2>
+  <p>Pour assurer une veille efficace, trois étapes principales :</p>
   <ul>
-    <li>Flux RSS spécialisés cybersécurité</li>
-    <li>Alertes officielles et déclarations publiques</li>
-    <li>Bases de données de fuites connues</li>
-  </ul>
-
-  <h3>Agrégation & normalisation</h3>
-  <ul>
-    <li>Classement par date et type de données</li>
-    <li>Consolidation mensuelle</li>
-    <li>Comparaison temporelle</li>
-  </ul>
-
-  <h3>Analyse et visualisation</h3>
-  <ul>
-    <li>Graphiques d’évolution</li>
-    <li>Indicateurs synthétiques</li>
-    <li>Lecture des tendances</li>
+    <li><strong>Collecte :</strong> flux RSS cybersécurité, alertes officielles, bases de données publiques</li>
+    <li><strong>Agrégation :</strong> consolidation par date et type, comparaison temporelle</li>
+    <li><strong>Analyse :</strong> graphiques dynamiques, indicateurs synthétiques, lecture des tendances</li>
   </ul>
 </div>
 
-<!-- =============================== -->
-<!-- SECTION 6 : ENJEUX -->
-<!-- =============================== -->
-<div class="card">
-  <h2>6. Enjeux liés à la cyberdata</h2>
-
-  <h3>Techniques</h3>
-  <ul>
-    <li>Protection des identités</li>
-    <li>Détection des exfiltrations</li>
-    <li>Sécurisation des environnements cloud</li>
-  </ul>
-
-  <h3>Économiques</h3>
-  <ul>
-    <li>Pertes financières</li>
-    <li>Coûts de remédiation</li>
-    <li>Atteinte à la réputation</li>
-  </ul>
-
-  <h3>Juridiques</h3>
-  <ul>
-    <li>Conformité RGPD</li>
-    <li>Obligations de notification</li>
-    <li>Sanctions potentielles</li>
-  </ul>
-</div>
-
-<!-- =============================== -->
-<!-- SECTION 7 : CONCLUSION -->
-<!-- =============================== -->
+<!-- ====== SECTION 6 : CONCLUSION ====== -->
 <div class="card" style="background:linear-gradient(135deg,#6366f1,#4f46e5); color:white;">
-  <h2>7. Conclusion</h2>
-
+  <h2>6. Conclusion</h2>
   <p>
-    La cyberdata est devenue un levier stratégique majeur de la cybercriminalité moderne.
-    Une veille dédiée aux fuites de données permet d’anticiper les menaces,
-    d’identifier les faiblesses systémiques et d’adapter les stratégies de défense.
-  </p>
-
-  <p>
-    La cybersécurité actuelle doit être centrée sur la donnée,
-    l’identité et la détection continue.
+    La cyberdata est un levier stratégique central de la cybercriminalité. Une veille continue permet d’anticiper les menaces, d’identifier les vulnérabilités et d’adapter la défense des systèmes.
   </p>
 </div>
 
 </main>
 
+<!-- ====== SCRIPT GRAPHIQUE ====== -->
 <script>
 const ctx = document.getElementById('breachChart');
 
 new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ['2024 Q1', '2024 Q2', '2024 Q3', '2024 Q4', '2025 Q1', '2025 Q2'],
+    labels: ['2024 Q1','2024 Q2','2024 Q3','2024 Q4','2025 Q1','2025 Q2'],
     datasets: [{
       label: 'Données compromises (millions)',
       data: [420, 610, 980, 1300, 1600, 2100],
       borderWidth: 3,
+      borderColor: '#4f46e5',
+      backgroundColor: 'rgba(79,70,229,0.2)',
       tension: 0.3
     }]
   },
   options: {
-    responsive: true,
+    responsive:true,
     plugins: {
-      legend: { display: true }
+      legend:{ display:true }
     },
     scales: {
-      y: {
-        beginAtZero: true
-      }
+      y: { beginAtZero:true }
     }
   }
 });
 </script>
 
-<script src="assets/script.js"></script>
 </body>
 </html>
