@@ -3,146 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Veille Technologique - Cyberdata</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f5f5f5; color:#333; }
-    header { background:#4f46e5; color:white; padding:10px 20px; }
-    header nav a { color:white; text-decoration:none; margin-right:15px; font-weight:bold; }
-    header nav a.active { text-decoration:underline; }
-    .container { max-width:1000px; margin:20px auto; padding:10px; }
-    .card { background:white; padding:20px; margin-bottom:20px; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1); }
-    h1, h2 { margin-bottom:10px; }
-    ul { margin-left:20px; }
-    .muted { color:#666; font-size:0.9em; }
-  </style>
+  <title>Timeline — Marwan Malki</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
+  <!-- Orbs animés -->
+  <div class="bg-orb bg-orb-1"></div>
+  <div class="bg-orb bg-orb-2"></div>
+  <div class="bg-orb bg-orb-3"></div>
 
-<!-- ====== HEADER & NAV ====== -->
-<header>
-  <div class="container">
-    <h1>Veille Technologique</h1>
-    <nav>
-      <a href="index.html">Accueil</a>
-      <a href="tableau-synthese.html">Tableau de Synthèse</a>
-      <a href="veille.html" class="active">Veille</a>
-      <a href="certifications.html">Certifications</a>
-      <a href="projets.html">Projets</a>
-      <a href="stage.html">Stage</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
+  <!-- Navbar -->
+  <nav class="nav">
+    <div class="navbar container">
+      <div class="brand">
+        <strong>Marwan Malki</strong>
+        <span>BTS SIO</span>
+      </div>
+      <div class="navlinks">
+        <a href="index.html" class="">Accueil</a>
+        <a href="projects.html" class="">Projets</a>
+        <a href="timeline.html" class="active">Timeline</a>
+        <a href="contact.html" class="">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<main class="container">
+  <!-- Main content -->
+  <main class="container">
+    <h1 class="h1">Mon Parcours</h1>
+    <p class="small muted">Voici un résumé de mon expérience et de mes projets.</p>
 
-<!-- ====== INTRO ====== -->
-<div class="card">
-  <h2>📊 Veille sur la Cyberdata</h2>
-  <p class="muted">
-    Suivi des fuites de données numériques depuis 2024, leur évolution et leurs impacts stratégiques, techniques et économiques.
-  </p>
-</div>
+    <div class="timeline">
+      <!-- Exemple d'item timeline -->
+      <div class="timeline-item timeline-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-card panel">
+            <h3>Début BTS SIO</h3>
+            <span class="timeline-date">Septembre 2022</span>
+            <p>Début de mes études en BTS SIO option SLAM avec découverte du développement web et des bases de données.</p>
+          </div>
+        </div>
+      </div>
 
-<!-- ====== SECTION 1 : DEFINITION ====== -->
-<div class="card">
-  <h2>1. Qu'est-ce que la cyberdata ?</h2>
-  <p>
-    La <strong>cyberdata</strong> désigne l’ensemble des données numériques compromises, exposées ou exploitées lors d’incidents de cybersécurité.
-  </p>
-  <ul>
-    <li>Données personnelles : emails, identités, numéros</li>
-    <li>Données sensibles : bancaires, médicales, administratives</li>
-    <li>Données professionnelles : clients, employés, secrets industriels</li>
-    <li>Identifiants techniques : tokens, accès cloud, clés API</li>
-  </ul>
-  <p>
-    Ces données sont une ressource stratégique utilisée pour la fraude, l’extorsion et l’espionnage.
-  </p>
-</div>
+      <div class="timeline-item timeline-right">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-card panel">
+            <h3>Premier projet web</h3>
+            <span class="timeline-date">Décembre 2022</span>
+            <p>Réalisation d’un site web pour un projet scolaire avec HTML, CSS et JavaScript, intégration des animations et panels.</p>
+          </div>
+        </div>
+      </div>
 
-<!-- ====== SECTION 2 : ENJEUX ====== -->
-<div class="card">
-  <h2>2. Pourquoi la cyberdata est critique</h2>
-  <ul>
-    <li>Monétisation directe via revente ou fraude</li>
-    <li>Exploitation à long terme pour extorsion</li>
-    <li>Espionnage économique et industriel</li>
-    <li>Impact sur la réputation et risques légaux</li>
-  </ul>
-</div>
+      <div class="timeline-item timeline-left">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-card panel">
+            <h3>Stage en entreprise</h3>
+            <span class="timeline-date">Juin 2023</span>
+            <p>Participation à un projet réel en entreprise, découverte des bonnes pratiques de développement et du travail en équipe.</p>
+          </div>
+        </div>
+      </div>
 
-<!-- ====== SECTION 3 : GRAPHIQUE ====== -->
-<div class="card">
-  <h2>3. Évolution des données compromises depuis 2024</h2>
-  <p class="muted">
-    Estimation des volumes de données compromises (millions d’enregistrements) sur la base des fuites publiquement déclarées.
-  </p>
-  <canvas id="breachChart" height="120"></canvas>
-</div>
+      <!-- Ajoute autant d'items que nécessaire -->
+    </div>
+  </main>
 
-<!-- ====== SECTION 4 : ANALYSE ====== -->
-<div class="card">
-  <h2>4. Analyse des tendances</h2>
-  <ul>
-    <li>Augmentation continue des volumes de données exposées</li>
-    <li>Attaques plus discrètes et ciblées</li>
-    <li>Multiplication des fuites via prestataires et services cloud</li>
-    <li>Difficulté à estimer l’impact réel à long terme</li>
-  </ul>
-</div>
-
-<!-- ====== SECTION 5 : METHODOLOGIE ====== -->
-<div class="card">
-  <h2>5. Méthodologie de veille</h2>
-  <p>Pour assurer une veille efficace, trois étapes principales :</p>
-  <ul>
-    <li><strong>Collecte :</strong> flux RSS cybersécurité, alertes officielles, bases de données publiques</li>
-    <li><strong>Agrégation :</strong> consolidation par date et type, comparaison temporelle</li>
-    <li><strong>Analyse :</strong> graphiques dynamiques, indicateurs synthétiques, lecture des tendances</li>
-  </ul>
-</div>
-
-<!-- ====== SECTION 6 : CONCLUSION ====== -->
-<div class="card" style="background:linear-gradient(135deg,#6366f1,#4f46e5); color:white;">
-  <h2>6. Conclusion</h2>
-  <p>
-    La cyberdata est un levier stratégique central de la cybercriminalité. Une veille continue permet d’anticiper les menaces, d’identifier les vulnérabilités et d’adapter la défense des systèmes.
-  </p>
-</div>
-
-</main>
-
-<!-- ====== SCRIPT GRAPHIQUE ====== -->
-<script>
-const ctx = document.getElementById('breachChart');
-
-new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ['2024 Q1','2024 Q2','2024 Q3','2024 Q4','2025 Q1','2025 Q2'],
-    datasets: [{
-      label: 'Données compromises (millions)',
-      data: [420, 610, 980, 1300, 1600, 2100],
-      borderWidth: 3,
-      borderColor: '#4f46e5',
-      backgroundColor: 'rgba(79,70,229,0.2)',
-      tension: 0.3
-    }]
-  },
-  options: {
-    responsive:true,
-    plugins: {
-      legend:{ display:true }
-    },
-    scales: {
-      y: { beginAtZero:true }
-    }
-  }
-});
-</script>
-
+  <!-- Footer -->
+  <footer class="footer container">
+    &copy; 2026 Marwan Malki — BTS SIO
+  </footer>
 </body>
 </html>
