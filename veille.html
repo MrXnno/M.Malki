@@ -4,243 +4,693 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Veille Cyber — Marwan Malki</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
   <style>
-    :root{--bg:#080c14;--bg2:#0d1320;--panel:#101828;--border:#1e2d45;--accent:#00e5ff;--accent2:#ff3c6e;--accent3:#a259ff;--text:#e2ecf8;--muted:#5a7090;--green:#00ff88;--orange:#ff8c00}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);font-family:'Syne',sans-serif;min-height:100vh;overflow-x:hidden}
-    body::before{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,229,255,.012) 2px,rgba(0,229,255,.012) 4px);pointer-events:none;z-index:0}
-    .orb{position:fixed;border-radius:50%;filter:blur(90px);opacity:.18;pointer-events:none;z-index:0;animation:drift 12s ease-in-out infinite alternate}
-    .orb-1{width:500px;height:500px;background:var(--accent);top:-120px;left:-100px}
-    .orb-2{width:400px;height:400px;background:var(--accent3);bottom:-80px;right:-80px;animation-delay:-5s}
-    .orb-3{width:300px;height:300px;background:var(--accent2);top:50%;left:50%;animation-delay:-8s}
-    @keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.08)}}
-    nav{position:sticky;top:0;z-index:100;background:rgba(8,12,20,.88);backdrop-filter:blur(18px);border-bottom:1px solid var(--border)}
-    .navbar{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;max-width:1200px;margin:0 auto}
-    .brand strong{font-size:1rem;font-weight:800;letter-spacing:.04em;color:var(--accent)}
-    .brand span{display:block;font-size:.7rem;color:var(--muted);font-family:'Space Mono',monospace;margin-top:1px}
-    .navlinks{display:flex;gap:28px}
-    .navlinks a{color:var(--muted);text-decoration:none;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-    .navlinks a:hover,.navlinks a.active{color:var(--accent)}
-    .navlinks a.active{border-bottom:1px solid var(--accent);padding-bottom:2px}
-    .container{max-width:1100px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
-    .hero{padding:80px 0 60px}
-    .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.25);border-radius:4px;padding:5px 14px;font-family:'Space Mono',monospace;font-size:.72rem;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:18px}
-    .hero-tag::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);animation:blink 1.4s infinite}
-    @keyframes blink{0%,100%{opacity:1}50%{opacity:.2}}
-    .hero h1{font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.08;letter-spacing:-.02em}
-    .hero h1 span{color:var(--accent)}
-    .hero-sub{font-family:'Space Mono',monospace;font-size:.8rem;color:var(--muted);margin-top:16px;line-height:1.7;max-width:560px}
-    .hero-meta{display:flex;gap:16px;margin-top:28px;flex-wrap:wrap}
-    .meta-pill{background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:8px 16px;font-family:'Space Mono',monospace;font-size:.72rem}
-    .meta-pill span{color:var(--muted)}
-    .meta-pill strong{color:var(--text);margin-left:6px}
-    .section-header{display:flex;align-items:center;gap:14px;margin-bottom:32px}
-    .section-num{font-family:'Space Mono',monospace;font-size:.68rem;color:var(--accent);background:rgba(0,229,255,.06);border:1px solid rgba(0,229,255,.2);padding:3px 10px;border-radius:3px}
-    .section-title{font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
-    .section-line{flex:1;height:1px;background:var(--border)}
-    section{padding:60px 0}
-    section+section{border-top:1px solid var(--border)}
-    .def-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-    @media(max-width:700px){.def-grid{grid-template-columns:1fr}}
-    .def-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:24px;position:relative;overflow:hidden;transition:border-color .25s,transform .25s}
-    .def-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent3))}
-    .def-card:hover{border-color:rgba(0,229,255,.4);transform:translateY(-2px)}
-    .def-card h4{font-size:.85rem;font-weight:800;color:var(--accent);margin-bottom:10px;text-transform:uppercase;letter-spacing:.06em}
-    .def-card p{font-size:.88rem;color:#8aaccc;line-height:1.65}
-    .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:40px}
-    @media(max-width:800px){.stats-row{grid-template-columns:repeat(2,1fr)}}
-    .stat-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:18px 20px;text-align:center}
-    .stat-card .num{font-family:'Space Mono',monospace;font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:6px}
-    .stat-card .lbl{font-size:.72rem;color:var(--muted);letter-spacing:.04em}
-    .breach-table-wrap{background:var(--panel);border:1px solid var(--border);border-radius:10px;overflow:hidden;overflow-x:auto}
-    .breach-table{width:100%;border-collapse:collapse;font-family:'Space Mono',monospace;font-size:.78rem;min-width:700px}
-    .breach-table thead tr{background:rgba(0,229,255,.05);border-bottom:1px solid var(--border)}
-    .breach-table th{padding:14px 18px;text-align:left;color:var(--accent);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase}
-    .breach-table td{padding:14px 18px;border-bottom:1px solid rgba(30,45,69,.6);color:#c2d6ee;vertical-align:middle}
-    .breach-table tr:last-child td{border-bottom:none}
-    .breach-table tr:hover td{background:rgba(0,229,255,.03)}
-    .breach-bar-wrap{display:flex;align-items:center;gap:10px;min-width:130px}
-    .breach-bar{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent3));transition:width 1s cubic-bezier(.4,0,.2,1);min-width:4px}
-    .breach-val{color:var(--text);font-size:.74rem;white-space:nowrap}
-    .badge{display:inline-block;padding:3px 9px;border-radius:3px;font-size:.65rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
-    .badge-red{background:rgba(255,60,110,.12);color:var(--accent2);border:1px solid rgba(255,60,110,.25)}
-    .badge-orange{background:rgba(255,140,0,.12);color:var(--orange);border:1px solid rgba(255,140,0,.25)}
-    .badge-cyan{background:rgba(0,229,255,.08);color:var(--accent);border:1px solid rgba(0,229,255,.2)}
-    .badge-purple{background:rgba(162,89,255,.12);color:var(--accent3);border:1px solid rgba(162,89,255,.25)}
-    .company-cell{display:flex;align-items:center;gap:10px}
-    .company-icon{width:30px;height:30px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;flex-shrink:0}
-    .methods-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
-    .method-card{background:var(--panel);border:1px solid var(--border);border-radius:10px;padding:22px;transition:border-color .25s,transform .25s}
-    .method-card:hover{border-color:rgba(0,229,255,.4);transform:translateY(-3px)}
-    .method-icon{width:42px;height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px}
-    .method-card h4{font-size:.95rem;font-weight:800;margin-bottom:6px}
-    .method-card p{font-size:.82rem;color:#7a9bbc;line-height:1.6}
-    .method-tag{display:inline-block;margin-top:12px;font-family:'Space Mono',monospace;font-size:.65rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:3px;padding:3px 9px}
-    .sources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px}
-    .source-card{background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:18px;display:flex;align-items:flex-start;gap:13px;transition:border-color .2s,transform .2s}
-    .source-card:hover{border-color:rgba(0,229,255,.35);transform:translateY(-2px)}
-    .source-ico{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:2px}
-    .source-card h5{font-size:.85rem;font-weight:700;margin-bottom:4px}
-    .source-card p{font-size:.76rem;color:#637e9a;line-height:1.5}
-    .source-type{font-family:'Space Mono',monospace;font-size:.6rem;color:var(--muted);margin-top:8px}
-    .twitter-block{background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-    .twitter-header{background:rgba(29,155,240,.08);border-bottom:1px solid var(--border);padding:20px 28px;display:flex;align-items:center;gap:14px}
-    .twitter-logo{width:38px;height:38px;background:#1d9bf0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.1rem;color:white;flex-shrink:0}
-    .twitter-header h3{font-size:1rem;font-weight:800}
-    .twitter-header p{font-size:.78rem;color:var(--muted);margin-top:2px}
-    .twitter-grid{display:grid;grid-template-columns:1fr 1fr}
-    @media(max-width:700px){.twitter-grid{grid-template-columns:1fr}}
-    .twitter-col{padding:24px 28px}
-    .twitter-col+.twitter-col{border-left:1px solid var(--border)}
-    .twitter-col h4{font-size:.78rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.08em;margin-bottom:16px}
-    .account-list{display:flex;flex-direction:column;gap:10px}
-    .account-item{display:flex;align-items:center;gap:12px;padding:10px 14px;background:rgba(255,255,255,.025);border:1px solid var(--border);border-radius:7px;transition:border-color .2s}
-    .account-item:hover{border-color:rgba(29,155,240,.4)}
-    .acc-ava{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.7rem;flex-shrink:0}
-    .account-item h5{font-size:.82rem;font-weight:700;line-height:1.2}
-    .account-item p{font-size:.72rem;color:var(--muted);margin-top:2px}
-    .usage-list{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
-    .usage-item{display:flex;gap:10px;align-items:flex-start;font-size:.82rem;color:#8aaccc;line-height:1.5}
-    .usage-item::before{content:'→';color:var(--accent);font-family:'Space Mono',monospace;flex-shrink:0;margin-top:1px}
-    .highlight-box{background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.15);border-radius:7px;padding:14px 16px}
-    .highlight-box p{font-size:.78rem;color:#7a9bbc;line-height:1.6}
-    footer{border-top:1px solid var(--border);padding:28px 32px;text-align:center;font-family:'Space Mono',monospace;font-size:.72rem;color:var(--muted);position:relative;z-index:1}
-    .fade-up{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
-    .fade-up.visible{opacity:1;transform:translateY(0)}
+    /* ── Styles spécifiques veille (complément de style.css) ── */
+
+    /* Hero veille */
+    .veille-hero { padding: 72px 0 52px; }
+    .veille-hero h1 { margin-bottom: 14px; }
+    .veille-hero h1 em { font-style: normal; color: var(--a1); }
+    .hero-sub {
+      font-family: var(--mono);
+      font-size: .78rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+    .hero-pills { display: flex; gap: 10px; flex-wrap: wrap; }
+    .meta-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      padding: 8px 16px;
+      font-family: var(--mono);
+      font-size: .70rem;
+      color: var(--text2);
+    }
+    .meta-pill strong { color: var(--text); margin-left: 6px; }
+
+    /* Sections */
+    .veille-section { padding: 60px 0; border-top: 1px solid var(--border); }
+
+    /* Def grid */
+    .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media(max-width:700px){ .def-grid { grid-template-columns: 1fr; } }
+
+    .def-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--t) var(--ease), transform var(--t) var(--ease);
+    }
+    .def-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+      background: var(--grad);
+      opacity: .7;
+    }
+    .def-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
+    .def-card h4 {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--a1);
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .def-card p { font-size: .88rem; color: var(--text2); line-height: 1.65; }
+    .def-card strong { color: var(--text); }
+
+    /* Stats row */
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    @media(max-width:800px){ .stats-row { grid-template-columns: repeat(2,1fr); } }
+
+    /* Breach table */
+    .breach-wrap {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      overflow-x: auto;
+    }
+    .breach-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: var(--mono);
+      font-size: .76rem;
+      min-width: 700px;
+    }
+    .breach-table thead tr { background: rgba(99,102,241,.06); border-bottom: 1px solid var(--border); }
+    .breach-table th {
+      padding: 14px 18px;
+      text-align: left;
+      color: var(--a1);
+      font-size: .64rem;
+      letter-spacing: .10em;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .breach-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(99,102,241,.06);
+      color: var(--text2);
+      vertical-align: middle;
+    }
+    .breach-table tr:last-child td { border-bottom: none; }
+    .breach-table tr:hover td { background: rgba(99,102,241,.04); color: var(--text); }
+
+    .company-cell { display: flex; align-items: center; gap: 10px; }
+    .company-icon {
+      width: 30px; height: 30px;
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .breach-bar-wrap { display: flex; align-items: center; gap: 10px; min-width: 130px; }
+    .breach-bar {
+      height: 6px; border-radius: 3px;
+      background: var(--grad);
+      transition: width 1.2s cubic-bezier(.4,0,.2,1);
+      min-width: 4px;
+    }
+    .breach-val { color: var(--text); font-size: .72rem; white-space: nowrap; }
+
+    /* Severity badges */
+    .bv-crit   { background: rgba(236,72,153,.10); color: #f472b6; border: 1px solid rgba(236,72,153,.25); }
+    .bv-high   { background: rgba(249,115,22,.10); color: #fb923c; border: 1px solid rgba(249,115,22,.25); }
+    .bv-cloud  { background: rgba(249,115,22,.10); color: #fb923c; border: 1px solid rgba(249,115,22,.25); }
+    .bv-ransom { background: rgba(162,89,255,.12);  color: #c084fc; border: 1px solid rgba(162,89,255,.30); }
+    .bv-cred   { background: rgba(99,102,241,.10);  color: #818cf8; border: 1px solid rgba(99,102,241,.28); }
+    .bv-api    { background: rgba(20,184,166,.10);  color: #2dd4bf; border: 1px solid rgba(20,184,166,.25); }
+    .bv-scrape { background: rgba(236,72,153,.10);  color: #f472b6; border: 1px solid rgba(236,72,153,.25); }
+
+    /* Methods grid */
+    .methods-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(240px,1fr)); gap: 16px; }
+
+    .method-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 22px;
+      transition: border-color var(--t) var(--ease), transform var(--t) var(--ease);
+    }
+    .method-card:hover { border-color: var(--border-h); transform: translateY(-3px); }
+    .method-icon {
+      width: 42px; height: 42px;
+      border-radius: var(--r-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+    .method-card h4 { font-size: .95rem; font-weight: 700; margin-bottom: 6px; font-family: 'Syne', sans-serif; }
+    .method-card p  { font-size: .82rem; color: var(--text2); line-height: 1.65; }
+
+    /* Sources */
+    .sources-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(210px,1fr)); gap: 14px; }
+
+    .source-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 18px;
+      display: flex; align-items: flex-start; gap: 13px;
+      transition: border-color var(--t) var(--ease), transform var(--t) var(--ease);
+    }
+    .source-card:hover { border-color: var(--border-h); transform: translateY(-2px); }
+    .source-ico { font-size: 1.4rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .source-card h5 { font-size: .85rem; font-weight: 700; margin-bottom: 4px; font-family: 'Syne', sans-serif; }
+    .source-card p  { font-size: .76rem; color: var(--text2); line-height: 1.55; }
+    .source-type {
+      font-family: var(--mono);
+      font-size: .60rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* Twitter block */
+    .twitter-block {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .twitter-header {
+      background: rgba(29,155,240,.07);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 28px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .twitter-logo {
+      width: 38px; height: 38px;
+      background: #1d9bf0;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1rem; color: white; flex-shrink: 0;
+    }
+    .twitter-header h3 { font-size: 1rem; font-weight: 700; font-family: 'Syne', sans-serif; }
+    .twitter-header p  { font-size: .78rem; color: var(--muted); margin-top: 2px; }
+
+    .twitter-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    @media(max-width:700px){ .twitter-grid { grid-template-columns: 1fr; } }
+
+    .twitter-col { padding: 24px 28px; }
+    .twitter-col + .twitter-col { border-left: 1px solid var(--border); }
+    @media(max-width:700px){ .twitter-col + .twitter-col { border-left: none; border-top: 1px solid var(--border); } }
+
+    .twitter-col-title {
+      font-family: var(--mono);
+      font-size: .68rem;
+      color: var(--a1);
+      text-transform: uppercase;
+      letter-spacing: .10em;
+      margin-bottom: 16px;
+    }
+
+    .account-list { display: flex; flex-direction: column; gap: 10px; }
+    .account-item {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 14px;
+      background: rgba(255,255,255,.025);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      transition: border-color var(--t) var(--ease);
+    }
+    .account-item:hover { border-color: rgba(29,155,240,.4); }
+    .acc-ava {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .7rem; flex-shrink: 0;
+    }
+    .account-item h5 { font-size: .82rem; font-weight: 700; line-height: 1.2; }
+    .account-item p  { font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+    .usage-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .usage-item {
+      display: flex; gap: 10px; align-items: flex-start;
+      font-size: .82rem; color: var(--text2); line-height: 1.55;
+    }
+    .usage-item::before {
+      content: '→';
+      color: var(--a1);
+      font-family: var(--mono);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .highlight-box {
+      background: rgba(99,102,241,.06);
+      border: 1px solid rgba(99,102,241,.18);
+      border-radius: var(--r-sm);
+      padding: 14px 16px;
+    }
+    .highlight-box p { font-size: .80rem; color: var(--text2); line-height: 1.65; }
+    .highlight-box strong { color: var(--a1); }
+
+    /* Fade reveal */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-  <nav>
-    <div class="navbar">
-      <div class="brand"><strong>Marwan Malki</strong><span>BTS SIO — SLAM</span></div>
-      <div class="navlinks">
-        <a href="index.html">Accueil</a>
-        <a href="projects.html">Projets</a>
-        <a href="timeline.html">Timeline</a>
-        <a href="veille.html" class="active">Veille</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
-  <div class="container">
-    <div class="hero fade-up">
-      <div class="hero-tag">Veille Technologique · 2024–2025</div>
-      <h1>Cyberdata &amp;<br><span>Fuites de Données</span></h1>
-      <p class="hero-sub">Surveillance active des violations de données, vecteurs d'attaque,<br>acteurs malveillants et tendances en cybersécurité.</p>
-      <div class="hero-meta">
-        <div class="meta-pill"><span>Domaine</span><strong>Cybersécurité / Data Breach</strong></div>
-        <div class="meta-pill"><span>Période</span><strong>2024 – 2025</strong></div>
-        <div class="meta-pill"><span>Statut</span><strong style="color:var(--green)">● Active</strong></div>
-      </div>
-    </div>
-    <section class="fade-up">
-      <div class="section-header"><span class="section-num">01</span><h2 class="section-title">C'est quoi la cyberdata ?</h2><div class="section-line"></div></div>
-      <div class="def-grid">
-        <div class="def-card"><h4>Définition</h4><p>La <strong style="color:var(--text)">cyberdata</strong> désigne l'ensemble des données numériques ciblées, volées ou exposées lors d'incidents de cybersécurité : identifiants, emails, données bancaires, dossiers médicaux, secrets industriels.</p></div>
-        <div class="def-card"><h4>Pourquoi cette veille ?</h4><p>Les fuites de données sont en hausse constante. Comprendre les méthodes d'attaque, les entreprises touchées et les volumes volés permet d'anticiper les risques et d'adopter les bonnes pratiques défensives.</p></div>
-        <div class="def-card"><h4>Types de données volées</h4><p>Credentials (login/mdp), PII (nom, adresse, numéro sécu), données financières (CB, IBAN), données de santé (ePHI), propriété intellectuelle, tokens d'authentification.</p></div>
-        <div class="def-card"><h4>Vecteurs principaux</h4><p>Phishing, credential stuffing, injection SQL, ransomware, vulnérabilité 0-day, accès interne malveillant (insider threat), API non sécurisée, bucket S3 exposé.</p></div>
-      </div>
-    </section>
-    <section class="fade-up">
-      <div class="section-header"><span class="section-num">02</span><h2 class="section-title">Entreprises touchées — données volées</h2><div class="section-line"></div></div>
-      <div class="stats-row">
-        <div class="stat-card"><div class="num" style="color:var(--accent2)">10 Md+</div><div class="lbl">Records volés (2024)</div></div>
-        <div class="stat-card"><div class="num" style="color:var(--orange)">4.88 M$</div><div class="lbl">Coût moyen d'une breach</div></div>
-        <div class="stat-card"><div class="num" style="color:var(--accent)">194 j</div><div class="lbl">Temps moyen détection</div></div>
-        <div class="stat-card"><div class="num" style="color:var(--green)">+72%</div><div class="lbl">Hausse incidents 2023→2024</div></div>
-      </div>
-      <div class="breach-table-wrap">
-        <table class="breach-table">
-          <thead><tr><th>Entreprise</th><th>Secteur</th><th>Données volées</th><th>Volume</th><th>Vecteur</th><th>Gravité</th></tr></thead>
-          <tbody>
-            <tr><td><div class="company-cell"><div class="company-icon" style="background:rgba(255,60,110,.15);color:var(--accent2)">TK</div><span>Ticketmaster</span></div></td><td>Événementiel</td><td>CB, PII clients</td><td><div class="breach-bar-wrap"><div class="breach-bar" data-w="95%"></div><span class="breach-val">560 M</span></div></td><td><span class="badge badge-orange">Cloud exposé</span></td><td><span class="badge badge-red">Critique</span></td></tr>
-            <tr><td><div class="company-cell"><div class="company-icon" style="background:rgba(162,89,255,.15);color:var(--accent3)">NP</div><span>National Public Data</span></div></td><td>Data Broker</td><td>SSN, adresses, historiques</td><td><div class="breach-bar-wrap"><div class="breach-bar" data-w="100%" style="background:linear-gradient(90deg,#ff3c6e,#a259ff)"></div><span class="breach-val">2.9 Md</span></div></td><td><span class="badge badge-red">Scraping DB</span></td><td><span class="badge badge-red">Critique</span></td></tr>
-            <tr><td><div class="company-cell"><div class="company-icon" style="background:rgba(0,229,255,.1);color:var(--accent)">CH</div><span>Change Healthcare</span></div></td><td>Santé</td><td>Dossiers médicaux</td><td><div class="breach-bar-wrap"><div class="breach-bar" data-w="80%"></div><span class="breach-val">100 M</span></div></td><td><span class="badge badge-purple">Ransomware</span></td><td><span class="badge badge-red">Critique</span></td></tr>
-            <tr><td><div class="company-cell"><div class="company-icon" style="background:rgba(255,140,0,.12);color:var(--orange)">AT</div><span>AT&T</span></div></td><td>Télécom</td><td>Métadonnées appels/SMS</td><td><div class="breach-bar-wrap"><div class="breach-bar" data-w="73%" style="background:linear-gradient(90deg,#ff8c00,#ff3c6e)"></div><span class="breach-val">73 M</span></div></td><td><span class="badge badge-orange">API compromise</span></td><td><span class="badge badge-orange">Élevée</span></td></tr>
-            <tr><td><div class="company-cell"><div class="company-icon" style="background:rgba(0,255,136,.1);color:var(--green)">SF</div><span>Snowflake clients</span></div></td><td>Cloud / Multi</td><td>Credentials, data entrepôt</td><td><div class="breach-bar-wrap"><div class="breach-bar" data-w="55%" style="background:linear-gradient(90deg,#00ff88,#00e5ff)"></div><span class="breach-val">165+ orgs</span></div></td><td><span class="badge badge-cyan">Cred stuffing</span></td><td><span class="badge badge-orange">Élevée</span></td></tr>
-            <tr><td><div class="company-cell"><div class="company-icon" style="background:rgba(0,229,255,.08);color:var(--accent)">23</div><span>23andMe</span></div></td><td>Génomique</td><td>Profils ADN, ethnie, santé</td><td><div class="breach-bar-wrap"><div class="breach-bar" data-w="65%"></div><span class="breach-val">6.9 M</span></div></td><td><span class="badge badge-cyan">Cred stuffing</span></td><td><span class="badge badge-orange">Élevée</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-    <section class="fade-up">
-      <div class="section-header"><span class="section-num">03</span><h2 class="section-title">Méthodes de veille</h2><div class="section-line"></div></div>
-      <div class="methods-grid">
-        <div class="method-card"><div class="method-icon" style="background:rgba(0,229,255,.1)">📥</div><h4 style="color:var(--accent)">Veille Pull</h4><p>Je consulte activement mes sources à intervalles réguliers : blogs spécialisés, rapports, bases CVE, forums OSINT.</p><span class="method-tag">Action manuelle · Hebdomadaire</span></div>
-        <div class="method-card"><div class="method-icon" style="background:rgba(162,89,255,.1)">📡</div><h4 style="color:var(--accent3)">Veille Push</h4><p>Réception automatique d'alertes : flux RSS, newsletters (The Hacker News, CERT-FR), notifications Twitter/X.</p><span class="method-tag">Passif · Temps réel</span></div>
-        <div class="method-card"><div class="method-icon" style="background:rgba(0,255,136,.1)">🔔</div><h4 style="color:var(--green)">Alertes Google</h4><p>Mots-clés configurés : "data breach 2024", "cyberattaque entreprise". Emails automatiques à chaque article indexé.</p><span class="method-tag">Push automatisé · Quotidien</span></div>
-        <div class="method-card"><div class="method-icon" style="background:rgba(255,140,0,.1)">🗂️</div><h4 style="color:var(--orange)">Agrégation RSS</h4><p>Utilisation de Feedly pour centraliser les flux de Krebs on Security, Dark Reading, BleepingComputer, ANSSI.</p><span class="method-tag">Pull agrégé · Quotidien</span></div>
-        <div class="method-card"><div class="method-icon" style="background:rgba(255,60,110,.1)">👥</div><h4 style="color:var(--accent2)">Veille sociale</h4><p>Suivi de chercheurs en sécurité, CISOs et journalistes spécialisés sur Twitter/X et LinkedIn.</p><span class="method-tag">Push social · Temps réel</span></div>
-        <div class="method-card"><div class="method-icon" style="background:rgba(0,229,255,.08)">📊</div><h4 style="color:var(--accent)">Rapports périodiques</h4><p>IBM Cost of a Data Breach, Verizon DBIR, rapport ANSSI — pour contextualiser les tendances annuelles.</p><span class="method-tag">Pull analytique · Annuel</span></div>
-      </div>
-    </section>
-    <section class="fade-up">
-      <div class="section-header"><span class="section-num">04</span><h2 class="section-title">Mes sources d'information</h2><div class="section-line"></div></div>
-      <div class="sources-grid">
-        <div class="source-card"><div class="source-ico">🛡️</div><div><h5>CERT-FR / ANSSI</h5><p>Bulletins officiels du gouvernement français sur les vulnérabilités et incidents nationaux.</p><div class="source-type">● Officielle · Push RSS</div></div></div>
-        <div class="source-card"><div class="source-ico">📰</div><div><h5>The Hacker News</h5><p>Actualité cybersécurité internationale, breaches, malwares, 0-days en temps réel.</p><div class="source-type">● Presse spécialisée · Push</div></div></div>
-        <div class="source-card"><div class="source-ico">🔍</div><div><h5>Krebs on Security</h5><p>Investigations approfondies de Brian Krebs sur les cybercriminels et grandes breaches.</p><div class="source-type">● Expert indépendant · Pull</div></div></div>
-        <div class="source-card"><div class="source-ico">💻</div><div><h5>BleepingComputer</h5><p>Couverture rapide des ransomwares, fuites et nouvelles menaces avec preuves techniques.</p><div class="source-type">● Presse spécialisée · Push RSS</div></div></div>
-        <div class="source-card"><div class="source-ico">🌐</div><div><h5>Have I Been Pwned</h5><p>Base de données publique des emails compromis lors de fuites avérées. API disponible.</p><div class="source-type">● BDD référence · Pull</div></div></div>
-        <div class="source-card"><div class="source-ico">📋</div><div><h5>Verizon DBIR</h5><p>Rapport annuel d'analyse de milliers d'incidents réels — référence du secteur.</p><div class="source-type">● Rapport annuel · Pull</div></div></div>
-        <div class="source-card"><div class="source-ico">🏢</div><div><h5>IBM Security Report</h5><p>Coût moyen des breaches, secteurs ciblés, benchmarks industrie mis à jour chaque année.</p><div class="source-type">● Rapport annuel · Pull</div></div></div>
-        <div class="source-card"><div class="source-ico">🐦</div><div><h5>Twitter / X</h5><p>Chercheurs en sécu, CVE en temps réel. Alertes avant toute publication officielle.</p><div class="source-type">● Réseau social · Push temps réel</div></div></div>
-      </div>
-    </section>
-    <section class="fade-up" style="padding-bottom:80px">
-      <div class="section-header"><span class="section-num">05</span><h2 class="section-title">Twitter / X — veille en temps réel</h2><div class="section-line"></div></div>
-      <div class="twitter-block">
-        <div class="twitter-header">
-          <div class="twitter-logo">𝕏</div>
-          <div><h3>Twitter / X comme outil de veille</h3><p>Détection précoce des incidents avant toute publication officielle</p></div>
-        </div>
-        <div class="twitter-grid">
-          <div class="twitter-col">
-            <h4>Comptes suivis</h4>
-            <div class="account-list">
-              <div class="account-item"><div class="acc-ava" style="background:rgba(255,60,110,.2);color:var(--accent2)">TH</div><div><h5>@TheHackersNews</h5><p>Fil d'actualité cyber le plus réactif</p></div></div>
-              <div class="account-item"><div class="acc-ava" style="background:rgba(0,229,255,.15);color:var(--accent)">BC</div><div><h5>@BleepingComputer</h5><p>Ransomwares &amp; breaches en direct</p></div></div>
-              <div class="account-item"><div class="acc-ava" style="background:rgba(162,89,255,.15);color:var(--accent3)">VX</div><div><h5>@vxunderground</h5><p>Malware research, samples, leaks</p></div></div>
-              <div class="account-item"><div class="acc-ava" style="background:rgba(0,255,136,.12);color:var(--green)">CF</div><div><h5>@CERTFR_GOUV</h5><p>Alertes officielles gouvernementales</p></div></div>
-              <div class="account-item"><div class="acc-ava" style="background:rgba(255,140,0,.15);color:var(--orange)">TR</div><div><h5>@troyhunt</h5><p>Créateur HIBP, expert fuites de données</p></div></div>
-            </div>
-          </div>
-          <div class="twitter-col">
-            <h4>Pourquoi Twitter pour la veille ?</h4>
-            <div class="usage-list">
-              <div class="usage-item">Signal <strong style="color:var(--text)">avant</strong> les médias : les chercheurs publient les 0-days en temps réel</div>
-              <div class="usage-item">Listes thématiques pour filtrer uniquement la cybersécurité, sans bruit</div>
-              <div class="usage-item">Hashtags <span style="color:var(--accent);font-family:Space Mono,monospace;font-size:.8em">#DataBreach #Infosec #CVE</span> pour capter l'essentiel</div>
-              <div class="usage-item">Accès direct aux chercheurs et interaction avec la communauté</div>
-              <div class="usage-item">Notifications push sur les comptes clés → alerte immédiate</div>
-              <div class="usage-item">Complémentaire aux sources officielles : infos brutes avant validation</div>
-            </div>
-            <div class="highlight-box">
-              <p><strong style="color:var(--accent)">Exemple concret :</strong> La breach Snowflake (2024) a été signalée sur Twitter par des chercheurs indépendants <strong style="color:var(--text)">48h avant</strong> les premières publications officielles.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+
+<!-- Orbs arrière-plan -->
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+
+<!-- Éléments flottants décoratifs -->
+<div class="floating-element flower-1">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="15" fill="#6366f1" opacity="0.9"/>
+    <circle cx="50" cy="15" r="12" fill="#14b8a6" opacity="0.8"/>
+    <circle cx="80" cy="25" r="12" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="85" cy="50" r="12" fill="#14b8a6" opacity="0.8"/>
+    <circle cx="80" cy="75" r="12" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="50" cy="85" r="12" fill="#14b8a6" opacity="0.8"/>
+    <circle cx="20" cy="75" r="12" fill="#a78bfa" opacity="0.8"/>
+    <circle cx="15" cy="50" r="12" fill="#14b8a6" opacity="0.8"/>
+    <circle cx="20" cy="25" r="12" fill="#a78bfa" opacity="0.8"/>
+  </svg>
+</div>
+<div class="floating-element flower-2">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="12" fill="#ec4899" opacity="0.95"/>
+    <polygon points="50,10 61,39 92,39 67,61 78,90 50,68 22,90 33,61 8,39 39,39" fill="#ec4899" opacity="0.7"/>
+    <circle cx="50" cy="50" r="6" fill="#f97316" opacity="0.9"/>
+  </svg>
+</div>
+<div class="floating-element leaf-element">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M 50 10 Q 80 30 70 70 Q 50 80 30 70 Q 20 30 50 10" fill="#14b8a6" opacity="0.75"/>
+    <path d="M 50 20 Q 60 35 55 65 Q 50 72 45 65 Q 40 35 50 20" fill="#6366f1" opacity="0.6"/>
+    <ellipse cx="50" cy="50" rx="8" ry="15" fill="#a78bfa" opacity="0.5"/>
+  </svg>
+</div>
+<div class="floating-element shape-deco">
+  <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="30" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.7"/>
+    <circle cx="50" cy="50" r="20" fill="none" stroke="#6366f1" stroke-width="2" opacity="0.8"/>
+    <circle cx="50" cy="50" r="10" fill="#a78bfa" opacity="0.6"/>
+    <rect x="35" y="35" width="30" height="30" fill="none" stroke="#14b8a6" stroke-width="1.5" opacity="0.5"/>
+    <g transform="translate(50,50)">
+      <line x1="0" y1="-15" x2="0" y2="15" stroke="#6366f1" stroke-width="1" opacity="0.6"/>
+      <line x1="-15" y1="0" x2="15" y2="0" stroke="#6366f1" stroke-width="1" opacity="0.6"/>
+    </g>
+  </svg>
+</div>
+
+<!-- Navbar -->
+<header class="nav">
+  <div class="navbar">
+    <a class="brand" href="index.html">
+      <strong>Marwan Malki</strong>
+      <span>BTS SIO · SLAM</span>
+    </a>
+    <nav class="navlinks" id="navlinks">
+      <a href="index.html">Accueil</a>
+      <a href="tableau-synthese.html">Synthèse</a>
+      <a href="veille.html" class="active">Veille</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="parcours-professionnel.html">Professionnel</a>
+      <a href="parcours-scolaire.html">Scolaire</a>
+      <a href="projets.html">Projets</a>
+      <a href="stage.html">Stage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-  <footer>&copy; 2026 Marwan Malki — BTS SIO SLAM &nbsp;·&nbsp; Veille Cyberdata</footer>
-  <script>
-    window.addEventListener('load',()=>{
-      document.querySelectorAll('.breach-bar[data-w]').forEach(b=>{
-        const w=b.dataset.w;b.style.width='0';
-        setTimeout(()=>{b.style.width=w},500);
-      });
+</header>
+
+<main class="container">
+
+  <!-- ── HERO ── -->
+  <div class="veille-hero reveal">
+    <div class="hero-tag">
+      <span class="dot-live"></span>
+      <span class="mono">Veille Technologique · 2024–2025</span>
+    </div>
+    <h1 class="h1" style="margin-top: 14px;">
+      Cyberdata &amp;<br><em>Fuites de Données</em>
+    </h1>
+    <p class="hero-sub">
+      Surveillance active des violations de données, vecteurs d'attaque,<br>
+      acteurs malveillants et tendances en cybersécurité.
+    </p>
+    <div class="hero-pills">
+      <div class="meta-pill"><span>Domaine</span><strong>Cybersécurité / Data Breach</strong></div>
+      <div class="meta-pill"><span>Période</span><strong>2024 – 2025</strong></div>
+      <div class="meta-pill"><span>Statut</span><strong style="color:var(--a3)">● Active</strong></div>
+    </div>
+  </div>
+
+  <!-- ── 01 · DÉFINITION ── -->
+  <section class="veille-section reveal">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <span class="section-title">C'est quoi la cyberdata ?</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="def-grid">
+      <div class="def-card">
+        <h4>Définition</h4>
+        <p>La <strong>cyberdata</strong> désigne l'ensemble des données numériques ciblées, volées ou exposées lors d'incidents de cybersécurité : identifiants, emails, données bancaires, dossiers médicaux, secrets industriels.</p>
+      </div>
+      <div class="def-card">
+        <h4>Pourquoi cette veille ?</h4>
+        <p>Les fuites de données sont en hausse constante. Comprendre les méthodes d'attaque, les entreprises touchées et les volumes volés permet d'anticiper les risques et d'adopter les bonnes pratiques défensives.</p>
+      </div>
+      <div class="def-card">
+        <h4>Types de données volées</h4>
+        <p>Credentials (login/mdp), PII (nom, adresse, numéro sécu), données financières (CB, IBAN), données de santé (ePHI), propriété intellectuelle, tokens d'authentification.</p>
+      </div>
+      <div class="def-card">
+        <h4>Vecteurs principaux</h4>
+        <p>Phishing, credential stuffing, injection SQL, ransomware, vulnérabilité 0-day, accès interne malveillant (insider threat), API non sécurisée, bucket S3 exposé.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 02 · DONNÉES VOLÉES ── -->
+  <section class="veille-section reveal">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <span class="section-title">Entreprises touchées — données volées</span>
+      <div class="section-line"></div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card reveal">
+        <div class="stat-num" style="-webkit-text-fill-color:var(--a2);background:none;">10 Md+</div>
+        <div class="stat-lbl">Records volés (2024)</div>
+      </div>
+      <div class="stat-card reveal d1">
+        <div class="stat-num" style="-webkit-text-fill-color:var(--a4);background:none;">4.88 M$</div>
+        <div class="stat-lbl">Coût moyen d'une breach</div>
+      </div>
+      <div class="stat-card reveal d2">
+        <div class="stat-num">194 j</div>
+        <div class="stat-lbl">Temps moyen détection</div>
+      </div>
+      <div class="stat-card reveal d3">
+        <div class="stat-num" style="-webkit-text-fill-color:var(--a3);background:none;">+72%</div>
+        <div class="stat-lbl">Hausse incidents 2023→2024</div>
+      </div>
+    </div>
+
+    <!-- Tableau -->
+    <div class="breach-wrap reveal">
+      <table class="breach-table">
+        <thead>
+          <tr>
+            <th>Entreprise</th>
+            <th>Secteur</th>
+            <th>Données volées</th>
+            <th>Volume</th>
+            <th>Vecteur</th>
+            <th>Gravité</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="company-cell"><div class="company-icon" style="background:rgba(236,72,153,.15);color:var(--a2)">TK</div><span>Ticketmaster</span></div></td>
+            <td>Événementiel</td>
+            <td>CB, PII clients</td>
+            <td><div class="breach-bar-wrap"><div class="breach-bar" data-w="95%"></div><span class="breach-val">560 M</span></div></td>
+            <td><span class="tag orange">Cloud exposé</span></td>
+            <td><span class="tag pink">Critique</span></td>
+          </tr>
+          <tr>
+            <td><div class="company-cell"><div class="company-icon" style="background:rgba(162,89,255,.15);color:#c084fc">NP</div><span>National Public Data</span></div></td>
+            <td>Data Broker</td>
+            <td>SSN, adresses, historiques</td>
+            <td><div class="breach-bar-wrap"><div class="breach-bar" data-w="100%" style="background:linear-gradient(90deg,var(--a2),#a259ff)"></div><span class="breach-val">2.9 Md</span></div></td>
+            <td><span class="tag pink">Scraping DB</span></td>
+            <td><span class="tag pink">Critique</span></td>
+          </tr>
+          <tr>
+            <td><div class="company-cell"><div class="company-icon" style="background:rgba(99,102,241,.15);color:var(--a1)">CH</div><span>Change Healthcare</span></div></td>
+            <td>Santé</td>
+            <td>Dossiers médicaux</td>
+            <td><div class="breach-bar-wrap"><div class="breach-bar" data-w="80%"></div><span class="breach-val">100 M</span></div></td>
+            <td><span class="tag" style="border-color:rgba(162,89,255,.3);background:rgba(162,89,255,.08);color:#c084fc">Ransomware</span></td>
+            <td><span class="tag pink">Critique</span></td>
+          </tr>
+          <tr>
+            <td><div class="company-cell"><div class="company-icon" style="background:rgba(249,115,22,.15);color:var(--a4)">AT</div><span>AT&amp;T</span></div></td>
+            <td>Télécom</td>
+            <td>Métadonnées appels/SMS</td>
+            <td><div class="breach-bar-wrap"><div class="breach-bar" data-w="73%" style="background:linear-gradient(90deg,var(--a4),var(--a2))"></div><span class="breach-val">73 M</span></div></td>
+            <td><span class="tag orange">API compromise</span></td>
+            <td><span class="tag orange">Élevée</span></td>
+          </tr>
+          <tr>
+            <td><div class="company-cell"><div class="company-icon" style="background:rgba(20,184,166,.15);color:var(--a3)">SF</div><span>Snowflake clients</span></div></td>
+            <td>Cloud / Multi</td>
+            <td>Credentials, data entrepôt</td>
+            <td><div class="breach-bar-wrap"><div class="breach-bar" data-w="55%" style="background:linear-gradient(90deg,var(--a3),var(--a1))"></div><span class="breach-val">165+ orgs</span></div></td>
+            <td><span class="tag teal">Cred stuffing</span></td>
+            <td><span class="tag orange">Élevée</span></td>
+          </tr>
+          <tr>
+            <td><div class="company-cell"><div class="company-icon" style="background:rgba(99,102,241,.15);color:var(--a1)">23</div><span>23andMe</span></div></td>
+            <td>Génomique</td>
+            <td>Profils ADN, ethnie, santé</td>
+            <td><div class="breach-bar-wrap"><div class="breach-bar" data-w="65%"></div><span class="breach-val">6.9 M</span></div></td>
+            <td><span class="tag teal">Cred stuffing</span></td>
+            <td><span class="tag orange">Élevée</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ── 03 · MÉTHODES DE VEILLE ── -->
+  <section class="veille-section reveal">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <span class="section-title">Méthodes de veille</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="methods-grid">
+      <div class="method-card">
+        <div class="method-icon" style="background:rgba(99,102,241,.1)">📥</div>
+        <h4 style="color:var(--a1)">Veille Pull</h4>
+        <p>Je consulte activement mes sources à intervalles réguliers : blogs spécialisés, rapports, bases CVE, forums OSINT.</p>
+        <span class="tag" style="margin-top:12px">Action manuelle · Hebdomadaire</span>
+      </div>
+      <div class="method-card">
+        <div class="method-icon" style="background:rgba(162,89,255,.1)">📡</div>
+        <h4 style="color:#c084fc">Veille Push</h4>
+        <p>Réception automatique d'alertes : flux RSS, newsletters (The Hacker News, CERT-FR), notifications Twitter/X.</p>
+        <span class="tag" style="margin-top:12px;border-color:rgba(162,89,255,.3);background:rgba(162,89,255,.07);color:#c084fc">Passif · Temps réel</span>
+      </div>
+      <div class="method-card">
+        <div class="method-icon" style="background:rgba(20,184,166,.1)">🔔</div>
+        <h4 style="color:var(--a3)">Alertes Google</h4>
+        <p>Mots-clés configurés : "data breach 2024", "cyberattaque entreprise". Emails automatiques à chaque article indexé.</p>
+        <span class="tag teal" style="margin-top:12px">Push automatisé · Quotidien</span>
+      </div>
+      <div class="method-card">
+        <div class="method-icon" style="background:rgba(249,115,22,.1)">🗂️</div>
+        <h4 style="color:var(--a4)">Agrégation RSS</h4>
+        <p>Utilisation de Feedly pour centraliser les flux de Krebs on Security, Dark Reading, BleepingComputer, ANSSI.</p>
+        <span class="tag orange" style="margin-top:12px">Pull agrégé · Quotidien</span>
+      </div>
+      <div class="method-card">
+        <div class="method-icon" style="background:rgba(236,72,153,.1)">👥</div>
+        <h4 style="color:var(--a2)">Veille sociale</h4>
+        <p>Suivi de chercheurs en sécurité, CISOs et journalistes spécialisés sur Twitter/X et LinkedIn.</p>
+        <span class="tag pink" style="margin-top:12px">Push social · Temps réel</span>
+      </div>
+      <div class="method-card">
+        <div class="method-icon" style="background:rgba(99,102,241,.08)">📊</div>
+        <h4 style="color:var(--a1)">Rapports périodiques</h4>
+        <p>IBM Cost of a Data Breach, Verizon DBIR, rapport ANSSI — pour contextualiser les tendances annuelles.</p>
+        <span class="tag" style="margin-top:12px">Pull analytique · Annuel</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 04 · SOURCES ── -->
+  <section class="veille-section reveal">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <span class="section-title">Mes sources d'information</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="sources-grid">
+      <div class="source-card">
+        <div class="source-ico">🛡️</div>
+        <div>
+          <h5>CERT-FR / ANSSI</h5>
+          <p>Bulletins officiels du gouvernement français sur les vulnérabilités et incidents nationaux.</p>
+          <div class="source-type"><span class="dot-live"></span> Officielle · Push RSS</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">📰</div>
+        <div>
+          <h5>The Hacker News</h5>
+          <p>Actualité cybersécurité internationale, breaches, malwares, 0-days en temps réel.</p>
+          <div class="source-type">● Presse spécialisée · Push</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">🔍</div>
+        <div>
+          <h5>Krebs on Security</h5>
+          <p>Investigations approfondies de Brian Krebs sur les cybercriminels et grandes breaches.</p>
+          <div class="source-type">● Expert indépendant · Pull</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">💻</div>
+        <div>
+          <h5>BleepingComputer</h5>
+          <p>Couverture rapide des ransomwares, fuites et nouvelles menaces avec preuves techniques.</p>
+          <div class="source-type">● Presse spécialisée · Push RSS</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">🌐</div>
+        <div>
+          <h5>Have I Been Pwned</h5>
+          <p>Base de données publique des emails compromis lors de fuites avérées. API disponible.</p>
+          <div class="source-type">● BDD référence · Pull</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">📋</div>
+        <div>
+          <h5>Verizon DBIR</h5>
+          <p>Rapport annuel d'analyse de milliers d'incidents réels — référence du secteur.</p>
+          <div class="source-type">● Rapport annuel · Pull</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">🏢</div>
+        <div>
+          <h5>IBM Security Report</h5>
+          <p>Coût moyen des breaches, secteurs ciblés, benchmarks industrie mis à jour chaque année.</p>
+          <div class="source-type">● Rapport annuel · Pull</div>
+        </div>
+      </div>
+      <div class="source-card">
+        <div class="source-ico">🐦</div>
+        <div>
+          <h5>Twitter / X</h5>
+          <p>Chercheurs en sécu, CVE en temps réel. Alertes avant toute publication officielle.</p>
+          <div class="source-type">● Réseau social · Push temps réel</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── 05 · TWITTER ── -->
+  <section class="veille-section reveal" style="padding-bottom: 80px;">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-title">Twitter / X — veille en temps réel</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="twitter-block">
+      <div class="twitter-header">
+        <div class="twitter-logo">𝕏</div>
+        <div>
+          <h3>Twitter / X comme outil de veille</h3>
+          <p>Détection précoce des incidents avant toute publication officielle</p>
+        </div>
+      </div>
+      <div class="twitter-grid">
+        <div class="twitter-col">
+          <div class="twitter-col-title">Comptes suivis</div>
+          <div class="account-list">
+            <div class="account-item">
+              <div class="acc-ava" style="background:rgba(236,72,153,.18);color:var(--a2)">TH</div>
+              <div><h5>@TheHackersNews</h5><p>Fil d'actualité cyber le plus réactif</p></div>
+            </div>
+            <div class="account-item">
+              <div class="acc-ava" style="background:rgba(99,102,241,.18);color:var(--a1)">BC</div>
+              <div><h5>@BleepingComputer</h5><p>Ransomwares &amp; breaches en direct</p></div>
+            </div>
+            <div class="account-item">
+              <div class="acc-ava" style="background:rgba(162,89,255,.18);color:#c084fc">VX</div>
+              <div><h5>@vxunderground</h5><p>Malware research, samples, leaks</p></div>
+            </div>
+            <div class="account-item">
+              <div class="acc-ava" style="background:rgba(20,184,166,.18);color:var(--a3)">CF</div>
+              <div><h5>@CERTFR_GOUV</h5><p>Alertes officielles gouvernementales</p></div>
+            </div>
+            <div class="account-item">
+              <div class="acc-ava" style="background:rgba(249,115,22,.18);color:var(--a4)">TR</div>
+              <div><h5>@troyhunt</h5><p>Créateur HIBP, expert fuites de données</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="twitter-col">
+          <div class="twitter-col-title">Pourquoi Twitter pour la veille ?</div>
+          <div class="usage-list">
+            <div class="usage-item">Signal <strong style="color:var(--text)">avant</strong> les médias : les chercheurs publient les 0-days en temps réel</div>
+            <div class="usage-item">Listes thématiques pour filtrer uniquement la cybersécurité, sans bruit</div>
+            <div class="usage-item">Hashtags <code>#DataBreach #Infosec #CVE</code> pour capter l'essentiel</div>
+            <div class="usage-item">Accès direct aux chercheurs et interaction avec la communauté</div>
+            <div class="usage-item">Notifications push sur les comptes clés → alerte immédiate</div>
+            <div class="usage-item">Complémentaire aux sources officielles : infos brutes avant validation</div>
+          </div>
+          <div class="highlight-box">
+            <p><strong>Exemple concret :</strong> La breach Snowflake (2024) a été signalée sur Twitter par des chercheurs indépendants <strong style="color:var(--text)">48h avant</strong> les premières publications officielles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <span>© 2026 Marwan Malki — BTS SIO SLAM</span>
+    <span>Veille Cyberdata &nbsp;·&nbsp; <a href="index.html">Accueil</a> &nbsp;·&nbsp; <a href="contact.html">Contact</a></span>
+  </footer>
+
+</main>
+
+<script>
+  // Hamburger
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('navlinks').classList.toggle('open');
+  });
+
+  // Scroll reveal
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Breach bars animation
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.breach-bar[data-w]').forEach(b => {
+      const w = b.dataset.w;
+      b.style.width = '0';
+      setTimeout(() => { b.style.width = w; }, 600);
     });
-    const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1});
-    document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
-  </script>
+  });
+</script>
+
 </body>
 </html>
