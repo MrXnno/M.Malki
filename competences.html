@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compétences — Marwan Malki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#05070f; --card:rgba(12,17,36,.88); --bd:rgba(99,102,241,.14); --bh:rgba(99,102,241,.44);
+  --txt:#edf2ff; --txt2:#a8b8d8; --dim:#4a5880;
+  --a1:#6366f1; --a2:#ec4899; --a3:#14b8a6; --a4:#f97316;
+  --mn:'Space Mono',monospace; --ez:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.022) 2px,rgba(0,0,0,.022) 4px);pointer-events:none;z-index:9999}
+
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+.o1{width:560px;height:560px;background:radial-gradient(circle,rgba(99,102,241,.26) 0%,transparent 65%);top:-200px;left:-160px;animation:o1 26s ease-in-out infinite}
+.o2{width:420px;height:420px;background:radial-gradient(circle,rgba(236,72,153,.16) 0%,transparent 65%);bottom:-140px;right:-140px;animation:o2 22s ease-in-out infinite}
+@keyframes o1{0%,100%{transform:translate(0,0)}50%{transform:translate(65px,-45px)}}
+@keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-65px,50px)}}
+
+.fl{position:fixed;pointer-events:none;z-index:2}
+.f1{width:90px;height:90px;opacity:.7;filter:drop-shadow(0 5px 16px rgba(99,102,241,.34));animation:lr 28s ease-in-out infinite 0s}
+.f2{width:74px;height:74px;opacity:.65;filter:drop-shadow(0 5px 16px rgba(236,72,153,.36));animation:rl 25s ease-in-out infinite 5s}
+@keyframes lr{0%{transform:translate(-120px,12vh)rotate(0deg);opacity:0}5%{opacity:.7}50%{transform:translate(46vw,30vh)rotate(180deg);opacity:.7}95%{opacity:.7}100%{transform:translate(calc(100vw+120px),16vh)rotate(360deg);opacity:0}}
+@keyframes rl{0%{transform:translate(calc(100vw+120px),62vh)rotate(0deg);opacity:0}5%{opacity:.65}50%{transform:translate(46vw,46vh)rotate(180deg);opacity:.65}95%{opacity:.65}100%{transform:translate(-120px,68vh)rotate(360deg);opacity:0}}
+@media(max-width:600px){.fl{display:none}}
+
+/* NAVBAR */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;background:rgba(5,7,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%);opacity:.6}
+.nb{max-width:1080px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.brand strong{display:block;font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand span{display:block;font-family:var(--mn);font-size:.56rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
+.nlinks{display:flex;align-items:center;gap:1px}
+.nlinks a{font-size:.72rem;font-weight:500;color:var(--dim);padding:5px 8px;border-radius:7px;border:1px solid transparent;transition:all .22s var(--ez);white-space:nowrap}
+.nlinks a:hover{color:var(--txt);background:rgba(99,102,241,.09);border-color:rgba(99,102,241,.2)}
+.nlinks a.on{color:var(--txt);background:rgba(99,102,241,.13);border-color:rgba(99,102,241,.34)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hbg span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px}
+@media(max-width:960px){
+  .nlinks{display:none}.hbg{display:flex}
+  .nlinks.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(5,7,15,.97);border-bottom:1px solid var(--bd);padding:12px 20px 18px;gap:3px;z-index:299}
+  .nlinks.open a{padding:9px 13px;font-size:.78rem}
+}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:10}
+.container{padding-top:56px;padding-bottom:80px}
+
+/* HERO */
+.page-hero{padding:60px 0 52px}
+.dot-g{width:7px;height:7px;border-radius:50%;background:var(--a3);animation:blink 1.4s ease-in-out infinite;display:inline-block}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.14}}
+.h-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mn);font-size:.66rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);border-radius:5px;padding:4px 12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.page-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-.025em;background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.page-sub{font-size:.9rem;color:var(--txt2);line-height:1.75;max-width:640px}
+
+/* SECTION HEADER */
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:60px}
+.sh-num{font-family:var(--mn);font-size:.6rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);padding:3px 10px;border-radius:4px;letter-spacing:.10em;white-space:nowrap}
+.sh-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--txt);white-space:nowrap}
+.sh-line{flex:1;height:1px;background:var(--bd)}
+
+/* GRILLES */
+.sk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sk-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:760px){.sk-grid,.sk-grid-2{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.sk-grid,.sk-grid-2{grid-template-columns:1fr}}
+
+/* CARTE */
+.sk{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:20px 18px;transition:border-color .25s var(--ez),transform .25s var(--ez);position:relative;overflow:hidden}
+.sk::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transition:transform .3s var(--ez)}
+.sk:hover::before{transform:scaleX(1)}
+.sk:hover{border-color:var(--bh);transform:translateY(-3px)}
+
+/* accent couleur par section */
+.c1 .sk::before{background:linear-gradient(90deg,var(--a1),var(--a2))}
+.c2 .sk::before{background:linear-gradient(90deg,var(--a3),var(--a1))}
+.c3 .sk::before{background:linear-gradient(90deg,var(--a2),var(--a4))}
+.c4 .sk::before{background:linear-gradient(90deg,var(--a4),var(--a1))}
+.c5 .sk::before{background:linear-gradient(90deg,var(--a1),var(--a3))}
+.c6 .sk::before{background:linear-gradient(90deg,var(--a3),var(--a2))}
+.c7 .sk::before{background:linear-gradient(90deg,var(--a2),var(--a1))}
+
+.sk-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sk-ico{font-size:1.3rem;flex-shrink:0}
+.sk-name{font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;color:var(--txt)}
+.sk-desc{font-size:.78rem;color:var(--txt2);line-height:1.6}
+.sk-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:12px}
+.stag{font-family:var(--mn);font-size:.57rem;color:var(--dim);border:1px solid var(--bd);border-radius:4px;padding:2px 7px;letter-spacing:.04em}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);margin-top:40px}
+.foot-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.foot-brand strong{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-brand p{font-family:var(--mn);font-size:.58rem;color:var(--dim);margin-top:2px}
+.foot-links{display:flex;gap:14px}
+.foot-links a{font-family:var(--mn);font-size:.62rem;color:var(--dim);transition:color .2s}
+.foot-links a:hover{color:var(--a1)}
+.foot-copy{font-family:var(--mn);font-size:.6rem;color:var(--dim)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ez),transform .6s var(--ez)}
+.rv.on{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="fl f1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="15" fill="#6366f1" opacity=".9"/><circle cx="50" cy="14" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="26" r="12" fill="#a78bfa" opacity=".8"/><circle cx="86" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="50" cy="86" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="14" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="26" r="12" fill="#a78bfa" opacity=".8"/></svg></div>
+<div class="fl f2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="12" fill="#ec4899" opacity=".9"/><polygon points="50,10 61,39 92,39 67,61 78,90 50,68 22,90 33,61 8,39 39,39" fill="#ec4899" opacity=".6"/><circle cx="50" cy="50" r="6" fill="#f97316" opacity=".85"/></svg></div>
+
+<header class="nav">
+  <div class="nb">
+    <a class="brand" href="index.html">
+      <strong>Marwan Malki</strong>
+      <span>BTS SIO · SISR</span>
+    </a>
+    <nav class="nlinks" id="nl">
+      <a href="index.html">Accueil</a>
+      <a href="tableau-synthese.html">Tableau de Synthèse</a>
+      <a href="veille.html">Veille</a>
+      <a href="competences.html" class="on">Compétences</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="parcours-scolaire.html">Parcours Scolaire</a>
+      <a href="projets.html">Projets</a>
+      <a href="stage.html">Stage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="wrap">
+
+    <div class="page-hero">
+      <div class="h-tag"><span class="dot-g"></span>BTS SIO · SISR · 2ème année</div>
+      <h1 class="page-title">Compétences Techniques</h1>
+      <p class="page-sub">Compétences acquises à travers ma formation BTS SIO SISR et mes expériences professionnelles en administration système et réseau.</p>
+    </div>
+
+    <!-- ── 01 · SYSTÈMES D'EXPLOITATION ── -->
+    <div class="sh rv"><span class="sh-num">01</span><span class="sh-title">Systèmes d'exploitation</span><div class="sh-line"></div></div>
+    <div class="sk-grid c1 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🐧</span><span class="sk-name">Linux</span></div>
+        <p class="sk-desc">Autoformation et BTS : installation et configuration sur Debian, Arch Linux et Ubuntu. Expérience en dual boot et environnements virtualisés.</p>
+        <div class="sk-tags"><span class="stag">Debian</span><span class="stag">Ubuntu</span><span class="stag">Arch</span><span class="stag">CLI</span><span class="stag">Bash</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🪟</span><span class="sk-name">Windows Server</span></div>
+        <p class="sk-desc">Compétence acquise en BTS SIO SISR via des TP et projets. Installation et configuration de services AD, DNS et DHCP sur des VM.</p>
+        <div class="sk-tags"><span class="stag">AD DS</span><span class="stag">DNS</span><span class="stag">DHCP</span><span class="stag">GPO</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">💻</span><span class="sk-name">Windows 10 / 11</span></div>
+        <p class="sk-desc">Expérience personnelle et en environnement professionnel. Installation, configuration système, gestion des comptes utilisateurs et dépannage.</p>
+        <div class="sk-tags"><span class="stag">Configuration</span><span class="stag">Dépannage</span><span class="stag">Comptes</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 02 · VIRTUALISATION ── -->
+    <div class="sh rv"><span class="sh-num">02</span><span class="sh-title">Virtualisation</span><div class="sh-line"></div></div>
+    <div class="sk-grid c2 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">⚙️</span><span class="sk-name">Proxmox</span></div>
+        <p class="sk-desc">Virtualisation de serveurs dans les projets BTS. Création de VM, configuration de clusters, gestion des snapshots.</p>
+        <div class="sk-tags"><span class="stag">VM</span><span class="stag">Clusters</span><span class="stag">Snapshots</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🖧</span><span class="sk-name">VMware</span></div>
+        <p class="sk-desc">Virtualisation d'environnements Windows et Linux lors de projets personnels et en laboratoire scolaire.</p>
+        <div class="sk-tags"><span class="stag">Windows</span><span class="stag">Linux</span><span class="stag">Lab</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📦</span><span class="sk-name">VirtualBox</span></div>
+        <p class="sk-desc">Virtualisation d'environnements Windows et Linux lors de projets personnels et en laboratoire scolaire.</p>
+        <div class="sk-tags"><span class="stag">Windows</span><span class="stag">Linux</span><span class="stag">Lab</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 03 · RÉSEAU ── -->
+    <div class="sh rv"><span class="sh-num">03</span><span class="sh-title">Administration réseau</span><div class="sh-line"></div></div>
+    <div class="sk-grid c3 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📡</span><span class="sk-name">Cisco / Packet Tracer</span></div>
+        <p class="sk-desc">TP en BTS SIO SISR : configuration de routeurs et switches, adressage IP, VLAN, routage statique et dynamique.</p>
+        <div class="sk-tags"><span class="stag">VLAN</span><span class="stag">Routage</span><span class="stag">Switch</span><span class="stag">IP</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🌐</span><span class="sk-name">DNS</span></div>
+        <p class="sk-desc">Configuration de zones DNS, résolution de noms, intégration avec Active Directory lors de TP en BTS.</p>
+        <div class="sk-tags"><span class="stag">Zones</span><span class="stag">Résolution</span><span class="stag">AD</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📋</span><span class="sk-name">DHCP</span></div>
+        <p class="sk-desc">Mise en place sur Windows Server et Debian en TP pour l'attribution automatique d'adresses IP.</p>
+        <div class="sk-tags"><span class="stag">Windows Server</span><span class="stag">Debian</span><span class="stag">Plages IP</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🔑</span><span class="sk-name">SSO (Single Sign-On)</span></div>
+        <p class="sk-desc">Technologie permettant à un utilisateur d'accéder à des applications et sites sécurisés avec une seule authentification.</p>
+        <div class="sk-tags"><span class="stag">Authentification</span><span class="stag">Identité</span><span class="stag">Sécurité</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🖨️</span><span class="sk-name">PRINTERS</span></div>
+        <p class="sk-desc">Logiciel permettant l'affectation d'imprimantes à des postes utilisateurs au sein du parc informatique.</p>
+        <div class="sk-tags"><span class="stag">Affectation</span><span class="stag">Postes</span><span class="stag">Parc</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 04 · SUPPORT & GESTION DE PARC ── -->
+    <div class="sh rv"><span class="sh-num">04</span><span class="sh-title">Support et gestion de parc informatique</span><div class="sh-line"></div></div>
+    <div class="sk-grid c4 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🎫</span><span class="sk-name">GLPI</span></div>
+        <p class="sk-desc">Utilisé en BTS et lors du stage à l'Hôpital Lariboisière. Gestion des tickets, inventaire de parc, suivi des incidents en temps réel.</p>
+        <div class="sk-tags"><span class="stag">Tickets</span><span class="stag">Inventaire</span><span class="stag">Incidents</span><span class="stag">Lariboisière</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🗄️</span><span class="sk-name">Active Directory</span></div>
+        <p class="sk-desc">Manipulation dans des environnements TP et en stage. Création de comptes, groupes, stratégies de sécurité et GPO.</p>
+        <div class="sk-tags"><span class="stag">Comptes</span><span class="stag">Groupes</span><span class="stag">GPO</span><span class="stag">OU</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🖥️</span><span class="sk-name">SCCM</span></div>
+        <p class="sk-desc">System Center Configuration Manager. Gestion de parcs Windows : prise de main à distance, télédistribution d'applications, déploiement d'OS et politiques de sécurité.</p>
+        <div class="sk-tags"><span class="stag">Déploiement OS</span><span class="stag">Télédistribution</span><span class="stag">Prise en main</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📊</span><span class="sk-name">OCS Inventory</span></div>
+        <p class="sk-desc">Open Computers and Software. Inventaire hardware et software du parc, déploiement de logiciels sur les postes.</p>
+        <div class="sk-tags"><span class="stag">Inventaire HW</span><span class="stag">Inventaire SW</span><span class="stag">Déploiement</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🎟️</span><span class="sk-name">SMAX</span></div>
+        <p class="sk-desc">Interface de gestion de tickets utilisée lors du stage à l'Hôpital Lariboisière pour le suivi des demandes et incidents utilisateurs.</p>
+        <div class="sk-tags"><span class="stag">Tickets</span><span class="stag">Demandes</span><span class="stag">Lariboisière</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 05 · SUPERVISION ── -->
+    <div class="sh rv"><span class="sh-num">05</span><span class="sh-title">Supervision et haute disponibilité</span><div class="sh-line"></div></div>
+    <div class="sk-grid-2 c5 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📈</span><span class="sk-name">Centreon</span></div>
+        <p class="sk-desc">Logiciel de surveillance constante de l'infrastructure réseau. Monitoring des équipements, alertes en temps réel, tableaux de bord.</p>
+        <div class="sk-tags"><span class="stag">Monitoring</span><span class="stag">Alertes</span><span class="stag">Infrastructure</span><span class="stag">Tableaux de bord</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🔧</span><span class="sk-name">Enterprise Device Manager</span></div>
+        <p class="sk-desc">Logiciel de gestion réseau permettant la configuration d'appareils et de switches sur un sous-réseau, notamment les VLAN.</p>
+        <div class="sk-tags"><span class="stag">VLAN</span><span class="stag">Switches</span><span class="stag">Sous-réseau</span><span class="stag">Configuration</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 06 · CYBERSÉCURITÉ ── -->
+    <div class="sh rv"><span class="sh-num">06</span><span class="sh-title">Cybersécurité</span><div class="sh-line"></div></div>
+    <div class="sk-grid-2 c6 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🔍</span><span class="sk-name">Wireshark</span></div>
+        <p class="sk-desc">Analyse du trafic réseau lors de TP sécurité en BTS. Observation de trames, identification de protocoles et détection d'anomalies.</p>
+        <div class="sk-tags"><span class="stag">Analyse trafic</span><span class="stag">Trames</span><span class="stag">Protocoles</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🏴‍☠️</span><span class="sk-name">Kali Linux</span></div>
+        <p class="sk-desc">Autoformation à l'éthique hacking. Tests basiques (Nmap, reconnaissance réseau) dans des environnements isolés et sécurisés.</p>
+        <div class="sk-tags"><span class="stag">Nmap</span><span class="stag">Reconnaissance</span><span class="stag">Pentest</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 07 · DISTRIBUTIONS LINUX ── -->
+    <div class="sh rv"><span class="sh-num">07</span><span class="sh-title">Distributions Linux</span><div class="sh-line"></div></div>
+    <div class="sk-grid c7 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🐧</span><span class="sk-name">Debian</span></div>
+        <p class="sk-desc">Distribution principale en TP BTS. Installation, configuration, gestion des services réseau (DNS, DHCP, Apache).</p>
+        <div class="sk-tags"><span class="stag">Serveur</span><span class="stag">Services réseau</span><span class="stag">CLI</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🟠</span><span class="sk-name">Ubuntu</span></div>
+        <p class="sk-desc">Utilisé pour des environnements desktop et serveur. Gestion des paquets apt, configuration système.</p>
+        <div class="sk-tags"><span class="stag">Desktop</span><span class="stag">Serveur</span><span class="stag">apt</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🏴‍☠️</span><span class="sk-name">Kali Linux</span></div>
+        <p class="sk-desc">Distribution orientée sécurité. Utilisée en autoformation pour découvrir les outils de pentest dans des environnements isolés.</p>
+        <div class="sk-tags"><span class="stag">Pentest</span><span class="stag">Sécurité</span><span class="stag">Outils</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🕵️</span><span class="sk-name">Tails</span></div>
+        <p class="sk-desc">Distribution axée confidentialité et anonymat. Utilisée dans un cadre éducatif pour comprendre les enjeux de la vie privée numérique.</p>
+        <div class="sk-tags"><span class="stag">Confidentialité</span><span class="stag">Anonymat</span><span class="stag">Live USB</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 08 · GESTION DE PROJET ── -->
+    <div class="sh rv"><span class="sh-num">08</span><span class="sh-title">Gestion de projet</span><div class="sh-line"></div></div>
+    <div class="sk-grid c1 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📄</span><span class="sk-name">Cahier des charges</span></div>
+        <p class="sk-desc">Rédaction de cahiers des charges dans le cadre de projets BTS. Définition des besoins, contraintes techniques et livrables attendus.</p>
+        <div class="sk-tags"><span class="stag">Besoins</span><span class="stag">Contraintes</span><span class="stag">Livrables</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">✅</span><span class="sk-name">Cahier de recette</span></div>
+        <p class="sk-desc">Élaboration de cahiers de recette pour valider les livrables d'un projet. Définition des scénarios de tests et critères d'acceptation.</p>
+        <div class="sk-tags"><span class="stag">Tests</span><span class="stag">Validation</span><span class="stag">Critères</span></div>
+      </div>
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">📅</span><span class="sk-name">Diagramme de Gantt</span></div>
+        <p class="sk-desc">Planification et suivi de projets via des diagrammes de Gantt. Découpage en tâches, définition des délais, dépendances et jalons.</p>
+        <div class="sk-tags"><span class="stag">Planification</span><span class="stag">Tâches</span><span class="stag">Jalons</span><span class="stag">Délais</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── 09 · BASE DE DONNÉES ── -->
+    <div class="sh rv"><span class="sh-num">09</span><span class="sh-title">Base de données</span><div class="sh-line"></div></div>
+    <div class="sk-grid-2 c2 rv">
+
+      <div class="sk">
+        <div class="sk-top"><span class="sk-ico">🗃️</span><span class="sk-name">MySQL</span></div>
+        <p class="sk-desc">Manipulation via projets Web et TP SQL. Création de bases de données, requêtes, gestion des utilisateurs et sécurisation des accès.</p>
+        <div class="sk-tags"><span class="stag">BDD</span><span class="stag">Requêtes SQL</span><span class="stag">Sécurisation</span></div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <strong>Marwan Malki</strong>
+        <p>BTS SIO SISR · Lycée Turgot · Paris</p>
+      </div>
+      <div class="foot-links">
+        <a href="index.html">Accueil</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <span class="foot-copy">© 2026 Marwan Malki</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hbg').addEventListener('click', () => {
+  document.getElementById('nl').classList.toggle('open');
+});
+const rv = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => rv.observe(el));
+</script>
+</body>
+</html>
