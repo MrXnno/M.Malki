@@ -1,129 +1,273 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stages — Marwan Malki</title>
-  <link rel="stylesheet" href="assets/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage — Marwan Malki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#05070f; --card:rgba(12,17,36,.88); --bd:rgba(99,102,241,.14); --bh:rgba(99,102,241,.44);
+  --txt:#edf2ff; --txt2:#a8b8d8; --dim:#4a5880;
+  --a1:#6366f1; --a2:#ec4899; --a3:#14b8a6; --a4:#f97316;
+  --mn:'Space Mono',monospace; --ez:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.022) 2px,rgba(0,0,0,.022) 4px);pointer-events:none;z-index:9999}
+
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+.o1{width:560px;height:560px;background:radial-gradient(circle,rgba(99,102,241,.26) 0%,transparent 65%);top:-200px;left:-160px;animation:o1 26s ease-in-out infinite}
+.o2{width:420px;height:420px;background:radial-gradient(circle,rgba(236,72,153,.16) 0%,transparent 65%);bottom:-140px;right:-140px;animation:o2 22s ease-in-out infinite}
+@keyframes o1{0%,100%{transform:translate(0,0)}50%{transform:translate(65px,-45px)}}
+@keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-65px,50px)}}
+
+.fl{position:fixed;pointer-events:none;z-index:2}
+.f1{width:90px;height:90px;opacity:.7;filter:drop-shadow(0 5px 16px rgba(99,102,241,.34));animation:lr 28s ease-in-out infinite 0s}
+.f2{width:74px;height:74px;opacity:.65;filter:drop-shadow(0 5px 16px rgba(236,72,153,.36));animation:rl 25s ease-in-out infinite 5s}
+@keyframes lr{0%{transform:translate(-120px,12vh)rotate(0deg);opacity:0}5%{opacity:.7}50%{transform:translate(46vw,30vh)rotate(180deg);opacity:.7}95%{opacity:.7}100%{transform:translate(calc(100vw+120px),16vh)rotate(360deg);opacity:0}}
+@keyframes rl{0%{transform:translate(calc(100vw+120px),62vh)rotate(0deg);opacity:0}5%{opacity:.65}50%{transform:translate(46vw,46vh)rotate(180deg);opacity:.65}95%{opacity:.65}100%{transform:translate(-120px,68vh)rotate(360deg);opacity:0}}
+@media(max-width:600px){.fl{display:none}}
+
+/* NAVBAR */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;background:rgba(5,7,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%);opacity:.6}
+.nb{max-width:1080px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.brand strong{display:block;font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand span{display:block;font-family:var(--mn);font-size:.56rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
+.nlinks{display:flex;align-items:center;gap:1px}
+.nlinks a{font-size:.72rem;font-weight:500;color:var(--dim);padding:5px 8px;border-radius:7px;border:1px solid transparent;transition:all .22s var(--ez);white-space:nowrap}
+.nlinks a:hover{color:var(--txt);background:rgba(99,102,241,.09);border-color:rgba(99,102,241,.2)}
+.nlinks a.on{color:var(--txt);background:rgba(99,102,241,.13);border-color:rgba(99,102,241,.34)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hbg span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px}
+@media(max-width:960px){
+  .nlinks{display:none}.hbg{display:flex}
+  .nlinks.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(5,7,15,.97);border-bottom:1px solid var(--bd);padding:12px 20px 18px;gap:3px;z-index:299}
+  .nlinks.open a{padding:9px 13px;font-size:.78rem}
+}
+
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:10}
+.container{padding-top:56px;padding-bottom:80px}
+
+/* HERO */
+.page-hero{padding:60px 0 52px}
+.dot-g{width:7px;height:7px;border-radius:50%;background:var(--a3);animation:blink 1.4s ease-in-out infinite;display:inline-block}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.14}}
+.h-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mn);font-size:.66rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);border-radius:5px;padding:4px 12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.page-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-.025em;background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.page-sub{font-size:.9rem;color:var(--txt2);line-height:1.75;max-width:640px}
+
+/* SECTION HEADER */
+.sh{display:flex;align-items:center;gap:12px;margin-bottom:20px;margin-top:56px}
+.sh-num{font-family:var(--mn);font-size:.6rem;padding:3px 10px;border-radius:4px;letter-spacing:.10em;white-space:nowrap}
+.sh-num.y1{color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2)}
+.sh-num.y2{color:var(--a3);background:rgba(20,184,166,.07);border:1px solid rgba(20,184,166,.2)}
+.sh-info{display:flex;flex-direction:column;gap:2px}
+.sh-title{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;color:var(--txt)}
+.sh-sub{font-family:var(--mn);font-size:.6rem;color:var(--dim);letter-spacing:.06em}
+.sh-line{flex:1;height:1px;background:var(--bd)}
+
+/* GRILLES */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.grid-4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+
+/* CARTE DOC */
+.doc-card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:10px;transition:border-color .25s var(--ez),transform .25s var(--ez);position:relative;overflow:hidden}
+.doc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transition:transform .3s var(--ez)}
+.doc-card:hover::before{transform:scaleX(1)}
+.doc-card:hover{border-color:var(--bh);transform:translateY(-3px)}
+.dc-a1::before{background:linear-gradient(90deg,var(--a1),var(--a2))}
+.dc-a3::before{background:linear-gradient(90deg,var(--a3),var(--a1))}
+
+.doc-card h3{font-family:'Syne',sans-serif;font-size:.92rem;font-weight:700;color:var(--txt)}
+.doc-card p{font-size:.78rem;color:var(--txt2);line-height:1.6;flex:1}
+
+/* BOUTONS SEMAINES */
+.weeks{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+
+/* BOUTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:9px;border:1px solid rgba(99,102,241,.26);background:rgba(99,102,241,.07);color:var(--txt);font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;cursor:pointer;position:relative;overflow:hidden;transition:transform .22s var(--ez),background .22s,border-color .22s,box-shadow .22s;white-space:nowrap;text-decoration:none}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transition:left .5s var(--ez)}
+.btn:hover::before{left:150%}
+.btn:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.48);background:rgba(99,102,241,.13);box-shadow:0 6px 22px rgba(99,102,241,.2)}
+.btn.p{background:linear-gradient(135deg,var(--a1),var(--a2));border-color:transparent;color:#fff;box-shadow:0 5px 20px rgba(99,102,241,.36)}
+.btn.p:hover{box-shadow:0 10px 34px rgba(99,102,241,.5);filter:brightness(1.07)}
+.btn.t{background:rgba(20,184,166,.07);border-color:rgba(20,184,166,.26);color:var(--a3)}
+.btn.t:hover{background:rgba(20,184,166,.14);border-color:rgba(20,184,166,.5);box-shadow:0 6px 22px rgba(20,184,166,.18)}
+
+/* CARTE SEMAINE (petite) */
+.btn-sm{padding:6px 12px;font-size:.75rem;border-radius:7px}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--bd);margin:40px 0 0}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);margin-top:40px}
+.foot-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.foot-brand strong{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-brand p{font-family:var(--mn);font-size:.58rem;color:var(--dim);margin-top:2px}
+.foot-links{display:flex;gap:14px}
+.foot-links a{font-family:var(--mn);font-size:.62rem;color:var(--dim);transition:color .2s}
+.foot-links a:hover{color:var(--a1)}
+.foot-copy{font-family:var(--mn);font-size:.6rem;color:var(--dim)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ez),transform .6s var(--ez)}
+.rv.on{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="navbar">
-    <div class="brand">
-      <strong>Marwan Malki</strong>
-    </div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+<div class="fl f1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="15" fill="#6366f1" opacity=".9"/><circle cx="50" cy="14" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="26" r="12" fill="#a78bfa" opacity=".8"/><circle cx="86" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="50" cy="86" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="14" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="26" r="12" fill="#a78bfa" opacity=".8"/></svg></div>
+<div class="fl f2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="12" fill="#ec4899" opacity=".9"/><polygon points="50,10 61,39 92,39 67,61 78,90 50,68 22,90 33,61 8,39 39,39" fill="#ec4899" opacity=".6"/><circle cx="50" cy="50" r="6" fill="#f97316" opacity=".85"/></svg></div>
 
-    <nav class="navlinks">
+<header class="nav">
+  <div class="nb">
+    <a class="brand" href="index.html">
+      <strong>Marwan Malki</strong>
+      <span>BTS SIO · SISR</span>
+    </a>
+    <nav class="nlinks" id="nl">
       <a href="index.html">Accueil</a>
       <a href="tableau-synthese.html">Tableau de Synthèse</a>
       <a href="veille.html">Veille</a>
+      <a href="competences.html">Compétences</a>
       <a href="certifications.html">Certifications</a>
       <a href="parcours-scolaire.html">Parcours Scolaire</a>
       <a href="projets.html">Projets</a>
-      <a href="stage.html">Stage</a>
+      <a href="stage.html" class="on">Stage</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <div class="navactions" style="display:flex; gap:10px;">
-      <a class="btn ghost" href="https://www.linkedin.com/in/marwan-5b2794337/" target="_blank">🔗 LinkedIn</a>
-    </div>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="container">
+<div class="container">
+  <div class="wrap">
 
-  <h1 class="h1">Mes Stages</h1>
-  <p class="muted" style="max-width:72ch; margin-top:10px;">
-    Retrouvez ici mes expériences de stage ainsi que les documents associés
-    (rapports et comptes rendus hebdomadaires).
-  </p>
+    <!-- HERO -->
+    <div class="page-hero">
+      <div class="h-tag"><span class="dot-g"></span>BTS SIO · SISR · 2024–2026</div>
+      <h1 class="page-title">Mes Stages</h1>
+      <p class="page-sub">Retrouvez ici mes expériences de stage ainsi que les documents associés — rapports et comptes rendus hebdomadaires.</p>
+    </div>
 
-  <!-- ===================== -->
-  <!-- 1ère année -->
-  <!-- ===================== -->
-  <section style="margin-top:26px;">
-    <h2 class="h2">1ère Année — Hôpital Lariboisière</h2>
-    <p class="muted" style="max-width:80ch;">
-      Stage au sein de l'équipe réseau et support : découverte des infrastructures,
-      dépannage utilisateur et bonnes pratiques en environnement hospitalier.
-    </p>
+    <!-- ── 1ÈRE ANNÉE ── -->
+    <div class="sh rv">
+      <div>
+        <span class="sh-num y1">1ère Année</span>
+      </div>
+      <div class="sh-info">
+        <span class="sh-title">Hôpital Lariboisière — Paris</span>
+        <span class="sh-sub">Avr – Juin 2025 · Support & réseau</span>
+      </div>
+      <div class="sh-line"></div>
+    </div>
 
-    <div class="grid" style="margin-top:14px;">
+    <div class="grid-2 rv">
 
-      <!-- Rapport -->
-      <div class="card">
-        <h3>Rapport de stage</h3>
-        <p class="muted">Rapport complet du stage de 1ère année.</p>
-        <a class="btn primary" href="assets/docs/Rapport-stage-1.pdf" target="_blank">
-          📄 Voir le rapport
-        </a>
+      <div class="doc-card dc-a1">
+        <h3>📄 Rapport de stage</h3>
+        <p>Rapport complet du stage de 1ère année — infrastructures réseau, dépannage utilisateur et bonnes pratiques en environnement hospitalier.</p>
+        <a class="btn p" href="Rapport de stage/Rapport Stage 1.3.pdf" target="_blank">Voir le rapport</a>
       </div>
 
-      <!-- Comptes rendus -->
-      <div class="card">
-        <h3>Comptes rendus hebdomadaires</h3>
-        <p class="muted">Semaines 1 à 8</p>
-
-        <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:10px;">
-          <a class="btn primary" href="assets/docs/Semaine%201.pdf" target="_blank">📄 Semaine 1</a>
-          <a class="btn primary" href="assets/docs/Semaine%202.pdf" target="_blank">📄 Semaine 2</a>
-          <a class="btn primary" href="assets/docs/Semaine%203.pdf" target="_blank">📄 Semaine 3</a>
-          <a class="btn primary" href="assets/docs/Semaine%204.pdf" target="_blank">📄 Semaine 4</a>
-          <a class="btn primary" href="assets/docs/Semaine%205.pdf" target="_blank">📄 Semaine 5</a>
-          <a class="btn primary" href="assets/docs/Semaine%206.pdf" target="_blank">📄 Semaine 6</a>
-          <a class="btn primary" href="assets/docs/Semaine%207.pdf" target="_blank">📄 Semaine 7</a>
-          <a class="btn primary" href="assets/docs/Semaine%208.pdf" target="_blank">📄 Semaine 8</a>
+      <div class="doc-card dc-a1">
+        <h3>📋 Comptes rendus hebdomadaires</h3>
+        <p>Semaines 1 à 8 — suivi hebdomadaire des activités réalisées durant le stage.</p>
+        <div class="weeks">
+          <a class="btn btn-sm" href="assets/docs/Semaine%201.pdf" target="_blank">📄 Semaine 1</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%202.pdf" target="_blank">📄 Semaine 2</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%203.pdf" target="_blank">📄 Semaine 3</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%204.pdf" target="_blank">📄 Semaine 4</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%205.pdf" target="_blank">📄 Semaine 5</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%206.pdf" target="_blank">📄 Semaine 6</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%207.pdf" target="_blank">📄 Semaine 7</a>
+          <a class="btn btn-sm" href="assets/docs/Semaine%208.pdf" target="_blank">📄 Semaine 8</a>
         </div>
       </div>
 
     </div>
-  </section>
 
-  <div class="hr" style="margin:28px 0;"></div>
+    <div class="divider"></div>
 
-  <!-- ===================== -->
-  <!-- 2e année -->
-  <!-- ===================== -->
-  <section>
-    <h2 class="h2">2e Année — Association AJL</h2>
-    <p class="muted" style="max-width:80ch;">
-      Référent informatique : mise en place de GLPI, documentation système
-      et rédaction de guides de sécurité.
-    </p>
+    <!-- ── 2ÈME ANNÉE ── -->
+    <div class="sh rv">
+      <div>
+        <span class="sh-num y2">2ème Année</span>
+      </div>
+      <div class="sh-info">
+        <span class="sh-title">Association AJL</span>
+        <span class="sh-sub">Référent informatique · GLPI · Sécurité</span>
+      </div>
+      <div class="sh-line"></div>
+    </div>
 
-    <div class="grid" style="margin-top:14px;">
+    <div class="grid-4 rv">
 
-      <div class="card">
-        <h3>Rapport de stage</h3>
-        <p class="muted">Rapport complet du stage de 2e année.</p>
-        <a class="btn primary" href="assets/docs/Rapport-stage-2.pdf" target="_blank">
-          📄 Voir le rapport
-        </a>
+      <div class="doc-card dc-a3">
+        <h3>📄 Rapport de stage</h3>
+        <p>Rapport complet du stage de 2ème année — mise en place de GLPI, documentation système et rédaction de guides de sécurité.</p>
+        <a class="btn t" href="Rapport de stage/2e Année/Guide Sécurité AJL.docx.pdf" target="_blank">Voir le rapport</a>
       </div>
 
-      <div class="card">
-        <h3>Guide installation GLPI</h3>
-        <p class="muted">Documentation d'installation et configuration.</p>
-        <a class="btn primary" href="assets/docs/Guide-GLPI.pdf" target="_blank">
-          📄 Lire le guide
-        </a>
+      <div class="doc-card dc-a3">
+        <h3>🔧 Guide d'installation GLPI</h3>
+        <p>Documentation complète d'installation et de configuration de GLPI au sein de l'association AJL.</p>
+        <a class="btn t" href="Rapport de stage/2e Année/__Guide d_Installation GLPI 1.1.docx.pdf" target="_blank">Lire le guide</a>
       </div>
 
-      <div class="card">
-        <h3>Guide sécurité informatique</h3>
-        <p class="muted">Bonnes pratiques et règles de sécurité.</p>
-        <a class="btn primary" href="assets/docs/Guide-securite.pdf" target="_blank">
-          📄 Consulter
-        </a>
+      <div class="doc-card dc-a3">
+        <h3>💻 Guide d'utilisation des postes</h3>
+        <p>Guide à destination des utilisateurs de l'association AJL pour la prise en main des postes informatiques.</p>
+        <a class="btn t" href="Rapport de stage/2e Année/Guide Utilisation Postes AJL 1.1.docx.pdf" target="_blank">Consulter</a>
+      </div>
+
+      <div class="doc-card dc-a3">
+        <h3>🛡️ Guide sécurité informatique</h3>
+        <p>Bonnes pratiques et règles de sécurité rédigées pour les utilisateurs de l'association AJL.</p>
+        <a class="btn t" href="Rapport de stage/2e Année/Guide Sécurité AJL.docx.pdf" target="_blank">Consulter</a>
       </div>
 
     </div>
-  </section>
 
-</main>
+  </div>
+</div>
 
-<script src="assets/script.js"></script>
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <strong>Marwan Malki</strong>
+        <p>BTS SIO SISR · Lycée Turgot · Paris</p>
+      </div>
+      <div class="foot-links">
+        <a href="index.html">Accueil</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <span class="foot-copy">© 2026 Marwan Malki</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('hbg').addEventListener('click', () => {
+  document.getElementById('nl').classList.toggle('open');
+});
+const rv = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => rv.observe(el));
+</script>
 </body>
 </html>
 
