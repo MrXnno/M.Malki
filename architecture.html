@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Architecture — Marwan Malki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#05070f; --card:rgba(12,17,36,.88); --bd:rgba(99,102,241,.14); --bh:rgba(99,102,241,.44);
+  --txt:#edf2ff; --txt2:#a8b8d8; --dim:#4a5880;
+  --a1:#6366f1; --a2:#ec4899; --a3:#14b8a6;
+  --mn:'Space Mono',monospace; --ez:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--txt); overflow-x:hidden; }
+a { color:inherit; text-decoration:none; }
+body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.022) 2px,rgba(0,0,0,.022) 4px); pointer-events:none; z-index:9999; }
+
+/* ORBS */
+.orb { position:fixed; border-radius:50%; filter:blur(110px); pointer-events:none; z-index:0; }
+.o1  { width:560px;height:560px; background:radial-gradient(circle,rgba(99,102,241,.26) 0%,transparent 65%); top:-200px;left:-160px; animation:o1 26s ease-in-out infinite; }
+.o2  { width:420px;height:420px; background:radial-gradient(circle,rgba(236,72,153,.16) 0%,transparent 65%); bottom:-140px;right:-140px; animation:o2 22s ease-in-out infinite; }
+@keyframes o1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(65px,-45px)} }
+@keyframes o2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-65px,50px)} }
+
+/* NAVBAR */
+.nav { position:fixed; top:0; left:0; right:0; z-index:300; height:56px; background:rgba(5,7,15,.9); backdrop-filter:blur(20px); border-bottom:1px solid var(--bd); }
+.nav::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%); opacity:.6; }
+.nb { max-width:1080px; margin:0 auto; padding:0 22px; height:100%; display:flex; align-items:center; justify-content:space-between; }
+.brand strong { display:block; font-family:'Syne',sans-serif; font-size:.92rem; font-weight:800; background:linear-gradient(135deg,var(--a1),var(--a2),var(--a3)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.brand span   { display:block; font-family:var(--mn); font-size:.56rem; color:var(--dim); letter-spacing:.08em; text-transform:uppercase; margin-top:1px; }
+.nlinks { display:flex; align-items:center; gap:1px; }
+.nlinks a { font-size:.72rem; font-weight:500; color:var(--dim); padding:5px 8px; border-radius:7px; border:1px solid transparent; transition:all .22s var(--ez); white-space:nowrap; }
+.nlinks a:hover { color:var(--txt); background:rgba(99,102,241,.09); border-color:rgba(99,102,241,.2); }
+.nlinks a.on  { color:var(--txt); background:rgba(99,102,241,.13); border-color:rgba(99,102,241,.34); }
+.hbg { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; background:none; border:none; }
+.hbg span { display:block; width:20px; height:2px; background:var(--txt2); border-radius:2px; }
+@media(max-width:960px) {
+  .nlinks { display:none; } .hbg { display:flex; }
+  .nlinks.open { display:flex; flex-direction:column; position:fixed; top:56px; left:0; right:0; background:rgba(5,7,15,.97); border-bottom:1px solid var(--bd); padding:12px 20px 18px; gap:3px; z-index:299; }
+  .nlinks.open a { padding:9px 13px; font-size:.78rem; }
+}
+
+/* WRAP */
+.wrap { max-width:1080px; margin:0 auto; padding:0 22px; position:relative; z-index:10; }
+
+/* PAGE HEADER */
+.page-hero { padding:120px 0 60px; border-bottom:1px solid var(--bd); }
+.h-tag { display:inline-flex; align-items:center; gap:7px; font-family:var(--mn); font-size:.66rem; color:var(--a1); background:rgba(99,102,241,.07); border:1px solid rgba(99,102,241,.2); border-radius:5px; padding:4px 12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; }
+.dot-g { width:7px; height:7px; border-radius:50%; background:var(--a3); animation:blink 1.4s ease-in-out infinite; flex-shrink:0; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.14} }
+.page-title { font-family:'Syne',sans-serif; font-size:clamp(2rem,4.5vw,3rem); font-weight:800; line-height:1.1; letter-spacing:-.025em; background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:14px; }
+.page-desc { font-size:.92rem; color:var(--txt2); line-height:1.8; max-width:520px; }
+
+/* SECTION */
+.section { padding:60px 0 80px; }
+.sec-label { font-family:var(--mn); font-size:.62rem; color:var(--dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
+.sec-title { font-family:'Syne',sans-serif; font-size:clamp(1.3rem,2.5vw,1.7rem); font-weight:800; letter-spacing:-.02em; background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:28px; }
+
+/* PDF VIEWER CARD */
+.pdf-card {
+  background:var(--card);
+  border:1px solid var(--bd);
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  transition:border-color .25s var(--ez), box-shadow .25s var(--ez);
+}
+.pdf-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3));
+}
+.pdf-card:hover {
+  border-color:var(--bh);
+  box-shadow:0 16px 48px rgba(99,102,241,.18);
+}
+
+.pdf-toolbar {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  border-bottom:1px solid var(--bd);
+  background:rgba(5,7,15,.5);
+  flex-wrap:wrap;
+  gap:10px;
+}
+.pdf-toolbar-left {
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.pdf-icon {
+  width:32px; height:32px;
+  background:linear-gradient(135deg,var(--a1),var(--a2));
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:.9rem;
+  flex-shrink:0;
+}
+.pdf-name {
+  font-family:var(--mn);
+  font-size:.7rem;
+  color:var(--txt);
+  font-weight:700;
+}
+.pdf-sub {
+  font-family:var(--mn);
+  font-size:.58rem;
+  color:var(--dim);
+  margin-top:2px;
+}
+.pdf-toolbar-right {
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+/* BOUTONS */
+.btn { display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:9px; border:1px solid rgba(99,102,241,.26); background:rgba(99,102,241,.07); color:var(--txt); font-family:'Inter',sans-serif; font-size:.78rem; font-weight:600; cursor:pointer; position:relative; overflow:hidden; transition:transform .22s var(--ez),background .22s,border-color .22s,box-shadow .22s; white-space:nowrap; }
+.btn::before { content:''; position:absolute; top:0; left:-100%; width:55%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent); transition:left .5s var(--ez); }
+.btn:hover::before { left:150%; }
+.btn:hover { transform:translateY(-2px); border-color:rgba(99,102,241,.48); background:rgba(99,102,241,.13); box-shadow:0 6px 22px rgba(99,102,241,.2); }
+.btn.p { background:linear-gradient(135deg,var(--a1),var(--a2)); border-color:transparent; color:#fff; box-shadow:0 5px 20px rgba(99,102,241,.36); }
+.btn.p:hover { box-shadow:0 10px 34px rgba(99,102,241,.5); filter:brightness(1.07); }
+
+/* PDF EMBED */
+.pdf-embed-wrap {
+  width:100%;
+  background:#0a0d1a;
+  position:relative;
+}
+.pdf-embed-wrap iframe {
+  width:100%;
+  height:780px;
+  border:none;
+  display:block;
+}
+.pdf-fallback {
+  display:none;
+  padding:60px 24px;
+  text-align:center;
+}
+.pdf-fallback p {
+  font-family:var(--mn);
+  font-size:.75rem;
+  color:var(--txt2);
+  margin-bottom:18px;
+}
+
+/* INFO CARDS */
+.info-grid {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:32px;
+}
+@media(max-width:700px) { .info-grid { grid-template-columns:1fr; } }
+.info-card {
+  background:var(--card);
+  border:1px solid var(--bd);
+  border-radius:14px;
+  padding:20px 18px;
+  position:relative;
+  overflow:hidden;
+  transition:border-color .25s var(--ez), transform .25s var(--ez), box-shadow .25s var(--ez);
+}
+.info-card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg,var(--a1),var(--a2));
+  transform:scaleX(0);
+  transition:transform .25s var(--ez);
+}
+.info-card:hover::before { transform:scaleX(1); }
+.info-card:hover {
+  border-color:var(--bh);
+  transform:translateY(-4px);
+  box-shadow:0 10px 32px rgba(99,102,241,.16);
+}
+.info-ico { font-size:1.4rem; margin-bottom:10px; }
+.info-label { font-family:var(--mn); font-size:.6rem; color:var(--dim); letter-spacing:.08em; text-transform:uppercase; margin-bottom:5px; }
+.info-val { font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700; color:var(--txt); }
+.info-desc { font-size:.78rem; color:var(--txt2); margin-top:4px; line-height:1.6; }
+
+/* REVEAL */
+.rv { opacity:0; transform:translateY(20px); transition:opacity .6s var(--ez),transform .6s var(--ez); }
+.rv.on { opacity:1; transform:translateY(0); }
+.rv2 { opacity:0; transform:translateY(20px); transition:opacity .6s var(--ez) .15s,transform .6s var(--ez) .15s; }
+.rv2.on { opacity:1; transform:translateY(0); }
+
+/* FOOTER */
+footer { border-top:1px solid var(--bd); }
+.foot-inner { padding:22px 0; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
+.foot-brand strong { font-family:'Syne',sans-serif; font-size:.88rem; font-weight:800; background:linear-gradient(135deg,var(--a1),var(--a2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.foot-brand p { font-family:var(--mn); font-size:.58rem; color:var(--dim); margin-top:2px; }
+.foot-links { display:flex; gap:14px; }
+.foot-links a { font-family:var(--mn); font-size:.62rem; color:var(--dim); transition:color .2s; }
+.foot-links a:hover { color:var(--a1); }
+.foot-copy { font-family:var(--mn); font-size:.6rem; color:var(--dim); }
+
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="orb o1"></div>
+<div class="orb o2"></div>
+
+<header class="nav">
+  <div class="nb">
+    <a class="brand" href="index.html">
+      <strong>Marwan Malki</strong>
+      <span>BTS SIO · SISR</span>
+    </a>
+    <nav class="nlinks" id="nl">
+      <a href="index.html">Accueil</a>
+      <a href="tableau-synthese.html">Tableau de Synthèse</a>
+      <a href="veille.html">Veille</a>
+      <a href="certifications.html">Certifications</a>
+      <a href="competences.html">Compétences</a>
+      <a href="parcours-scolaire.html">Parcours Scolaire</a>
+      <a href="projets.html">Projets</a>
+      <a href="stage.html">Stage</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="wrap">
+    <div class="h-tag"><span class="dot-g"></span>Infrastructure · Proxmox · 2024–2026</div>
+    <h1 class="page-title">Architecture Réseau</h1>
+    <p class="page-desc">
+      Schéma de l'infrastructure virtuelle déployée sous Proxmox VE dans le cadre de mon BTS SIO SISR — virtualisation, segmentation réseau et services administrés.
+    </p>
+  </div>
+</section>
+
+<!-- MAIN SECTION -->
+<section class="section rv">
+  <div class="wrap">
+    <div class="sec-label">Schéma</div>
+    <h2 class="sec-title">Infrastructure Proxmox</h2>
+
+    <!-- PDF Card -->
+    <div class="pdf-card">
+      <div class="pdf-toolbar">
+        <div class="pdf-toolbar-left">
+          <div class="pdf-icon">📐</div>
+          <div>
+            <div class="pdf-name">Proxmox Marwan — Schéma d'architecture</div>
+            <div class="pdf-sub">Format PDF · Schéma réseau complet</div>
+          </div>
+        </div>
+        <div class="pdf-toolbar-right">
+          <a class="btn" href="assets/Proxmox Marwan Shema.odg.pdf" target="_blank">
+            ↗ Ouvrir dans un nouvel onglet
+          </a>
+          <a class="btn p" href="assets/Proxmox Marwan Shema.odg.pdf" download>
+            ↓ Télécharger
+          </a>
+        </div>
+      </div>
+      <div class="pdf-embed-wrap">
+        <iframe
+          src="assets/Proxmox Marwan Shema.odg.pdf"
+          title="Schéma architecture Proxmox Marwan"
+          allowfullscreen
+          id="pdfFrame"
+        ></iframe>
+        <div class="pdf-fallback" id="pdfFallback">
+          <p>Le PDF ne s'affiche pas dans votre navigateur.</p>
+          <a class="btn p" href="assets/Proxmox Marwan Shema.odg.pdf" target="_blank">Ouvrir le schéma →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Info cards -->
+    <div class="info-grid rv2">
+      <div class="info-card">
+        <div class="info-ico">🖥️</div>
+        <div class="info-label">Hyperviseur</div>
+        <div class="info-val">Proxmox VE</div>
+        <div class="info-desc">Virtualisation type 1 — gestion des VMs et conteneurs LXC.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-ico">🌐</div>
+        <div class="info-label">Réseau</div>
+        <div class="info-val">Segmentation VLAN</div>
+        <div class="info-desc">Isolation des environnements par VLAN pour la sécurité et la gestion du trafic.</div>
+      </div>
+      <div class="info-card">
+        <div class="info-ico">🛡️</div>
+        <div class="info-label">Sécurité</div>
+        <div class="info-val">Pare-feu & ACL</div>
+        <div class="info-desc">Règles de filtrage appliquées entre les zones réseau définies.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <strong>Marwan Malki</strong>
+        <p>BTS SIO SISR · Lycée Turgot · Paris</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/marwan-5b2794337/" target="_blank">LinkedIn</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <span class="foot-copy">© 2026 Marwan Malki</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+document.getElementById('hbg').addEventListener('click', () => {
+  document.getElementById('nl').classList.toggle('open');
+});
+
+// Reveal on scroll
+const rv = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv, .rv2').forEach(el => rv.observe(el));
+
+// PDF fallback: if iframe fails to load, show fallback button
+const frame = document.getElementById('pdfFrame');
+const fallback = document.getElementById('pdfFallback');
+frame.addEventListener('error', () => {
+  frame.style.display = 'none';
+  fallback.style.display = 'block';
+});
+// Timeout fallback for browsers that don't fire error events on iframes
+setTimeout(() => {
+  try {
+    if (!frame.contentDocument && !frame.contentWindow) {
+      frame.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+  } catch(e) { /* cross-origin, PDF probably loaded fine */ }
+}, 3000);
+</script>
+</body>
+</html>
