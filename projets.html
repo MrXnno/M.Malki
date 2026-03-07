@@ -35,16 +35,17 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 /* NAVBAR */
 .nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;background:rgba(5,7,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
 .nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%);opacity:.6}
-.nb{max-width:1080px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between}
+.nb{max-width:1200px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{flex-shrink:0}
 .brand strong{display:block;font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .brand span{display:block;font-family:var(--mn);font-size:.56rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
 .nlinks{display:flex;align-items:center;gap:1px}
-.nlinks a{font-size:.72rem;font-weight:500;color:var(--dim);padding:5px 8px;border-radius:7px;border:1px solid transparent;transition:all .22s var(--ez);white-space:nowrap}
+.nlinks a{font-size:.63rem;font-weight:500;color:var(--dim);padding:5px 6px;border-radius:7px;border:1px solid transparent;transition:all .22s var(--ez);white-space:nowrap}
 .nlinks a:hover{color:var(--txt);background:rgba(99,102,241,.09);border-color:rgba(99,102,241,.2)}
 .nlinks a.on{color:var(--txt);background:rgba(99,102,241,.13);border-color:rgba(99,102,241,.34)}
-.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;flex-shrink:0}
 .hbg span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px}
-@media(max-width:960px){
+@media(max-width:1100px){
   .nlinks{display:none}.hbg{display:flex}
   .nlinks.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(5,7,15,.97);border-bottom:1px solid var(--bd);padding:12px 20px 18px;gap:3px;z-index:299}
   .nlinks.open a{padding:9px 13px;font-size:.78rem}
@@ -69,14 +70,13 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .proj:hover::before{transform:scaleY(1)}
 .proj:hover{border-color:var(--bh);transform:translateX(4px)}
 
-.proj-c1::before{background:linear-gradient(180deg,var(--a1),var(--a2))}
-.proj-c2::before{background:linear-gradient(180deg,var(--a2),var(--a4))}
-.proj-c3::before{background:linear-gradient(180deg,var(--a3),var(--a1))}
+.proj-c1::before{background:linear-gradient(180deg,var(--a2),var(--a4))}
+.proj-c2::before{background:linear-gradient(180deg,var(--a3),var(--a1))}
+.proj-c3::before{background:linear-gradient(180deg,var(--a1),var(--a2))}
 
 .proj-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap}
 .proj-left{display:flex;align-items:center;gap:14px}
 .proj-ico{font-size:1.8rem;flex-shrink:0}
-.proj-meta{}
 .proj-num{font-family:var(--mn);font-size:.6rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px}
 .proj-title{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--txt)}
 
@@ -97,6 +97,8 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .btn::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transition:left .5s var(--ez)}
 .btn:hover::before{left:150%}
 .btn:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.48);background:rgba(99,102,241,.13);box-shadow:0 5px 18px rgba(99,102,241,.18)}
+.btn.gantt{border-color:rgba(99,102,241,.4);background:rgba(99,102,241,.12);color:var(--a1)}
+.btn.gantt:hover{background:rgba(99,102,241,.22);box-shadow:0 5px 18px rgba(99,102,241,.28)}
 
 /* FOOTER */
 footer{border-top:1px solid var(--bd);margin-top:40px}
@@ -130,11 +132,12 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
       <a href="index.html">Accueil</a>
       <a href="tableau-synthese.html">Tableau de Synthèse</a>
       <a href="veille.html">Veille</a>
-      <a href="competences.html">Compétences</a>
       <a href="certifications.html">Certifications</a>
+      <a href="competences.html">Compétences</a>
       <a href="parcours-scolaire.html">Parcours Scolaire</a>
       <a href="projets.html" class="on">Projets</a>
       <a href="stage.html">Stage</a>
+      <a href="architecture.html">Architecture</a>
       <a href="contact.html">Contact</a>
     </nav>
     <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -152,21 +155,80 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
 
     <div class="projects">
 
-      <!-- PROJET 1 — MAIRIE -->
+      <!-- PROJET 1 — SHOPTAPLACE -->
       <div class="proj proj-c1 rv">
+        <div class="proj-head">
+          <div class="proj-left">
+            <span class="proj-ico">🎬</span>
+            <div class="proj-meta">
+              <div class="proj-num">Projet 01 · BTS SIO SISR</div>
+              <div class="proj-title">ShopTaPlace — Réservation de places de cinéma</div>
+            </div>
+          </div>
+          <span class="proj-badge badge-web">Site Web</span>
+        </div>
+        <p class="proj-desc">
+          Création d'un site web de réservation de places de cinéma — ShopTaPlace.
+          Conception de l'interface utilisateur, gestion des séances et des réservations,
+          mise en place d'une base de données et développement du système de paiement en ligne.
+        </p>
+        <div class="proj-tags">
+          <span class="ptag">HTML / CSS</span>
+          <span class="ptag">JavaScript</span>
+          <span class="ptag">MySQL</span>
+          <span class="ptag">Réservation en ligne</span>
+          <span class="ptag">Base de données</span>
+        </div>
+        <div class="proj-docs">
+          <a class="btn gantt" href="assets/Gantt_ShopTaPlace.pptx" download>📊 Diagramme de Gantt</a>
+        </div>
+      </div>
+
+      <!-- PROJET 2 — RÉHABILITATION SURFACE HUB -->
+      <div class="proj proj-c2 rv">
+        <div class="proj-head">
+          <div class="proj-left">
+            <span class="proj-ico">🏥</span>
+            <div class="proj-meta">
+              <div class="proj-num">Projet 02 · Stage 1ère année</div>
+              <div class="proj-title">Réhabilitation Surface Hub — Hôpital Lariboisière</div>
+            </div>
+          </div>
+          <span class="proj-badge badge-stage">Stage · Lariboisière</span>
+        </div>
+        <p class="proj-desc">
+          Dans le cadre de mon stage de 1ère année à l'Hôpital Lariboisière, réhabilitation complète
+          de Surface Hub en fin de vie. Diagnostic du matériel, réinitialisation du système,
+          reconfiguration réseau et déploiement dans les salles de réunion du service informatique.
+        </p>
+        <div class="proj-tags">
+          <span class="ptag">Surface Hub</span>
+          <span class="ptag">Windows</span>
+          <span class="ptag">Configuration réseau</span>
+          <span class="ptag">Déploiement</span>
+          <span class="ptag">Support matériel</span>
+          <span class="ptag">Environnement hospitalier</span>
+        </div>
+        <div class="proj-docs">
+          <a class="btn gantt" href="assets/Gantt_SurfaceHub.pptx" download>📊 Diagramme de Gantt</a>
+        </div>
+      </div>
+
+      <!-- PROJET 3 — MAIRIE MAISONS-ALFORT -->
+      <div class="proj proj-c3 rv">
         <div class="proj-head">
           <div class="proj-left">
             <span class="proj-ico">🏛️</span>
             <div class="proj-meta">
-              <div class="proj-num">Projet 01 · BTS SIO SISR</div>
+              <div class="proj-num">Projet 03 · BTS SIO SISR</div>
               <div class="proj-title">Projet Mairie — Maisons-Alfort</div>
             </div>
           </div>
           <span class="proj-badge badge-sisr">Réseau & Infrastructure</span>
         </div>
         <p class="proj-desc">
-          Mise en place et sécurisation d'une architecture réseau complète pour la mairie de Maisons-Alfort. 
-          Configuration de VLAN, routage inter-VLAN, port-security, syslog et redondance. 
+          Mise en place et sécurisation d'une architecture réseau complète pour la mairie de Maisons-Alfort.
+          Configuration de VLAN, routage inter-VLAN, port-security, syslog et redondance.
           Suivi rigoureux du projet via sprints, diagramme de Gantt et journal de bord.
         </p>
         <div class="proj-tags">
@@ -179,68 +241,10 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
           <span class="ptag">Gestion de projet</span>
         </div>
         <div class="proj-docs">
-          <a class="btn" href="assets/Sprint .pdf" target="_blank">📄 Sprint</a>
-          <a class="btn" href="assets/Gant.png" target="_blank">🗓️ Diagramme de Gantt</a>
+          <a class="btn" href="assets/Sprint.pdf" target="_blank">📄 Sprint</a>
+          <a class="btn" href="assets/Gant.png" target="_blank">🗓️ Gantt original</a>
+          <a class="btn gantt" href="assets/Gantt_Mairie.pptx" download>📊 Diagramme de Gantt</a>
           <a class="btn" href="assets/Journal de bord.pdf" target="_blank">📝 Journal de bord</a>
-        </div>
-      </div>
-
-      <!-- PROJET 2 — SHOPTAPLACE -->
-      <div class="proj proj-c2 rv">
-        <div class="proj-head">
-          <div class="proj-left">
-            <span class="proj-ico">🎬</span>
-            <div class="proj-meta">
-              <div class="proj-num">Projet 02 · BTS SIO SISR</div>
-              <div class="proj-title">ShopTaPlace — Réservation de places de cinéma</div>
-            </div>
-          </div>
-          <span class="proj-badge badge-web">Site Web</span>
-        </div>
-        <p class="proj-desc">
-          Création d'un site web de réservation de places de cinéma — ShopTaPlace. 
-          Conception de l'interface utilisateur, gestion des séances et des réservations, 
-          mise en place d'une base de données et développement du système de paiement en ligne.
-        </p>
-        <div class="proj-tags">
-          <span class="ptag">HTML / CSS</span>
-          <span class="ptag">JavaScript</span>
-          <span class="ptag">MySQL</span>
-          <span class="ptag">Réservation en ligne</span>
-          <span class="ptag">Base de données</span>
-        </div>
-        <div class="proj-docs">
-          <!-- Ajoute tes fichiers ici quand disponibles -->
-        </div>
-      </div>
-
-      <!-- PROJET 3 — RÉHABILITATION SURFACE HUB -->
-      <div class="proj proj-c3 rv">
-        <div class="proj-head">
-          <div class="proj-left">
-            <span class="proj-ico">🏥</span>
-            <div class="proj-meta">
-              <div class="proj-num">Projet 03 · Stage 1ère année</div>
-              <div class="proj-title">Réhabilitation Surface Hub — Hôpital Lariboisière</div>
-            </div>
-          </div>
-          <span class="proj-badge badge-stage">Stage · Lariboisière</span>
-        </div>
-        <p class="proj-desc">
-          Dans le cadre de mon stage de 1ère année à l'Hôpital Lariboisière, réhabilitation complète 
-          de Surface Hub en fin de vie. Diagnostic du matériel, réinitialisation du système, 
-          reconfiguration réseau et déploiement dans les salles de réunion du service informatique.
-        </p>
-        <div class="proj-tags">
-          <span class="ptag">Surface Hub</span>
-          <span class="ptag">Windows</span>
-          <span class="ptag">Configuration réseau</span>
-          <span class="ptag">Déploiement</span>
-          <span class="ptag">Support matériel</span>
-          <span class="ptag">Environnement hospitalier</span>
-        </div>
-        <div class="proj-docs">
-          <!-- Ajoute tes fichiers ici quand disponibles -->
         </div>
       </div>
 
@@ -275,7 +279,5 @@ document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 </script>
 </body>
 </html>
-
-
 
 
