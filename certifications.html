@@ -1,121 +1,270 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Certifications — Marwan Malki</title>
-  <link rel="stylesheet" href="assets/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Certifications — Marwan Malki</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#05070f; --card:rgba(12,17,36,.88); --bd:rgba(99,102,241,.14); --bh:rgba(99,102,241,.44);
+  --txt:#edf2ff; --txt2:#a8b8d8; --dim:#4a5880;
+  --a1:#6366f1; --a2:#ec4899; --a3:#14b8a6; --a4:#f97316;
+  --mn:'Space Mono',monospace; --ez:cubic-bezier(.4,0,.2,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.022) 2px,rgba(0,0,0,.022) 4px);pointer-events:none;z-index:9999}
+
+/* ORBS */
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+.o1{width:560px;height:560px;background:radial-gradient(circle,rgba(99,102,241,.26) 0%,transparent 65%);top:-200px;left:-160px;animation:o1 26s ease-in-out infinite}
+.o2{width:420px;height:420px;background:radial-gradient(circle,rgba(236,72,153,.16) 0%,transparent 65%);bottom:-140px;right:-140px;animation:o2 22s ease-in-out infinite}
+@keyframes o1{0%,100%{transform:translate(0,0)}50%{transform:translate(65px,-45px)}}
+@keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-65px,50px)}}
+
+/* NAVBAR */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;background:rgba(5,7,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
+.nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%);opacity:.6}
+.nb{max-width:1200px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.brand{flex-shrink:0}
+.brand strong{display:block;font-family:'Syne',sans-serif;font-size:.92rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2),var(--a3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.brand span{display:block;font-family:var(--mn);font-size:.56rem;color:var(--dim);letter-spacing:.08em;text-transform:uppercase;margin-top:1px}
+.nlinks{display:flex;align-items:center;gap:1px}
+.nlinks a{font-size:.63rem;font-weight:500;color:var(--dim);padding:5px 6px;border-radius:7px;border:1px solid transparent;transition:all .22s var(--ez);white-space:nowrap}
+.nlinks a:hover{color:var(--txt);background:rgba(99,102,241,.09);border-color:rgba(99,102,241,.2)}
+.nlinks a.on{color:var(--txt);background:rgba(99,102,241,.13);border-color:rgba(99,102,241,.34)}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;flex-shrink:0}
+.hbg span{display:block;width:20px;height:2px;background:var(--txt2);border-radius:2px}
+@media(max-width:1100px){
+  .nlinks{display:none}.hbg{display:flex}
+  .nlinks.open{display:flex;flex-direction:column;position:fixed;top:56px;left:0;right:0;background:rgba(5,7,15,.97);border-bottom:1px solid var(--bd);padding:12px 20px 18px;gap:3px;z-index:299}
+  .nlinks.open a{padding:9px 13px;font-size:.78rem}
+}
+
+/* WRAP */
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:10}
+.container{padding-top:56px;padding-bottom:80px}
+
+/* PAGE HERO */
+.page-hero{padding:60px 0 48px}
+.dot-g{width:7px;height:7px;border-radius:50%;background:var(--a3);animation:blink 1.4s ease-in-out infinite;display:inline-block;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.14}}
+.h-tag{display:inline-flex;align-items:center;gap:7px;font-family:var(--mn);font-size:.66rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);border-radius:5px;padding:4px 12px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+.page-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-.025em;background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
+.page-sub{font-size:.9rem;color:var(--txt2);line-height:1.75;max-width:580px}
+
+/* CERT GRID */
+.cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+@media(max-width:860px){.cert-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:540px){.cert-grid{grid-template-columns:1fr}}
+
+.cert-card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:28px 22px 22px;display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden;transition:border-color .25s var(--ez),transform .25s var(--ez),box-shadow .25s var(--ez)}
+.cert-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--a1),var(--a2));transform:scaleX(0);transition:transform .28s var(--ez)}
+.cert-card:hover::before{transform:scaleX(1)}
+.cert-card:hover{border-color:var(--bh);transform:translateY(-5px);box-shadow:0 14px 40px rgba(99,102,241,.18)}
+
+.cert-card.cisco{--c1:var(--a1);--c2:var(--a3)}
+.cert-card.pix   {--c1:var(--a2);--c2:var(--a4)}
+.cert-card.cisco::before{background:linear-gradient(90deg,var(--a1),var(--a3))}
+.cert-card.pix::before  {background:linear-gradient(90deg,var(--a2),var(--a4))}
+
+.cert-ico{font-size:2rem;margin-bottom:4px}
+.cert-platform{display:inline-flex;align-items:center;gap:5px;font-family:var(--mn);font-size:.58rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.18);border-radius:4px;padding:3px 9px;letter-spacing:.06em;text-transform:uppercase;width:fit-content}
+.cert-card.pix .cert-platform{color:var(--a2);background:rgba(236,72,153,.07);border-color:rgba(236,72,153,.18)}
+.cert-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--txt);line-height:1.3}
+.cert-status{display:inline-flex;align-items:center;gap:6px;font-family:var(--mn);font-size:.62rem;color:var(--a3);margin-top:2px}
+.cert-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--a3);animation:blink 1.4s ease-in-out infinite;flex-shrink:0}
+
+.cert-actions{display:flex;flex-direction:column;gap:8px;margin-top:auto;padding-top:8px}
+
+/* BOUTONS */
+.btn{display:inline-flex;align-items:center;gap:7px;padding:8px 15px;border-radius:8px;border:1px solid rgba(99,102,241,.26);background:rgba(99,102,241,.07);color:var(--txt);font-family:'Inter',sans-serif;font-size:.78rem;font-weight:600;cursor:pointer;position:relative;overflow:hidden;transition:transform .22s var(--ez),background .22s,border-color .22s,box-shadow .22s;text-decoration:none;white-space:nowrap;width:100%;justify-content:center}
+.btn::before{content:'';position:absolute;top:0;left:-100%;width:55%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transition:left .5s var(--ez)}
+.btn:hover::before{left:150%}
+.btn:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.48);background:rgba(99,102,241,.13);box-shadow:0 5px 18px rgba(99,102,241,.18)}
+.btn.p{background:linear-gradient(135deg,var(--a1),var(--a2));border-color:transparent;color:#fff;box-shadow:0 5px 20px rgba(99,102,241,.3)}
+.btn.p:hover{box-shadow:0 10px 34px rgba(99,102,241,.5);filter:brightness(1.07)}
+.btn.ghost{border-color:rgba(99,102,241,.2);background:transparent}
+
+/* TABLE */
+.sec-label{font-family:var(--mn);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;margin-top:56px}
+.sec-title{font-family:'Syne',sans-serif;font-size:clamp(1.3rem,2.5vw,1.7rem);font-weight:800;letter-spacing:-.02em;background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px}
+
+.tbl-wrap{border:1px solid var(--bd);border-radius:14px;overflow:hidden;margin-top:20px}
+table{width:100%;border-collapse:collapse}
+thead{background:rgba(99,102,241,.08)}
+thead th{font-family:var(--mn);font-size:.62rem;color:var(--a1);text-transform:uppercase;letter-spacing:.08em;padding:13px 18px;text-align:left;border-bottom:1px solid var(--bd)}
+tbody tr{border-bottom:1px solid var(--bd);transition:background .18s}
+tbody tr:last-child{border-bottom:none}
+tbody tr:hover{background:rgba(99,102,241,.04)}
+tbody td{font-size:.84rem;color:var(--txt2);padding:13px 18px;vertical-align:middle}
+tbody td:first-child{color:var(--txt);font-weight:500}
+.badge-valid{display:inline-flex;align-items:center;gap:5px;font-family:var(--mn);font-size:.58rem;color:var(--a3);background:rgba(20,184,166,.08);border:1px solid rgba(20,184,166,.2);border-radius:4px;padding:3px 9px}
+.tbl-link{color:var(--a1);font-family:var(--mn);font-size:.66rem;text-decoration:none;transition:color .18s}
+.tbl-link:hover{color:var(--a2)}
+
+/* FOOTER */
+footer{border-top:1px solid var(--bd);margin-top:60px}
+.foot-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.foot-brand strong{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.foot-brand p{font-family:var(--mn);font-size:.58rem;color:var(--dim);margin-top:2px}
+.foot-links{display:flex;gap:14px}
+.foot-links a{font-family:var(--mn);font-size:.62rem;color:var(--dim);transition:color .2s}
+.foot-links a:hover{color:var(--a1)}
+.foot-copy{font-family:var(--mn);font-size:.6rem;color:var(--dim)}
+
+.rv{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ez),transform .6s var(--ez)}
+.rv.on{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
 </head>
 <body>
 
-<header class="nav">
-  <div class="navbar">
-    <div class="brand"><strong>Marwan Malki</strong></div>
+<div class="orb o1"></div>
+<div class="orb o2"></div>
 
-    <nav class="navlinks">
+<header class="nav">
+  <div class="nb">
+    <a class="brand" href="index.html">
+      <strong>Marwan Malki</strong>
+      <span>BTS SIO · SISR</span>
+    </a>
+    <nav class="nlinks" id="nl">
       <a href="index.html">Accueil</a>
       <a href="tableau-synthese.html">Tableau de Synthèse</a>
       <a href="veille.html">Veille</a>
-      <a href="architecture.html">Architecture</a>
-      <a href="certifications.html">Certifications</a>
+      <a href="certifications.html" class="on">Certifications</a>
       <a href="competences.html">Compétences</a>
       <a href="parcours-scolaire.html">Parcours Scolaire</a>
       <a href="projets.html">Projets</a>
       <a href="stage.html">Stage</a>
+      <a href="architecture.html">Architecture</a>
       <a href="contact.html">Contact</a>
     </nav>
+    <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main class="container">
-  <h1 class="h1">Certifications</h1>
+<div class="container">
+  <div class="wrap">
 
-  <p class="muted" style="max-width:72ch; margin-top:10px;">
-    Les certifications listées ci-dessous sont accompagnées de leurs badges officiels
-    afin de garantir leur authenticité.
-  </p>
-
-  <div class="cert-container" style="margin-top:30px;">
-
-    <!-- CISCO BASE RÉSEAUX -->
-    <div class="cert-card">
-      <div class="cert-icon">💻</div>
-      <h3>Cisco – Notions de base sur les réseaux</h3>
-      <p class="cert-platform">Cisco</p>
-      <p class="cert-status">Certificat validé</p>
-
-      <a class="btn primary" href="assets/Cisco Base Reseau.pdf" target="_blank">
-        📄 Voir le certificat
-      </a>
-
-      <a class="btn ghost" href="https://www.credly.com/badges/d6f40129-4382-4de8-890e-1c6bf279a682" target="_blank" rel="noopener">
-        🔗 Badge officiel (Credly)
-      </a>
+    <div class="page-hero">
+      <div class="h-tag"><span class="dot-g"></span>Cisco · PIX · 2024–2026</div>
+      <h1 class="page-title">Certifications</h1>
+      <p class="page-sub">Les certifications listées ci-dessous sont accompagnées de leurs badges officiels afin de garantir leur authenticité.</p>
     </div>
 
-    <!-- CISCO PACKET TRACER -->
-    <div class="cert-card">
-      <div class="cert-icon">🖧</div>
-      <h3>Cisco – Introduction to Packet Tracer</h3>
-      <p class="cert-platform">Cisco</p>
-      <p class="cert-status">Certificat validé</p>
+    <!-- CARTES -->
+    <div class="cert-grid">
 
-      <a class="btn primary" href="assets/Cisco Paquet Tracer.pdf" target="_blank">
-        📄 Voir le certificat
-      </a>
+      <!-- CISCO BASE RÉSEAUX -->
+      <div class="cert-card cisco rv">
+        <div class="cert-ico">💻</div>
+        <span class="cert-platform">Cisco</span>
+        <div class="cert-title">Notions de base sur les réseaux</div>
+        <div class="cert-status">Certificat validé</div>
+        <div class="cert-actions">
+          <a class="btn p" href="assets/Cisco Base Reseau.pdf" target="_blank">📄 Voir le certificat</a>
+          <a class="btn ghost" href="https://www.credly.com/badges/d6f40129-4382-4de8-890e-1c6bf279a682" target="_blank" rel="noopener">🔗 Badge Credly</a>
+        </div>
+      </div>
 
-      <a class="btn ghost" href="https://www.credly.com/badges/d82b8191-3f37-48ae-a31d-ad7eca1a36e8" target="_blank" rel="noopener">
-        🔗 Badge officiel (Credly)
-      </a>
+      <!-- CISCO PACKET TRACER -->
+      <div class="cert-card cisco rv">
+        <div class="cert-ico">🖧</div>
+        <span class="cert-platform">Cisco</span>
+        <div class="cert-title">Introduction to Packet Tracer</div>
+        <div class="cert-status">Certificat validé</div>
+        <div class="cert-actions">
+          <a class="btn p" href="assets/Cisco Paquet Tracer.pdf" target="_blank">📄 Voir le certificat</a>
+          <a class="btn ghost" href="https://www.credly.com/badges/d82b8191-3f37-48ae-a31d-ad7eca1a36e8" target="_blank" rel="noopener">🔗 Badge Credly</a>
+        </div>
+      </div>
+
+      <!-- PIX -->
+      <div class="cert-card pix rv">
+        <div class="cert-ico">🎓</div>
+        <span class="cert-platform">pix.fr</span>
+        <div class="cert-title">PIX — Certification numérique</div>
+        <div class="cert-status">Certificat validé</div>
+        <div class="cert-actions">
+          <a class="btn p" href="assets/certification-pix.pdf" target="_blank">📄 Voir le certificat</a>
+        </div>
+      </div>
+
     </div>
 
-    <!-- PIX -->
-    <div class="cert-card cert-pix">
-      <div class="cert-icon">🎓</div>
-      <h3>PIX</h3>
-      <p class="cert-platform">pix.fr</p>
-      <p class="cert-status">Certificat validé</p>
-
-      <a class="btn primary" href="assets/certification-pix.pdf" target="_blank">
-        📄 Voir le certificat
-      </a>
+    <!-- TABLEAU -->
+    <div class="rv">
+      <div class="sec-label">Récapitulatif</div>
+      <div class="sec-title">Tableau des certifications</div>
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Certification</th>
+              <th>Plateforme</th>
+              <th>Statut</th>
+              <th>Authenticité</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Cisco – Notions de base sur les réseaux</td>
+              <td>Cisco</td>
+              <td><span class="badge-valid">✓ Validée</span></td>
+              <td><a class="tbl-link" href="https://www.credly.com/badges/d6f40129-4382-4de8-890e-1c6bf279a682" target="_blank">Badge Credly →</a></td>
+            </tr>
+            <tr>
+              <td>Cisco – Introduction to Packet Tracer</td>
+              <td>Cisco</td>
+              <td><span class="badge-valid">✓ Validée</span></td>
+              <td><a class="tbl-link" href="https://www.credly.com/badges/d82b8191-3f37-48ae-a31d-ad7eca1a36e8" target="_blank">Badge Credly →</a></td>
+            </tr>
+            <tr>
+              <td>PIX — Certification numérique</td>
+              <td>pix.fr</td>
+              <td><span class="badge-valid">✓ Validée</span></td>
+              <td>—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </div>
+</div>
 
-  <!-- TABLEAU -->
-  <table class="table" style="margin-top:40px;">
-    <tr>
-      <th>Nom</th>
-      <th>Plateforme</th>
-      <th>Statut</th>
-      <th>Authenticité</th>
-    </tr>
-    <tr>
-      <td>Cisco – Notions de base sur les réseaux</td>
-      <td>Cisco</td>
-      <td>✓ Validée</td>
-      <td><a href="https://www.credly.com/badges/d6f40129-4382-4de8-890e-1c6bf279a682" target="_blank">Badge Credly</a></td>
-    </tr>
-    <tr>
-      <td>Cisco – Introduction to Packet Tracer</td>
-      <td>Cisco</td>
-      <td>✓ Validée</td>
-      <td><a href="https://www.credly.com/badges/d82b8191-3f37-48ae-a31d-ad7eca1a36e8" target="_blank">Badge Credly</a></td>
-    </tr>
-    <tr>
-      <td>PIX</td>
-      <td>pix.fr</td>
-      <td>✓ Validée</td>
-      <td>—</td>
-    </tr>
-  </table>
+<footer>
+  <div class="wrap">
+    <div class="foot-inner">
+      <div class="foot-brand">
+        <strong>Marwan Malki</strong>
+        <p>BTS SIO SISR · Lycée Turgot · Paris</p>
+      </div>
+      <div class="foot-links">
+        <a href="https://www.linkedin.com/in/marwan-5b2794337/" target="_blank">LinkedIn</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <span class="foot-copy">© 2026 Marwan Malki</span>
+    </div>
+  </div>
+</footer>
 
-</main>
-
-<script src="assets/script.js"></script>
+<script>
+document.getElementById('hbg').addEventListener('click', () => {
+  document.getElementById('nl').classList.toggle('open');
+});
+const rv = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.rv').forEach(el => rv.observe(el));
+</script>
 </body>
 </html>
-
 
 
