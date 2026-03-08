@@ -122,9 +122,10 @@ footer { border-top:1px solid var(--bd); }
 </style>
 </head>
 <body>
+  <canvas id="grid3d" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
 
-<div class="orb o1"></div>
-<div class="orb o2"></div>
+  <div class="orb o1"></div>
+  <div class="orb o2"></div>
 <div class="fl f1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="15" fill="#6366f1" opacity=".9"/><circle cx="50" cy="14" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="26" r="12" fill="#a78bfa" opacity=".8"/><circle cx="86" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="50" cy="86" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="14" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="26" r="12" fill="#a78bfa" opacity=".8"/></svg></div>
 <div class="fl f2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="12" fill="#ec4899" opacity=".9"/><polygon points="50,10 61,39 92,39 67,61 78,90 50,68 22,90 33,61 8,39 39,39" fill="#ec4899" opacity=".6"/><circle cx="50" cy="50" r="6" fill="#f97316" opacity=".85"/></svg></div>
 
@@ -217,8 +218,11 @@ const rv = new IntersectionObserver(es => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 </script>
+
+<script src="assets/grid3d.js"></script>
 </body>
 </html>
+
 
 
 
