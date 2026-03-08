@@ -101,6 +101,7 @@ footer{border-top:1px solid var(--bd)}
 </style>
 </head>
 <body>
+  <canvas id="grid3d" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
 
 <div class="orb o1"></div>
 <div class="orb o2"></div>
@@ -167,8 +168,10 @@ document.getElementById('hbg').addEventListener('click', () => {
   document.getElementById('nl').classList.toggle('open');
 });
 </script>
+<script src="assets/grid3d.js"></script>
 </body>
 </html>
+
 
 
 
