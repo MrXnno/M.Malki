@@ -19,22 +19,12 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);overfl
 a{color:inherit;text-decoration:none}
 body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.022) 2px,rgba(0,0,0,.022) 4px);pointer-events:none;z-index:9999}
 
-/* ORBS */
-.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:0}
+.orb{position:fixed;border-radius:50%;filter:blur(110px);pointer-events:none;z-index:1}
 .o1{width:560px;height:560px;background:radial-gradient(circle,rgba(99,102,241,.26) 0%,transparent 65%);top:-200px;left:-160px;animation:o1 26s ease-in-out infinite}
 .o2{width:420px;height:420px;background:radial-gradient(circle,rgba(236,72,153,.16) 0%,transparent 65%);bottom:-140px;right:-140px;animation:o2 22s ease-in-out infinite}
 @keyframes o1{0%,100%{transform:translate(0,0)}50%{transform:translate(65px,-45px)}}
 @keyframes o2{0%,100%{transform:translate(0,0)}50%{transform:translate(-65px,50px)}}
 
-/* FLOATING */
-.fl{position:fixed;pointer-events:none;z-index:2}
-.f1{width:90px;height:90px;opacity:.7;filter:drop-shadow(0 5px 16px rgba(99,102,241,.34));animation:lr 28s ease-in-out infinite 0s}
-.f2{width:74px;height:74px;opacity:.65;filter:drop-shadow(0 5px 16px rgba(236,72,153,.36));animation:rl 25s ease-in-out infinite 5s}
-@keyframes lr{0%{transform:translate(-120px,12vh)rotate(0deg);opacity:0}5%{opacity:.7}50%{transform:translate(46vw,30vh)rotate(180deg);opacity:.7}95%{opacity:.7}100%{transform:translate(calc(100vw+120px),16vh)rotate(360deg);opacity:0}}
-@keyframes rl{0%{transform:translate(calc(100vw+120px),62vh)rotate(0deg);opacity:0}5%{opacity:.65}50%{transform:translate(46vw,46vh)rotate(180deg);opacity:.65}95%{opacity:.65}100%{transform:translate(-120px,68vh)rotate(360deg);opacity:0}}
-@media(max-width:600px){.fl{display:none}}
-
-/* NAVBAR */
 .nav{position:fixed;top:0;left:0;right:0;z-index:300;height:56px;background:rgba(5,7,15,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--bd)}
 .nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%);opacity:.6}
 .nb{max-width:1200px;margin:0 auto;padding:0 22px;height:100%;display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -53,11 +43,9 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
   .nlinks.open a{padding:9px 13px;font-size:.78rem}
 }
 
-/* WRAP */
 .wrap{max-width:1080px;margin:0 auto;padding:0 22px;position:relative;z-index:10}
 .container{padding-top:56px;padding-bottom:80px}
 
-/* PAGE HERO */
 .page-hero{padding:60px 0 48px}
 .dot-g{width:7px;height:7px;border-radius:50%;background:var(--a3);animation:blink 1.4s ease-in-out infinite;display:inline-block;flex-shrink:0}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.14}}
@@ -65,30 +53,20 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .page-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;letter-spacing:-.025em;background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:14px}
 .page-sub{font-size:.9rem;color:var(--txt2);line-height:1.75;max-width:580px}
 
-/* TIMELINE */
 .timeline{position:relative;margin-top:56px;padding-bottom:20px}
 .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--a1),var(--a2),var(--a3));transform:translateX(-50%);opacity:.35}
-@media(max-width:700px){
-  .timeline::before{left:22px}
-}
+@media(max-width:700px){.timeline::before{left:22px}}
 
 .tl-item{display:flex;align-items:flex-start;gap:0;margin-bottom:52px;position:relative}
 .tl-item:last-child{margin-bottom:0}
-
-/* dot on the center line */
 .tl-dot{position:absolute;left:50%;top:28px;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:var(--bg);border:2px solid var(--a1);z-index:5;transition:border-color .3s,box-shadow .3s}
 .tl-item:hover .tl-dot{border-color:var(--a2);box-shadow:0 0 0 5px rgba(99,102,241,.15)}
 .tl-dot::after{content:'';position:absolute;inset:3px;border-radius:50%;background:var(--a1);transition:background .3s}
 .tl-item:hover .tl-dot::after{background:var(--a2)}
+@media(max-width:700px){.tl-dot{left:22px}}
 
-@media(max-width:700px){
-  .tl-dot{left:22px}
-}
-
-/* left / right cards */
 .tl-left{width:50%;padding-right:40px;text-align:right}
 .tl-right{width:50%;padding-left:40px;margin-left:50%}
-
 @media(max-width:700px){
   .tl-left,.tl-right{width:100%;padding-left:52px;padding-right:0;text-align:left;margin-left:0}
 }
@@ -96,17 +74,12 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .tl-card{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:26px 24px;position:relative;overflow:hidden;transition:border-color .25s var(--ez),transform .25s var(--ez),box-shadow .25s var(--ez)}
 .tl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;transform:scaleX(0);transition:transform .28s var(--ez)}
 .tl-item:hover .tl-card{border-color:var(--bh);box-shadow:0 12px 36px rgba(99,102,241,.16)}
-
-/* color variants */
 .tl-item:nth-child(1) .tl-card::before{background:linear-gradient(90deg,var(--a1),var(--a3))}
 .tl-item:nth-child(2) .tl-card::before{background:linear-gradient(90deg,var(--a2),var(--a4))}
 .tl-item:nth-child(3) .tl-card::before{background:linear-gradient(90deg,var(--a3),var(--a1))}
-.tl-item:nth-child(1) .tl-dot{border-color:var(--a1)}
-.tl-item:nth-child(1) .tl-dot::after{background:var(--a1)}
-.tl-item:nth-child(2) .tl-dot{border-color:var(--a2)}
-.tl-item:nth-child(2) .tl-dot::after{background:var(--a2)}
-.tl-item:nth-child(3) .tl-dot{border-color:var(--a3)}
-.tl-item:nth-child(3) .tl-dot::after{background:var(--a3)}
+.tl-item:nth-child(1) .tl-dot{border-color:var(--a1)}.tl-item:nth-child(1) .tl-dot::after{background:var(--a1)}
+.tl-item:nth-child(2) .tl-dot{border-color:var(--a2)}.tl-item:nth-child(2) .tl-dot::after{background:var(--a2)}
+.tl-item:nth-child(3) .tl-dot{border-color:var(--a3)}.tl-item:nth-child(3) .tl-dot::after{background:var(--a3)}
 .tl-item:hover .tl-card::before{transform:scaleX(1)}
 
 .tl-ico{font-size:1.6rem;margin-bottom:10px}
@@ -119,7 +92,6 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .tl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
 .tl-tag{font-family:var(--mn);font-size:.56rem;color:var(--dim);border:1px solid var(--bd);border-radius:4px;padding:3px 8px;letter-spacing:.04em}
 
-/* FOOTER */
 footer{border-top:1px solid var(--bd);margin-top:60px}
 .foot-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
 .foot-brand strong{font-family:'Syne',sans-serif;font-size:.88rem;font-weight:800;background:linear-gradient(135deg,var(--a1),var(--a2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -135,13 +107,9 @@ footer{border-top:1px solid var(--bd);margin-top:60px}
 </style>
 </head>
 <body>
-  <canvas id="grid3d" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
-
+<canvas id="grid3d" style="position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none"></canvas>
 <div class="orb o1"></div>
 <div class="orb o2"></div>
-
-<div class="fl f1"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="15" fill="#6366f1" opacity=".9"/><circle cx="50" cy="14" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="26" r="12" fill="#a78bfa" opacity=".8"/><circle cx="86" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="81" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="50" cy="86" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="74" r="12" fill="#a78bfa" opacity=".8"/><circle cx="14" cy="50" r="12" fill="#14b8a6" opacity=".8"/><circle cx="19" cy="26" r="12" fill="#a78bfa" opacity=".8"/></svg></div>
-<div class="fl f2"><svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="12" fill="#ec4899" opacity=".9"/><polygon points="50,10 61,39 92,39 67,61 78,90 50,68 22,90 33,61 8,39 39,39" fill="#ec4899" opacity=".6"/><circle cx="50" cy="50" r="6" fill="#f97316" opacity=".85"/></svg></div>
 
 <header class="nav">
   <div class="nb">
@@ -167,7 +135,6 @@ footer{border-top:1px solid var(--bd);margin-top:60px}
 
 <div class="container">
   <div class="wrap">
-
     <div class="page-hero">
       <div class="h-tag"><span class="dot-g"></span>Formation · 2021–2026</div>
       <h1 class="page-title">Parcours Scolaire</h1>
@@ -175,8 +142,6 @@ footer{border-top:1px solid var(--bd);margin-top:60px}
     </div>
 
     <div class="timeline">
-
-      <!-- BTS SIO -->
       <div class="tl-item rv">
         <div class="tl-dot"></div>
         <div class="tl-left">
@@ -186,18 +151,10 @@ footer{border-top:1px solid var(--bd);margin-top:60px}
             <div class="tl-title">BTS SIO — Option SISR</div>
             <div class="tl-date">2024 — 2026 · Lycée Turgot, Paris</div>
             <p class="tl-desc">Formation en deux ans dans le domaine des systèmes informatiques, réseaux, sécurité et support utilisateur. Spécialité Solutions d'Infrastructure, Systèmes et Réseaux.</p>
-            <div class="tl-tags">
-              <span class="tl-tag">Réseaux</span>
-              <span class="tl-tag">Sécurité</span>
-              <span class="tl-tag">Linux</span>
-              <span class="tl-tag">Virtualisation</span>
-              <span class="tl-tag">Cisco</span>
-            </div>
+            <div class="tl-tags"><span class="tl-tag">Réseaux</span><span class="tl-tag">Sécurité</span><span class="tl-tag">Linux</span><span class="tl-tag">Virtualisation</span><span class="tl-tag">Cisco</span></div>
           </div>
         </div>
       </div>
-
-      <!-- BAC STMG -->
       <div class="tl-item rv">
         <div class="tl-dot"></div>
         <div class="tl-right">
@@ -207,17 +164,10 @@ footer{border-top:1px solid var(--bd);margin-top:60px}
             <div class="tl-title">Baccalauréat STMG</div>
             <div class="tl-date">2022 — 2024 · Lycée Jules Siegfried</div>
             <p class="tl-desc">Spécialité Systèmes d'Information de Gestion (SIG). Fondations en informatique, gestion et organisation des systèmes d'information en entreprise.</p>
-            <div class="tl-tags">
-              <span class="tl-tag">SIG</span>
-              <span class="tl-tag">Informatique</span>
-              <span class="tl-tag">Gestion</span>
-              <span class="tl-tag">Organisation</span>
-            </div>
+            <div class="tl-tags"><span class="tl-tag">SIG</span><span class="tl-tag">Informatique</span><span class="tl-tag">Gestion</span><span class="tl-tag">Organisation</span></div>
           </div>
         </div>
       </div>
-
-      <!-- BREVET -->
       <div class="tl-item rv">
         <div class="tl-dot"></div>
         <div class="tl-left">
@@ -227,14 +177,10 @@ footer{border-top:1px solid var(--bd);margin-top:60px}
             <div class="tl-title">Brevet des Collèges</div>
             <div class="tl-date">2021 · Collège Daniel Mayer</div>
             <p class="tl-desc">Diplôme de fin de cycle d'enseignement obligatoire. Validation des acquis fondamentaux du collège.</p>
-            <div class="tl-tags">
-              <span class="tl-tag">DNB</span>
-              <span class="tl-tag">Enseignement général</span>
-            </div>
+            <div class="tl-tags"><span class="tl-tag">DNB</span><span class="tl-tag">Enseignement général</span></div>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -264,12 +210,8 @@ const rv = new IntersectionObserver(es => {
 }, { threshold: 0.08 });
 document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 </script>
-
-  <script src="assets/grid3d.js"></script>
+<script src="assets/grid3d.js"></script>
 </body>
 </html>
-
-
-
 
 
