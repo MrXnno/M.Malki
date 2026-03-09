@@ -82,6 +82,8 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .btn:hover{transform:translateY(-2px);border-color:rgba(99,102,241,.48);background:rgba(99,102,241,.13);box-shadow:0 5px 18px rgba(99,102,241,.18)}
 .btn.gantt{border-color:rgba(99,102,241,.4);background:rgba(99,102,241,.12);color:var(--a1)}
 .btn.gantt:hover{background:rgba(99,102,241,.22);box-shadow:0 5px 18px rgba(99,102,241,.28)}
+.btn.cdc{border-color:rgba(236,72,153,.4);background:rgba(236,72,153,.08);color:var(--a2)}
+.btn.cdc:hover{background:rgba(236,72,153,.18);box-shadow:0 5px 18px rgba(236,72,153,.22)}
 
 footer{border-top:1px solid var(--bd);margin-top:40px}
 .foot-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
@@ -150,7 +152,8 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
           <span class="ptag">HTML / CSS</span><span class="ptag">JavaScript</span><span class="ptag">MySQL</span><span class="ptag">Réservation en ligne</span><span class="ptag">Base de données</span>
         </div>
         <div class="proj-docs">
-          <a class="btn gantt" href="assets/Gantt_ShopTaPlace.pptx" download>📊 Diagramme de Gantt</a>
+          <a class="btn gantt" href="assets/Gantt_ShopTaPlace.pdf" target="_blank">📊 Diagramme de Gantt</a>
+          <a class="btn" href="assets/CahierDesCharges_ShopTaPlace.pdf" target="_blank">📄 Cahier des charges</a>
         </div>
       </div>
 
@@ -229,6 +232,7 @@ document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 <script src="assets/grid3d.js"></script>
 </body>
 </html>
+
 
 
 
