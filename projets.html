@@ -84,6 +84,8 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .btn.gantt:hover{background:rgba(99,102,241,.22);box-shadow:0 5px 18px rgba(99,102,241,.28)}
 .btn.cdc{border-color:rgba(236,72,153,.4);background:rgba(236,72,153,.08);color:var(--a2)}
 .btn.cdc:hover{background:rgba(236,72,153,.18);box-shadow:0 5px 18px rgba(236,72,153,.22)}
+.btn.rapport{border-color:rgba(20,184,166,.4);background:rgba(20,184,166,.08);color:var(--a3)}
+.btn.rapport:hover{background:rgba(20,184,166,.18);box-shadow:0 5px 18px rgba(20,184,166,.22)}
 
 footer{border-top:1px solid var(--bd);margin-top:40px}
 .foot-inner{padding:22px 0;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
@@ -136,6 +138,7 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
 
     <div class="projects">
 
+      <!-- PROJET 01 -->
       <div class="proj proj-c1 rv">
         <div class="proj-head">
           <div class="proj-left">
@@ -153,10 +156,11 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
         </div>
         <div class="proj-docs">
           <a class="btn gantt" href="assets/Gantt_ShopTaPlace.pdf" target="_blank">📊 Diagramme de Gantt</a>
-          <a class="btn" href="assets/CahierDesCharges_ShopTaPlace.pdf" target="_blank">📄 Cahier des charges</a>
+          <a class="btn cdc" href="assets/CahierDesCharges_ShopTaPlace.pdf" target="_blank">📄 Cahier des charges</a>
         </div>
       </div>
 
+      <!-- PROJET 02 -->
       <div class="proj proj-c2 rv">
         <div class="proj-head">
           <div class="proj-left">
@@ -173,10 +177,13 @@ footer{border-top:1px solid var(--bd);margin-top:40px}
           <span class="ptag">Surface Hub</span><span class="ptag">Windows</span><span class="ptag">Configuration réseau</span><span class="ptag">Déploiement</span><span class="ptag">Support matériel</span><span class="ptag">Environnement hospitalier</span>
         </div>
         <div class="proj-docs">
-          <a class="btn gantt" href="assets/Gantt_SurfaceHub.pptx" download>📊 Diagramme de Gantt</a>
+          <a class="btn gantt" href="assets/Gantt_SurfaceHub.pdf" target="_blank">📊 Diagramme de Gantt</a>
+          <a class="btn cdc" href="assets/CahierDesCharges_SurfaceHub.pdf" target="_blank">📄 Cahier des charges</a>
+          <a class="btn rapport" href="assets/rapportstage1.pdf" target="_blank">📋 Rapport de stage</a>
         </div>
       </div>
 
+      <!-- PROJET 03 -->
       <div class="proj proj-c3 rv">
         <div class="proj-head">
           <div class="proj-left">
@@ -231,6 +238,7 @@ document.querySelectorAll('.rv').forEach(el => rv.observe(el));
 <script src="assets/grid3d.js"></script>
 </body>
 </html>
+
 
 
 
