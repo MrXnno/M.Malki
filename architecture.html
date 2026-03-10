@@ -19,14 +19,12 @@ body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--txt); o
 a { color:inherit; text-decoration:none; }
 body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.022) 2px,rgba(0,0,0,.022) 4px); pointer-events:none; z-index:9999; }
 
-/* ORBS */
 .orb { position:fixed; border-radius:50%; filter:blur(110px); pointer-events:none; z-index:0; }
 .o1  { width:560px;height:560px; background:radial-gradient(circle,rgba(99,102,241,.26) 0%,transparent 65%); top:-200px;left:-160px; animation:o1 26s ease-in-out infinite; }
 .o2  { width:420px;height:420px; background:radial-gradient(circle,rgba(236,72,153,.16) 0%,transparent 65%); bottom:-140px;right:-140px; animation:o2 22s ease-in-out infinite; }
 @keyframes o1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(65px,-45px)} }
 @keyframes o2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-65px,50px)} }
 
-/* NAVBAR */
 .nav { position:fixed; top:0; left:0; right:0; z-index:300; height:56px; background:rgba(5,7,15,.9); backdrop-filter:blur(20px); border-bottom:1px solid var(--bd); }
 .nav::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 4%,var(--a1) 28%,var(--a2) 72%,transparent 96%); opacity:.6; }
 .nb { max-width:1200px; margin:0 auto; padding:0 22px; height:100%; display:flex; align-items:center; justify-content:space-between; gap:10px; }
@@ -53,10 +51,8 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
   .nlinks.open a { padding:9px 13px; font-size:.78rem; }
 }
 
-/* WRAP */
 .wrap { max-width:1080px; margin:0 auto; padding:0 22px; position:relative; z-index:10; }
 
-/* PAGE HEADER */
 .page-hero { padding:120px 0 60px; border-bottom:1px solid var(--bd); }
 .h-tag { display:inline-flex; align-items:center; gap:7px; font-family:var(--mn); font-size:.66rem; color:var(--a1); background:rgba(99,102,241,.07); border:1px solid rgba(99,102,241,.2); border-radius:5px; padding:4px 12px; letter-spacing:.08em; text-transform:uppercase; margin-bottom:18px; }
 .dot-g { width:7px; height:7px; border-radius:50%; background:var(--a3); animation:blink 1.4s ease-in-out infinite; flex-shrink:0; }
@@ -64,12 +60,10 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 .page-title { font-family:'Syne',sans-serif; font-size:clamp(2rem,4.5vw,3rem); font-weight:800; line-height:1.1; letter-spacing:-.025em; background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:14px; }
 .page-desc { font-size:.92rem; color:var(--txt2); line-height:1.8; max-width:520px; }
 
-/* SECTION */
 .section { padding:60px 0 80px; }
 .sec-label { font-family:var(--mn); font-size:.62rem; color:var(--dim); letter-spacing:.1em; text-transform:uppercase; margin-bottom:8px; }
 .sec-title { font-family:'Syne',sans-serif; font-size:clamp(1.3rem,2.5vw,1.7rem); font-weight:800; letter-spacing:-.02em; background:linear-gradient(135deg,#fff 10%,var(--a1) 55%,var(--a2) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; margin-bottom:28px; }
 
-/* PDF VIEWER CARD */
 .pdf-card { background:var(--card); border:1px solid var(--bd); border-radius:18px; overflow:hidden; position:relative; transition:border-color .25s var(--ez), box-shadow .25s var(--ez); }
 .pdf-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--a1),var(--a2),var(--a3)); }
 .pdf-card:hover { border-color:var(--bh); box-shadow:0 16px 48px rgba(99,102,241,.18); }
@@ -80,7 +74,6 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 .pdf-sub { font-family:var(--mn); font-size:.58rem; color:var(--dim); margin-top:2px; }
 .pdf-toolbar-right { display:flex; gap:8px; align-items:center; }
 
-/* BOUTONS */
 .btn { display:inline-flex; align-items:center; gap:7px; padding:8px 16px; border-radius:9px; border:1px solid rgba(99,102,241,.26); background:rgba(99,102,241,.07); color:var(--txt); font-family:'Inter',sans-serif; font-size:.78rem; font-weight:600; cursor:pointer; position:relative; overflow:hidden; transition:transform .22s var(--ez),background .22s,border-color .22s,box-shadow .22s; white-space:nowrap; }
 .btn::before { content:''; position:absolute; top:0; left:-100%; width:55%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent); transition:left .5s var(--ez); }
 .btn:hover::before { left:150%; }
@@ -88,13 +81,11 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 .btn.p { background:linear-gradient(135deg,var(--a1),var(--a2)); border-color:transparent; color:#fff; box-shadow:0 5px 20px rgba(99,102,241,.36); }
 .btn.p:hover { box-shadow:0 10px 34px rgba(99,102,241,.5); filter:brightness(1.07); }
 
-/* PDF EMBED */
 .pdf-embed-wrap { width:100%; background:#0a0d1a; position:relative; }
 .pdf-embed-wrap iframe { width:100%; height:780px; border:none; display:block; }
 .pdf-fallback { display:none; padding:60px 24px; text-align:center; }
 .pdf-fallback p { font-family:var(--mn); font-size:.75rem; color:var(--txt2); margin-bottom:18px; }
 
-/* INFO CARDS */
 .info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:32px; }
 @media(max-width:700px) { .info-grid { grid-template-columns:1fr; } }
 .info-card { background:var(--card); border:1px solid var(--bd); border-radius:14px; padding:20px 18px; position:relative; overflow:hidden; transition:border-color .25s var(--ez), transform .25s var(--ez), box-shadow .25s var(--ez); }
@@ -106,13 +97,36 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 .info-val { font-family:'Syne',sans-serif; font-size:.95rem; font-weight:700; color:var(--txt); }
 .info-desc { font-size:.78rem; color:var(--txt2); margin-top:4px; line-height:1.6; }
 
-/* REVEAL */
+/* DOCUMENTATION SECTION */
+.doc-section { padding:0 0 80px; }
+.doc-header { display:flex; align-items:center; gap:14px; margin-bottom:28px; padding-top:60px; border-top:1px solid var(--bd); }
+.doc-header-line { flex:1; height:1px; background:var(--bd); }
+.doc-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+@media(max-width:640px) { .doc-grid { grid-template-columns:1fr; } }
+
+.doc-card { background:var(--card); border:1px solid var(--bd); border-radius:14px; padding:18px 20px; display:flex; align-items:center; gap:14px; position:relative; overflow:hidden; transition:border-color .25s var(--ez), transform .25s var(--ez), box-shadow .25s var(--ez); }
+.doc-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--a1),var(--a2)); transform:scaleX(0); transition:transform .28s var(--ez); }
+.doc-card:hover::before { transform:scaleX(1); }
+.doc-card:hover { border-color:var(--bh); transform:translateY(-3px); box-shadow:0 10px 32px rgba(99,102,241,.16); }
+
+.doc-ico { width:42px; height:42px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; background:rgba(99,102,241,.10); border:1px solid rgba(99,102,241,.2); }
+.doc-body { flex:1; min-width:0; }
+.doc-name { font-family:'Syne',sans-serif; font-size:.88rem; font-weight:700; color:var(--txt); line-height:1.3; margin-bottom:4px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.doc-meta { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.doc-size { font-family:var(--mn); font-size:.6rem; color:var(--dim); }
+.doc-tag { font-family:var(--mn); font-size:.58rem; letter-spacing:.07em; text-transform:uppercase; padding:2px 8px; border-radius:4px; border:1px solid rgba(99,102,241,.22); background:rgba(99,102,241,.07); color:var(--a1); }
+.doc-tag.teal { border-color:rgba(20,184,166,.25); background:rgba(20,184,166,.07); color:var(--a3); }
+.doc-tag.pink { border-color:rgba(236,72,153,.25); background:rgba(236,72,153,.07); color:var(--a2); }
+.doc-tag.orange { border-color:rgba(249,115,22,.25); background:rgba(249,115,22,.07); color:#f97316; }
+
+.doc-dl { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:9px; border:1px solid rgba(99,102,241,.24); background:rgba(99,102,241,.07); color:var(--txt2); font-size:.9rem; flex-shrink:0; transition:all .22s var(--ez); }
+.doc-dl:hover { background:linear-gradient(135deg,var(--a1),var(--a2)); border-color:transparent; color:#fff; transform:translateY(-2px); box-shadow:0 6px 18px rgba(99,102,241,.35); }
+
 .rv { opacity:0; transform:translateY(20px); transition:opacity .6s var(--ez),transform .6s var(--ez); }
 .rv.on { opacity:1; transform:translateY(0); }
 .rv2 { opacity:0; transform:translateY(20px); transition:opacity .6s var(--ez) .15s,transform .6s var(--ez) .15s; }
 .rv2.on { opacity:1; transform:translateY(0); }
 
-/* FOOTER */
 footer { border-top:1px solid var(--bd); }
 .foot-inner { padding:22px 0; display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap; }
 .foot-brand strong { font-family:'Syne',sans-serif; font-size:.88rem; font-weight:800; background:linear-gradient(135deg,var(--a1),var(--a2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
@@ -143,10 +157,10 @@ footer { border-top:1px solid var(--bd); }
       <a href="veille.html">Veille</a>
       <a href="certifications.html">Certifications</a>
       <a href="competences.html">Compétences</a>
-      <a href="parcours-scolaire.html" class="on">Parcours Scolaire</a>
+      <a href="parcours-scolaire.html">Parcours Scolaire</a>
       <a href="projets.html">Projets</a>
       <a href="stage.html">Stage</a>
-      <a href="architecture.html">Architecture</a>
+      <a href="architecture.html" class="on">Architecture</a>
       <a href="contact.html">Contact</a>
     </nav>
     <button class="hbg" id="hbg" aria-label="Menu"><span></span><span></span><span></span></button>
@@ -211,6 +225,124 @@ footer { border-top:1px solid var(--bd); }
         <div class="info-desc">Règles de filtrage appliquées entre les zones réseau définies.</div>
       </div>
     </div>
+
+    <!-- DOCUMENTATION -->
+    <div class="doc-section rv2">
+      <div class="doc-header">
+        <span style="font-family:var(--mn);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;">Documentation</span>
+        <div class="doc-header-line"></div>
+        <span style="font-family:var(--mn);font-size:.6rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);padding:3px 10px;border-radius:4px;">8 fichiers</span>
+      </div>
+
+      <div class="doc-grid">
+
+        <div class="doc-card">
+          <div class="doc-ico">💾</div>
+          <div class="doc-body">
+            <div class="doc-name">Backup Machine Proxmox</div>
+            <div class="doc-meta">
+              <span class="doc-size">141 KB</span>
+              <span class="doc-tag teal">Proxmox</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Backup Machine Proxmox.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">📋</div>
+          <div class="doc-body">
+            <div class="doc-name">Cahier des charges et test GLPI</div>
+            <div class="doc-meta">
+              <span class="doc-size">245 KB</span>
+              <span class="doc-tag orange">GLPI</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Cahier des charges et test GLPI.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">✅</div>
+          <div class="doc-body">
+            <div class="doc-name">Cahier recette et test</div>
+            <div class="doc-meta">
+              <span class="doc-size">698 KB</span>
+              <span class="doc-tag">Tests</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Cahier recette et test.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">📜</div>
+          <div class="doc-body">
+            <div class="doc-name">Charte informatique 1.2</div>
+            <div class="doc-meta">
+              <span class="doc-size">220 KB</span>
+              <span class="doc-tag pink">Charte</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Charte informatique 1.2.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">⚙️</div>
+          <div class="doc-body">
+            <div class="doc-name">Install et config Proxmox 1.1</div>
+            <div class="doc-meta">
+              <span class="doc-size">171 KB</span>
+              <span class="doc-tag teal">Proxmox</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/install et config Proxpox 1.1.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">📖</div>
+          <div class="doc-body">
+            <div class="doc-name">Mode d'emploi</div>
+            <div class="doc-meta">
+              <span class="doc-size">1,037 KB</span>
+              <span class="doc-tag">Guide</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Mode d'emploi.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">🗄️</div>
+          <div class="doc-body">
+            <div class="doc-name">Proxmox Backup 1.0</div>
+            <div class="doc-meta">
+              <span class="doc-size">211 KB</span>
+              <span class="doc-tag teal">Proxmox</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Proxmox Backup 1.0.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <div class="doc-card">
+          <div class="doc-ico">🛡️</div>
+          <div class="doc-body">
+            <div class="doc-name">Suricata Documentation technique</div>
+            <div class="doc-meta">
+              <span class="doc-size">119 KB</span>
+              <span class="doc-tag pink">Sécurité</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/Suricata Documentation technique.pdf" download title="Télécharger">↓</a>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
