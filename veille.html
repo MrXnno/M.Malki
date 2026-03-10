@@ -353,93 +353,183 @@ footer a:hover{color:var(--a1)}
 
     <div class="articles-grid">
 
-      <!-- Article 1 — ZDNet · 2024 -->
-      <div class="article-card">
+      <!-- Article 1 — Le Monde Informatique · Mai 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.lemondeinformatique.fr/actualites/lire-ticketmaster-victime-d-une-fuite-de-donnees-de-560-millions-de-clients-93867.html','_blank')">
         <div class="article-accent" style="background:linear-gradient(90deg,var(--a1),var(--a2))"></div>
         <div class="article-top">
           <div class="article-meta">
-            <span class="article-src">ZDNet France</span>
+            <span class="article-src">Le Monde Informatique</span>
             <span class="article-date">· Mai 2024</span>
           </div>
-          <div class="article-title">Ticketmaster : 560 millions de clients exposés après une intrusion sur Snowflake</div>
-          <div class="article-excerpt">Le groupe ShinyHunters revendique le vol massif de données de la plateforme de billetterie, incluant noms, adresses, numéros de carte bancaire partiels et historiques d'achats. L'attaque exploite des identifiants Snowflake compromis sans authentification multi-facteurs activée.</div>
+          <div class="article-title">Ticketmaster victime d'une fuite de données de 560 millions de clients</div>
+          <div class="article-excerpt">Le groupe ShinyHunters revendique le vol massif de données de la plateforme de billetterie mondiale, incluant noms, adresses, numéros de carte bancaire et historiques d'achats. L'attaque passe par des identifiants Snowflake compromis, sans MFA activé côté client.</div>
         </div>
         <div class="article-highlight"><strong>Enseignement :</strong> L'absence de MFA sur un compte cloud tiers suffit à exposer des centaines de millions d'utilisateurs. La chaîne de sous-traitance est le maillon faible.</div>
         <div class="article-bottom">
           <div class="article-tags"><span class="tag pink">Data Breach</span><span class="tag orange">Cloud</span><span class="tag">2024</span></div>
-          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">560 M records</span>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">560 M records · ↗ Lire l'article</span>
         </div>
       </div>
 
-      <!-- Article 2 — ZATAZ · 2025 -->
-      <div class="article-card">
+      <!-- Article 2 — ZDNet France · Juin 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.zdnet.fr/actualites/ticketmaster-confirme-la-violation-de-donnees-apres-le-vol-presume-de-560-millions-d-enregistrements-clients-39966494.htm','_blank')">
         <div class="article-accent" style="background:linear-gradient(90deg,var(--a2),#a259ff)"></div>
         <div class="article-top">
           <div class="article-meta">
-            <span class="article-src">ZATAZ</span>
-            <span class="article-date">· Mars 2025</span>
+            <span class="article-src">ZDNet France</span>
+            <span class="article-date">· Juin 2024</span>
           </div>
-          <div class="article-title">Un an après, les données de Ticketmaster continuent de circuler : nouveaux lots mis en vente sur BreachForums</div>
-          <div class="article-excerpt">Près d'un an après la compromission initiale, ZATAZ détecte de nouveaux extraits issus de la fuite Ticketmaster/Snowflake en circulation sur des forums clandestins. Les données — CB, PII, historiques d'achats — sont désormais vendues en lots segmentés par pays, touchant massivement les clients européens dont les Français.</div>
+          <div class="article-title">Ticketmaster confirme la violation de données après le vol présumé de 560 millions d'enregistrements clients</div>
+          <div class="article-excerpt">Après plusieurs jours de silence, Live Nation confirme officiellement la compromission des données de sa filiale Ticketmaster. La société reconnaît que des tiers non autorisés ont accédé à ses données clients hébergées chez un prestataire cloud tiers, Snowflake, via du credential stuffing sans MFA.</div>
         </div>
         <div class="article-highlight"><strong>Enseignement :</strong> Une fuite ne s'arrête pas au jour J. Les données volées continuent d'être revendues et exploitées pendant des années, rendant la surveillance post-incident indispensable.</div>
         <div class="article-bottom">
-          <div class="article-tags"><span class="tag pink">Darkweb</span><span class="tag purple">Revente</span><span class="tag">2025</span></div>
-          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">560 M records</span>
+          <div class="article-tags"><span class="tag pink">Confirmation</span><span class="tag orange">Snowflake</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">560 M records · ↗ Lire l'article</span>
         </div>
       </div>
 
-      <!-- Article 3 — CERT-FR · 2026 (large) -->
-      <div class="article-card article-card-wide">
+      <!-- Article 3 — ZATAZ · 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.zataz.com/fuite-de-donnees-national-public-data-29-milliards-de-donnees-dans-la-nature/','_blank')">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a3),var(--a1))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">ZATAZ</span>
+            <span class="article-date">· Août 2024</span>
+          </div>
+          <div class="article-title">Fuite de données National Public Data : 2,9 milliards de données dans la nature</div>
+          <div class="article-excerpt">ZATAZ révèle que le data broker américain National Public Data a subi la plus grande fuite de l'histoire : 2,9 milliards de numéros de sécurité sociale, adresses, historiques et noms de proches mis en accès libre sur BreachForums par le groupe USDoD. La quasi-totalité de la population américaine est concernée.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les data brokers agrègent silencieusement des données ultra-sensibles. Une seule compromission peut exposer des milliards d'identités simultanément.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">Critique</span><span class="tag purple">Data Broker</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">2,9 Md records · ↗ Lire l'article</span>
+        </div>
+      </div>
+
+      <!-- Article 4 — BleepingComputer · 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.bleepingcomputer.com/news/security/national-public-data-confirms-breach-exposing-social-security-numbers/','_blank')">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a4),var(--a2))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">BleepingComputer</span>
+            <span class="article-date">· Août 2024</span>
+          </div>
+          <div class="article-title">National Public Data confirme la fuite exposant les numéros de sécurité sociale</div>
+          <div class="article-excerpt">National Public Data confirme officiellement avoir subi une violation de données après que des numéros de sécurité sociale, adresses et autres informations personnelles ont été publiés sur un forum de hackers. La société admet que les informations provenaient de données qu'elle avait récupérées à partir de sources publiques non précisées.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> L'économie des data brokers repose sur une opacité totale. Les individus n'ont aucune visibilité sur qui détient leurs données ni comment elles sont protégées.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">SSN</span><span class="tag purple">PII</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">2,9 Md records · ↗ Lire l'article</span>
+        </div>
+      </div>
+
+      <!-- Article 5 — CERT-FR · 2024 (large) -->
+      <div class="article-card article-card-wide" style="cursor:pointer" onclick="window.open('https://www.cert.ssi.gouv.fr/cti/CERTFR-2024-CTI-006/','_blank')">
         <div class="article-accent" style="background:linear-gradient(90deg,var(--a3),var(--a1),var(--a2))"></div>
         <div class="article-top">
           <div class="article-meta">
             <span class="article-src">CERT-FR / ANSSI</span>
-            <span class="article-date">· Janvier 2026</span>
+            <span class="article-date">· 2024</span>
           </div>
-          <div class="article-title">Bilan 2025 : Change Healthcare, AT&T, National Public Data — retour sur les méga-fuites qui ont redéfini la menace cyber</div>
-          <div class="article-excerpt">Le CERT-FR publie son panorama annuel des cybermenaces et revient en détail sur les trois incidents majeurs de 2024 qui continuent de produire des effets en 2025-2026. L'attaque ransomware ALPHV contre Change Healthcare (100 M de dossiers médicaux), la fuite AT&T (73 M de métadonnées télécom) et le scraping massif de National Public Data (2,9 Md de SSN) sont analysés comme des cas d'école illustrant la convergence des menaces : exfiltration avant chiffrement, exploitation des tiers cloud, et monétisation durable sur le darkweb. L'ANSSI souligne que ces incidents étrangers préfigurent les risques pesant sur les opérateurs français d'importance vitale.</div>
+          <div class="article-title">Panorama de la cybermenace 2024 — ransomware, fuites de données et menaces sur les infrastructures critiques</div>
+          <div class="article-excerpt">Le CERT-FR publie son panorama annuel des cybermenaces et analyse en détail les incidents majeurs de 2024 : l'attaque ransomware ALPHV contre Change Healthcare (100 M de dossiers médicaux exfiltrés), la fuite AT&T (73 M de métadonnées télécom via API compromise) et le scraping massif de National Public Data (2,9 Md de SSN). Ces cas illustrent la convergence des menaces modernes : exfiltration avant chiffrement, exploitation des tiers cloud, MFA absent, et monétisation durable sur le darkweb. L'ANSSI souligne que ces incidents étrangers préfigurent directement les risques pesant sur les opérateurs d'importance vitale (OIV) français.</div>
         </div>
-        <div class="article-highlight"><strong>Enseignement :</strong> Les grandes fuites de 2024 ont en commun l'exploitation de maillons faibles : fournisseurs tiers, MFA absent, API non surveillées. Le CERT-FR recommande une cartographie régulière des accès tiers et une supervision continue des flux sortants.</div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les grandes fuites de 2024 exploitent toutes les mêmes maillons faibles : fournisseurs tiers sans MFA, API non surveillées, absence de segmentation réseau. Le CERT-FR recommande une cartographie régulière des accès tiers et une supervision continue des flux sortants.</div>
         <div class="article-bottom">
-          <div class="article-tags"><span class="tag pink">Bilan annuel</span><span class="tag purple">ANSSI</span><span class="tag orange">Infrastructure critique</span><span class="tag">2026</span></div>
-          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Synthèse multi-incidents</span>
+          <div class="article-tags"><span class="tag pink">Panorama officiel</span><span class="tag purple">ANSSI</span><span class="tag orange">Infrastructure critique</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Synthèse multi-incidents · ↗ Lire l'article</span>
         </div>
       </div>
 
-      <!-- Article 4 — No Limit Secu · 2024 -->
-      <div class="article-card">
-        <div class="article-accent" style="background:linear-gradient(90deg,var(--a4),var(--a2))"></div>
-        <div class="article-top">
-          <div class="article-meta">
-            <span class="article-src">No Limit Secu</span>
-            <span class="article-date">· Août 2024</span>
-          </div>
-          <div class="article-title">National Public Data : quand un data broker expose 2,9 milliards d'identités sans que personne ne le sache</div>
-          <div class="article-excerpt">Le podcast No Limit Secu consacre un épisode complet à l'anatomie de la fuite National Public Data. Les animateurs décortiquent comment un data broker peut agréger silencieusement des milliards d'identités — SSN, adresses historiques, noms de proches — sans que les personnes concernées en soient jamais informées, et comment ces données se retrouvent en accès libre sur BreachForums.</div>
-        </div>
-        <div class="article-highlight"><strong>Enseignement :</strong> L'économie des data brokers repose sur une opacité totale. Les individus n'ont aucune visibilité sur qui détient leurs données, rendant toute compromission particulièrement difficile à anticiper ou à circonscrire.</div>
-        <div class="article-bottom">
-          <div class="article-tags"><span class="tag pink">Data Broker</span><span class="tag purple">PII</span><span class="tag">2024</span></div>
-          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">2,9 Md records</span>
-        </div>
-      </div>
-
-      <!-- Article 5 — Cybersécurité Magazine · 2025 -->
-      <div class="article-card">
+      <!-- Article 6 — Le Monde Informatique · 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.lemondeinformatique.fr/actualites/lire-att-confirme-la-violation-de-donnees-touchant-presque-tous-ses-clients-mobiles-94408.html','_blank')">
         <div class="article-accent" style="background:linear-gradient(90deg,#a259ff,var(--a3))"></div>
         <div class="article-top">
           <div class="article-meta">
-            <span class="article-src">Cybersécurité Magazine</span>
-            <span class="article-date">· Juin 2025</span>
+            <span class="article-src">Le Monde Informatique</span>
+            <span class="article-date">· Juillet 2024</span>
           </div>
-          <div class="article-title">AT&T, 23andMe, Change Healthcare : ce que les grandes fuites de 2024 ont changé dans la gestion des risques</div>
-          <div class="article-excerpt">Un an après les incidents majeurs de 2024, Cybersécurité Magazine dresse un état des lieux des conséquences concrètes : amendes record, class actions, nouvelles obligations réglementaires et évolution des stratégies défensives. Le cas 23andMe — où 6,9 millions de profils ADN ont été exfiltrés via credential stuffing — illustre l'irréversibilité des données biométriques et pousse les législateurs à renforcer leur cadre de protection.</div>
+          <div class="article-title">AT&T confirme la violation de données touchant presque tous ses clients mobiles</div>
+          <div class="article-excerpt">AT&T confirme que les journaux d'appels et de SMS de quasi-totalité de ses clients mobiles ont été volés entre mai et octobre 2022. Les métadonnées — numéros appelés, durées, localisations approximatives — permettent de reconstituer des réseaux sociaux complets même sans accéder au contenu des communications.</div>
         </div>
-        <div class="article-highlight"><strong>Enseignement :</strong> Les suites juridiques et réglementaires des grandes fuites durent bien au-delà de l'incident lui-même. En 2025, les RSSI intègrent désormais le risque de class action et d'amende RGPD dans leurs analyses d'impact dès la phase de conception.</div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les métadonnées sont aussi dangereuses que le contenu. Une API exposée non auditée peut suffire à exfiltrer des millions d'enregistrements sans déclencher d'alarme pendant des mois.</div>
         <div class="article-bottom">
-          <div class="article-tags"><span class="tag teal">Réglementaire</span><span class="tag orange">Bilan</span><span class="tag">2025</span></div>
-          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Multi-incidents 2024</span>
+          <div class="article-tags"><span class="tag orange">API</span><span class="tag">Télécom</span><span class="tag pink">Métadonnées</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">73 M abonnés · ↗ Lire l'article</span>
+        </div>
+      </div>
+
+      <!-- Article 7 — Numerama · 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.numerama.com/cyberguerre/1768099-att-subit-une-enorme-fuite-de-donnees-73-millions-de-clients-touches.html','_blank')">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a1),var(--a4))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">Numerama</span>
+            <span class="article-date">· Mars 2024</span>
+          </div>
+          <div class="article-title">AT&T subit une énorme fuite de données : 73 millions de clients touchés</div>
+          <div class="article-excerpt">Des données personnelles de 73 millions de clients actuels et anciens d'AT&T ont été publiées sur un forum de hackers. Les informations comprennent noms, adresses, numéros de téléphone, dates de naissance et numéros de sécurité sociale chiffrés. AT&T nie dans un premier temps toute compromission directe de ses systèmes.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Le déni initial d'une entreprise face à une fuite aggrave sa responsabilité. La transparence immédiate est désormais une obligation légale sous le RGPD, sous peine d'amendes doublées.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag orange">Télécom</span><span class="tag pink">PII</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">73 M clients · ↗ Lire l'article</span>
+        </div>
+      </div>
+
+      <!-- Article 8 — CNIL · 2024 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.cnil.fr/fr/violations-de-donnees-personnelles','_blank')">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a2),var(--a3))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">CNIL</span>
+            <span class="article-date">· 2024</span>
+          </div>
+          <div class="article-title">Violations de données personnelles : obligations des entreprises et sanctions encourues</div>
+          <div class="article-excerpt">La CNIL rappelle le cadre légal applicable aux violations de données sous le RGPD : notification obligatoire sous 72h, communication aux personnes concernées si risque élevé, et amendes pouvant atteindre 4% du chiffre d'affaires mondial. Les cas Change Healthcare et AT&T sont cités comme exemples des conséquences d'une gestion défaillante.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> En Europe, une fuite non déclarée à temps expose l'entreprise à une double sanction : amende RGPD et perte de confiance irréparable. La conformité n'est pas optionnelle.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag teal">RGPD</span><span class="tag purple">Réglementaire</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Cadre légal FR · ↗ Lire l'article</span>
+        </div>
+      </div>
+
+      <!-- Article 9 — Numerama · 2025 -->
+      <div class="article-card" style="cursor:pointer" onclick="window.open('https://www.numerama.com/cyberguerre/1573518-23andme-confirme-une-fuite-de-donnees-pour-69-millions-dutilisateurs.html','_blank')">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a4),#a259ff)"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">Numerama</span>
+            <span class="article-date">· 2025</span>
+          </div>
+          <div class="article-title">23andMe confirme une fuite de données pour 6,9 millions d'utilisateurs — et dépose le bilan</div>
+          <div class="article-excerpt">23andMe confirme que 6,9 millions de profils génétiques ont été exfiltrés via credential stuffing, exploitant la fonction de partage familial DNA Relatives. En 2025, la société dépose le bilan, incapable d'absorber les class actions et amendes. Le cas illustre l'irréversibilité des données biométriques : contrairement à un mot de passe, on ne peut pas changer son ADN.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les données biométriques sont permanentes et irremplaçables. Une fuite génétique expose non seulement la victime mais aussi toute sa famille biologique, sans recours possible.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag teal">Biométrie</span><span class="tag purple">Génomique</span><span class="tag">2025</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">6,9 M profils ADN · ↗ Lire l'article</span>
+        </div>
+      </div>
+
+      <!-- Article 10 — ANSSI Panorama · 2026 (large) -->
+      <div class="article-card article-card-wide" style="cursor:pointer" onclick="window.open('https://www.ssi.gouv.fr/publication/panorama-de-la-cybermenace/','_blank')">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a1),var(--a3),var(--a2))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">ANSSI</span>
+            <span class="article-date">· Janvier 2026</span>
+          </div>
+          <div class="article-title">Panorama de la cybermenace 2025 — bilan des méga-fuites et recommandations pour les organisations françaises</div>
+          <div class="article-excerpt">L'ANSSI publie son panorama 2025 et dresse un bilan complet des incidents de 2024-2025 qui continuent de produire des effets : Ticketmaster (données encore en vente sur le darkweb), 23andMe (faillite liée aux class actions), Change Healthcare (procédures judiciaires toujours en cours), AT&T et National Public Data (données réutilisées dans des campagnes de phishing ciblé). Le rapport souligne que ces incidents étrangers ont directement inspiré des attaques contre des opérateurs français dans les secteurs de la santé, des télécoms et des services financiers. Les recommandations clés : MFA généralisé, audit des accès tiers, segmentation réseau et plan de réponse à incident testé annuellement.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les grandes fuites de 2024 continuent d'alimenter des attaques en 2025-2026 via la réutilisation des données volées. L'ANSSI insiste : la cybersécurité est un processus continu, pas un état figé. Les organisations doivent traiter chaque fuite mondiale comme un signal d'alerte pour leurs propres systèmes.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">Panorama 2025</span><span class="tag purple">ANSSI</span><span class="tag orange">OIV France</span><span class="tag teal">Recommandations</span><span class="tag">2026</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Bilan officiel FR · ↗ Lire l'article</span>
         </div>
       </div>
 
@@ -514,6 +604,7 @@ window.addEventListener('DOMContentLoaded', () => {
 <script src="assets/grid3d.js"></script>
 </body>
 </html>
+
 
 
 
