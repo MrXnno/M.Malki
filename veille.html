@@ -29,7 +29,6 @@ code{font-family:var(--mono);font-size:.84em;background:rgba(99,102,241,0.08);bo
 @keyframes orb2{0%,100%{transform:translate(0,0)}40%{transform:translate(-100px,60px) scale(1.09)}70%{transform:translate(65px,-85px) scale(.91)}}
 @keyframes orb3{0%,100%{transform:translate(0,0)}50%{transform:translate(70px,110px) scale(1.05)}}
 
-/* NAVBAR — identique aux autres pages */
 .nav{position:sticky;top:0;z-index:200;background:rgba(5,7,15,.9);backdrop-filter:blur(22px);border-bottom:1px solid var(--border)}
 .nav::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 5%,var(--a1) 30%,var(--a2) 70%,transparent 95%);opacity:.65}
 .navbar{max-width:1200px;margin:0 auto;padding:0 22px;height:56px;display:flex;align-items:center;justify-content:space-between;gap:10px}
@@ -157,6 +156,24 @@ section{padding:60px 0;border-top:1px solid var(--border)}
 .hbox p{font-size:.78rem;color:var(--text2);line-height:1.65}
 .hbox strong{color:var(--a1)}
 
+/* ARTICLES SECTION */
+.articles-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.articles-grid{grid-template-columns:1fr}}
+.article-card{background:var(--card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:border-color .3s var(--ease),transform .3s var(--ease),box-shadow .3s var(--ease);position:relative}
+.article-card:hover{border-color:var(--bh);transform:translateY(-4px);box-shadow:0 14px 44px rgba(99,102,241,.15)}
+.article-card-wide{grid-column:1/-1}
+.article-top{padding:20px 22px 14px;border-bottom:1px solid var(--border)}
+.article-meta{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.article-src{font-family:var(--mono);font-size:.6rem;color:var(--muted);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:3px 9px;border-radius:4px;letter-spacing:.08em;text-transform:uppercase}
+.article-date{font-family:var(--mono);font-size:.6rem;color:var(--muted)}
+.article-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--text);line-height:1.35;margin-bottom:8px}
+.article-excerpt{font-size:.8rem;color:var(--text2);line-height:1.65}
+.article-bottom{padding:14px 22px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.article-tags{display:flex;gap:6px;flex-wrap:wrap}
+.article-highlight{background:rgba(99,102,241,.06);border-left:3px solid var(--a1);padding:10px 14px;margin:0 22px 14px;border-radius:0 8px 8px 0;font-size:.78rem;color:var(--text2);line-height:1.6}
+.article-highlight strong{color:var(--text)}
+.article-accent{position:absolute;top:0;left:0;right:0;height:2px}
+
 footer{border-top:1px solid var(--border);padding:20px 0;margin-top:40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-family:var(--mono);font-size:.68rem;color:var(--muted);position:relative;z-index:10}
 footer a{color:var(--muted);transition:color .25s}
 footer a:hover{color:var(--a1)}
@@ -263,10 +280,8 @@ footer a:hover{color:var(--a1)}
         <h3 style="color:var(--a1)">Veille Pull</h3>
         <p>Je consulte <strong style="color:var(--text)">activement</strong> mes sources à intervalles réguliers. Démarche proactive : je vais chercher l'information moi-même.</p>
         <div class="mitems">
-          <div class="mitem"><span class="mitem-ico">🗂️</span><div><strong>Agrégateur RSS — Feedly</strong><span>Flux CERT-FR, ANSSI, ZDNet FR, L'Informaticien centralisés. Lecture quotidienne par thème.</span></div></div>
-          <div class="mitem"><span class="mitem-ico">📋</span><div><strong>Rapports officiels annuels</strong><span>Panorama cybermenace ANSSI, rapport CLUSIF, IBM Security Report. Analyse des tendances.</span></div></div>
-          <div class="mitem"><span class="mitem-ico">🌐</span><div><strong>Recherche ciblée</strong><span>Consultation directe CERT-FR, CNIL, Cybermalveillance.gouv.fr pour les mises à jour réglementaires.</span></div></div>
-          <div class="mitem"><span class="mitem-ico">🎙️</span><div><strong>Podcasts &amp; vidéos FR</strong><span>No Limit Secu, Le Comptoir Sécu — podcasts français pour approfondir les sujets techniques.</span></div></div>
+          <div class="mitem"><span class="mitem-ico">🌐</span><div><strong>Recherche ciblée</strong><span>Consultation directe de CERT-FR, CNIL, Cybermalveillance.gouv.fr et ZDNet FR pour les dernières actualités sur les fuites de données et mises à jour réglementaires.</span></div></div>
+          <div class="mitem"><span class="mitem-ico">🎙️</span><div><strong>Podcasts spécialisés</strong><span>No Limit Secu, Le Comptoir Sécu — podcasts français de référence pour approfondir les sujets techniques liés à la cybersécurité et aux violations de données.</span></div></div>
         </div>
       </div>
       <div class="mcard">
@@ -274,10 +289,9 @@ footer a:hover{color:var(--a1)}
         <h3 style="color:var(--a2)">Veille Push</h3>
         <p>L'information vient à moi <strong style="color:var(--text)">automatiquement</strong>. Des outils me notifient dès qu'un événement correspond à mes critères.</p>
         <div class="mitems">
-          <div class="mitem"><span class="mitem-ico">🔔</span><div><strong>Alertes Google</strong><span>Mots-clés : "fuite données France", "cyberattaque hôpital", "RGPD amende". Email immédiat à chaque article indexé.</span></div></div>
-          <div class="mitem"><span class="mitem-ico">📧</span><div><strong>Newsletters spécialisées</strong><span>Newsletter CERT-FR hebdo, Cybersécurité Magazine, Infoguerre — directement en boîte mail.</span></div></div>
-          <div class="mitem"><span class="mitem-ico">🐦</span><div><strong>Twitter / X — notifications push</strong><span>Comptes CERT-FR, ANSSI, ZATAZ activés en notifications. Signal avant toute publication officielle.</span></div></div>
-          <div class="mitem"><span class="mitem-ico">💬</span><div><strong>Forums &amp; communautés FR</strong><span>ZATAZ, SecNumCloud, OpenClassrooms Sécurité pour les retours terrain et discussions.</span></div></div>
+          <div class="mitem"><span class="mitem-ico">🐦</span><div><strong>Twitter / X — notifications push</strong><span>Comptes CERT-FR, ANSSI, ZATAZ activés en notifications. Signal immédiat avant toute publication officielle sur les incidents cyber.</span></div></div>
+          <div class="mitem"><span class="mitem-ico">📧</span><div><strong>Newsletters spécialisées</strong><span>Newsletter CERT-FR hebdo, Cybersécurité Magazine, Infoguerre — informations triées directement livrées en boîte mail chaque semaine.</span></div></div>
+          <div class="mitem"><span class="mitem-ico">💬</span><div><strong>Forums &amp; communautés</strong><span>ZATAZ, SecNumCloud, OpenClassrooms Sécurité pour les retours terrain, discussions et signalements de fuites impliquant des entités françaises.</span></div></div>
         </div>
       </div>
     </div>
@@ -330,6 +344,105 @@ footer a:hover{color:var(--a1)}
           </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- SECTION 07 : ARTICLES -->
+  <section class="rv">
+    <div class="sh"><span class="sh-num">07</span><span class="sh-title">Articles de veille — Fuites de données</span><div class="sh-line"></div></div>
+
+    <div class="articles-grid">
+
+      <!-- Article 1 — ZDNet · 2024 -->
+      <div class="article-card">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a1),var(--a2))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">ZDNet France</span>
+            <span class="article-date">· Mai 2024</span>
+          </div>
+          <div class="article-title">Ticketmaster : 560 millions de clients exposés après une intrusion sur Snowflake</div>
+          <div class="article-excerpt">Le groupe ShinyHunters revendique le vol massif de données de la plateforme de billetterie, incluant noms, adresses, numéros de carte bancaire partiels et historiques d'achats. L'attaque exploite des identifiants Snowflake compromis sans authentification multi-facteurs activée.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> L'absence de MFA sur un compte cloud tiers suffit à exposer des centaines de millions d'utilisateurs. La chaîne de sous-traitance est le maillon faible.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">Data Breach</span><span class="tag orange">Cloud</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">560 M records</span>
+        </div>
+      </div>
+
+      <!-- Article 2 — ZATAZ · 2025 -->
+      <div class="article-card">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a2),#a259ff)"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">ZATAZ</span>
+            <span class="article-date">· Mars 2025</span>
+          </div>
+          <div class="article-title">Un an après, les données de Ticketmaster continuent de circuler : nouveaux lots mis en vente sur BreachForums</div>
+          <div class="article-excerpt">Près d'un an après la compromission initiale, ZATAZ détecte de nouveaux extraits issus de la fuite Ticketmaster/Snowflake en circulation sur des forums clandestins. Les données — CB, PII, historiques d'achats — sont désormais vendues en lots segmentés par pays, touchant massivement les clients européens dont les Français.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Une fuite ne s'arrête pas au jour J. Les données volées continuent d'être revendues et exploitées pendant des années, rendant la surveillance post-incident indispensable.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">Darkweb</span><span class="tag purple">Revente</span><span class="tag">2025</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">560 M records</span>
+        </div>
+      </div>
+
+      <!-- Article 3 — CERT-FR · 2026 (large) -->
+      <div class="article-card article-card-wide">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a3),var(--a1),var(--a2))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">CERT-FR / ANSSI</span>
+            <span class="article-date">· Janvier 2026</span>
+          </div>
+          <div class="article-title">Bilan 2025 : Change Healthcare, AT&T, National Public Data — retour sur les méga-fuites qui ont redéfini la menace cyber</div>
+          <div class="article-excerpt">Le CERT-FR publie son panorama annuel des cybermenaces et revient en détail sur les trois incidents majeurs de 2024 qui continuent de produire des effets en 2025-2026. L'attaque ransomware ALPHV contre Change Healthcare (100 M de dossiers médicaux), la fuite AT&T (73 M de métadonnées télécom) et le scraping massif de National Public Data (2,9 Md de SSN) sont analysés comme des cas d'école illustrant la convergence des menaces : exfiltration avant chiffrement, exploitation des tiers cloud, et monétisation durable sur le darkweb. L'ANSSI souligne que ces incidents étrangers préfigurent les risques pesant sur les opérateurs français d'importance vitale.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les grandes fuites de 2024 ont en commun l'exploitation de maillons faibles : fournisseurs tiers, MFA absent, API non surveillées. Le CERT-FR recommande une cartographie régulière des accès tiers et une supervision continue des flux sortants.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">Bilan annuel</span><span class="tag purple">ANSSI</span><span class="tag orange">Infrastructure critique</span><span class="tag">2026</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Synthèse multi-incidents</span>
+        </div>
+      </div>
+
+      <!-- Article 4 — No Limit Secu · 2024 -->
+      <div class="article-card">
+        <div class="article-accent" style="background:linear-gradient(90deg,var(--a4),var(--a2))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">No Limit Secu</span>
+            <span class="article-date">· Août 2024</span>
+          </div>
+          <div class="article-title">National Public Data : quand un data broker expose 2,9 milliards d'identités sans que personne ne le sache</div>
+          <div class="article-excerpt">Le podcast No Limit Secu consacre un épisode complet à l'anatomie de la fuite National Public Data. Les animateurs décortiquent comment un data broker peut agréger silencieusement des milliards d'identités — SSN, adresses historiques, noms de proches — sans que les personnes concernées en soient jamais informées, et comment ces données se retrouvent en accès libre sur BreachForums.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> L'économie des data brokers repose sur une opacité totale. Les individus n'ont aucune visibilité sur qui détient leurs données, rendant toute compromission particulièrement difficile à anticiper ou à circonscrire.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag pink">Data Broker</span><span class="tag purple">PII</span><span class="tag">2024</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">2,9 Md records</span>
+        </div>
+      </div>
+
+      <!-- Article 5 — Cybersécurité Magazine · 2025 -->
+      <div class="article-card">
+        <div class="article-accent" style="background:linear-gradient(90deg,#a259ff,var(--a3))"></div>
+        <div class="article-top">
+          <div class="article-meta">
+            <span class="article-src">Cybersécurité Magazine</span>
+            <span class="article-date">· Juin 2025</span>
+          </div>
+          <div class="article-title">AT&T, 23andMe, Change Healthcare : ce que les grandes fuites de 2024 ont changé dans la gestion des risques</div>
+          <div class="article-excerpt">Un an après les incidents majeurs de 2024, Cybersécurité Magazine dresse un état des lieux des conséquences concrètes : amendes record, class actions, nouvelles obligations réglementaires et évolution des stratégies défensives. Le cas 23andMe — où 6,9 millions de profils ADN ont été exfiltrés via credential stuffing — illustre l'irréversibilité des données biométriques et pousse les législateurs à renforcer leur cadre de protection.</div>
+        </div>
+        <div class="article-highlight"><strong>Enseignement :</strong> Les suites juridiques et réglementaires des grandes fuites durent bien au-delà de l'incident lui-même. En 2025, les RSSI intègrent désormais le risque de class action et d'amende RGPD dans leurs analyses d'impact dès la phase de conception.</div>
+        <div class="article-bottom">
+          <div class="article-tags"><span class="tag teal">Réglementaire</span><span class="tag orange">Bilan</span><span class="tag">2025</span></div>
+          <span style="font-family:var(--mono);font-size:.6rem;color:var(--muted)">Multi-incidents 2024</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
