@@ -346,6 +346,45 @@ footer { border-top:1px solid var(--bd); }
   </div>
 </section>
 
+<!-- SITUATIONS PROFESSIONNELLES -->
+<section class="section rv" style="padding-top:0;">
+  <div class="wrap">
+    <div class="doc-header">
+      <span style="font-family:var(--mn);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;">Situations Professionnelles</span>
+      <div class="doc-header-line"></div>
+      <span style="font-family:var(--mn);font-size:.6rem;color:var(--a2);background:rgba(236,72,153,.07);border:1px solid rgba(236,72,153,.2);padding:3px 10px;border-radius:4px;">2 situations</span>
+    </div>
+
+    <div class="doc-grid" style="grid-template-columns:repeat(auto-fill,minmax(340px,1fr));">
+
+      <div class="doc-card" style="padding:22px 24px;">
+        <div class="doc-ico" style="background:rgba(236,72,153,.10);border-color:rgba(236,72,153,.25);font-size:1.3rem;width:48px;height:48px;">💼</div>
+        <div class="doc-body">
+          <div class="doc-name">Situation Professionnelle 1</div>
+          <div class="doc-meta">
+            <span class="doc-tag pink">SP1</span>
+            <span class="doc-tag">PDF</span>
+          </div>
+        </div>
+        <a class="doc-dl" href="assets/SP1.pdf" download title="Télécharger">↓</a>
+      </div>
+
+      <div class="doc-card" style="padding:22px 24px;">
+        <div class="doc-ico" style="background:rgba(236,72,153,.10);border-color:rgba(236,72,153,.25);font-size:1.3rem;width:48px;height:48px;">💼</div>
+        <div class="doc-body">
+          <div class="doc-name">Situation Professionnelle 2</div>
+          <div class="doc-meta">
+            <span class="doc-tag pink">SP2</span>
+            <span class="doc-tag">PDF</span>
+          </div>
+        </div>
+        <a class="doc-dl" href="assets/SP2.pdf" download title="Télécharger">↓</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="foot-inner">
@@ -377,6 +416,11 @@ frame.addEventListener('error', () => { frame.style.display='none'; fallback.sty
 setTimeout(() => {
   try { if (!frame.contentDocument && !frame.contentWindow) { frame.style.display='none'; fallback.style.display='block'; } }
   catch(e) {}
+}, 3000);
+</script>
+  <script src="assets/grid3d.js"></script>
+</body>
+</html>
 }, 3000);
 </script>
   <script src="assets/grid3d.js"></script>
