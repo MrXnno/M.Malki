@@ -118,6 +118,7 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 .doc-tag.teal { border-color:rgba(20,184,166,.25); background:rgba(20,184,166,.07); color:var(--a3); }
 .doc-tag.pink { border-color:rgba(236,72,153,.25); background:rgba(236,72,153,.07); color:var(--a2); }
 .doc-tag.orange { border-color:rgba(249,115,22,.25); background:rgba(249,115,22,.07); color:#f97316; }
+.doc-tag.green { border-color:rgba(22,163,74,.25); background:rgba(22,163,74,.07); color:#4ade80; }
 
 .doc-dl { display:inline-flex; align-items:center; justify-content:center; width:34px; height:34px; border-radius:9px; border:1px solid rgba(99,102,241,.24); background:rgba(99,102,241,.07); color:var(--txt2); font-size:.9rem; flex-shrink:0; transition:all .22s var(--ez); }
 .doc-dl:hover { background:linear-gradient(135deg,var(--a1),var(--a2)); border-color:transparent; color:#fff; transform:translateY(-2px); box-shadow:0 6px 18px rgba(99,102,241,.35); }
@@ -226,10 +227,139 @@ footer { border-top:1px solid var(--bd); }
       </div>
     </div>
 
-    <!-- DOCUMENTATION -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- DOCUMENTATION TECHNIQUE PAR SERVICE               -->
+    <!-- ══════════════════════════════════════════════════ -->
     <div class="doc-section rv2">
       <div class="doc-header">
-        <span style="font-family:var(--mn);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;">Documentation</span>
+        <span style="font-family:var(--mn);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;">Documentation technique — Services</span>
+        <div class="doc-header-line"></div>
+        <span style="font-family:var(--mn);font-size:.6rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);padding:3px 10px;border-radius:4px;">8 services</span>
+      </div>
+
+      <div class="doc-grid">
+
+        <!-- GLPI -->
+        <div class="doc-card">
+          <div class="doc-ico">📦</div>
+          <div class="doc-body">
+            <div class="doc-name">GLPI 10.0.19</div>
+            <div class="doc-meta">
+              <span class="doc-tag orange">GLPI</span>
+              <span class="doc-tag teal">FusionInventory</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_GLPI.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- Zabbix -->
+        <div class="doc-card">
+          <div class="doc-ico">📊</div>
+          <div class="doc-body">
+            <div class="doc-name">Zabbix 7.0</div>
+            <div class="doc-meta">
+              <span class="doc-tag green">Supervision</span>
+              <span class="doc-tag">7 agents</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_Zabbix.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- VPN OpenVPN -->
+        <div class="doc-card">
+          <div class="doc-ico">🔐</div>
+          <div class="doc-body">
+            <div class="doc-name">VPN OpenVPN</div>
+            <div class="doc-meta">
+              <span class="doc-tag pink">Sécurité</span>
+              <span class="doc-tag teal">pfSense</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_VPN_OpenVPN.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- pfSense -->
+        <div class="doc-card">
+          <div class="doc-ico">🛡️</div>
+          <div class="doc-body">
+            <div class="doc-name">pfSense 2.7.2</div>
+            <div class="doc-meta">
+              <span class="doc-tag pink">Firewall</span>
+              <span class="doc-tag">NAT · HAProxy</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_pfSense.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- Active Directory -->
+        <div class="doc-card">
+          <div class="doc-ico">🏢</div>
+          <div class="doc-body">
+            <div class="doc-name">Active Directory</div>
+            <div class="doc-meta">
+              <span class="doc-tag">AD DS</span>
+              <span class="doc-tag teal">DNS · GPO</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_ActiveDirectory.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- Suricata -->
+        <div class="doc-card">
+          <div class="doc-ico">🔍</div>
+          <div class="doc-body">
+            <div class="doc-name">Suricata IDS/IPS</div>
+            <div class="doc-meta">
+              <span class="doc-tag pink">Sécurité</span>
+              <span class="doc-tag">IDS · IPS</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_Suricata.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- FTP -->
+        <div class="doc-card">
+          <div class="doc-ico">📁</div>
+          <div class="doc-body">
+            <div class="doc-name">FTP vsftpd</div>
+            <div class="doc-meta">
+              <span class="doc-tag teal">Debian 1</span>
+              <span class="doc-tag">VM100</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_FTP.pdf" download title="Télécharger">↓</a>
+        </div>
+
+        <!-- Proxmox -->
+        <div class="doc-card">
+          <div class="doc-ico">⚙️</div>
+          <div class="doc-body">
+            <div class="doc-name">Proxmox VE 8.x</div>
+            <div class="doc-meta">
+              <span class="doc-tag teal">Hyperviseur</span>
+              <span class="doc-tag">8 VMs</span>
+              <span class="doc-tag">PDF</span>
+            </div>
+          </div>
+          <a class="doc-dl" href="assets/DOC_Proxmox.pdf" download title="Télécharger">↓</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════ -->
+    <!-- DOCUMENTATION GÉNÉRALE (fichiers existants)       -->
+    <!-- ══════════════════════════════════════════════════ -->
+    <div class="doc-section rv2">
+      <div class="doc-header">
+        <span style="font-family:var(--mn);font-size:.62rem;color:var(--dim);letter-spacing:.1em;text-transform:uppercase;">Documentation générale</span>
         <div class="doc-header-line"></div>
         <span style="font-family:var(--mn);font-size:.6rem;color:var(--a1);background:rgba(99,102,241,.07);border:1px solid rgba(99,102,241,.2);padding:3px 10px;border-radius:4px;">8 fichiers</span>
       </div>
@@ -346,7 +476,9 @@ footer { border-top:1px solid var(--bd); }
   </div>
 </section>
 
-<!-- SITUATIONS PROFESSIONNELLES -->
+<!-- ══════════════════════════════════════════════════════ -->
+<!-- SITUATIONS PROFESSIONNELLES                           -->
+<!-- ══════════════════════════════════════════════════════ -->
 <section class="section rv" style="padding-top:0;">
   <div class="wrap">
     <div class="doc-header">
@@ -418,11 +550,6 @@ setTimeout(() => {
   catch(e) {}
 }, 3000);
 </script>
-  <script src="assets/grid3d.js"></script>
-</body>
-</html>
-}, 3000);
-</script>
-  <script src="assets/grid3d.js"></script>
+<script src="assets/grid3d.js"></script>
 </body>
 </html>
